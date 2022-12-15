@@ -8,7 +8,7 @@ import (
 	context "context"
 	errors "errors"
 	connect_go "github.com/bufbuild/connect-go"
-	v1 "github.com/eventgraph/api/gen/proto/go/eventsourcing/v1"
+	v1 "github.com/eventgraph/api/gen/eventsourcing/v1"
 	http "net/http"
 	strings "strings"
 )
