@@ -17,7 +17,7 @@ message ComponentTransaction {
 
   message EntityPairPatch {
     EntityPair entity_pair = 1;
-    int64 integrity = 2;
+    int64 integrity_hash = 2;
     repeated ColumnIndex column_indices = 3;
   }
 

@@ -164,9 +164,9 @@ export class ComponentTransaction_EntityPairPatch extends Message<ComponentTrans
   entityPair?: EntityPair;
 
   /**
-   * @generated from field: int64 integrity = 2;
+   * @generated from field: int64 integrity_hash = 2;
    */
-  integrity = protoInt64.zero;
+  integrityHash = protoInt64.zero;
 
   /**
    * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
@@ -182,7 +182,7 @@ export class ComponentTransaction_EntityPairPatch extends Message<ComponentTrans
   static readonly typeName = "eventsourcing.v1.ComponentTransaction.EntityPairPatch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "entity_pair", kind: "message", T: EntityPair },
-    { no: 2, name: "integrity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "integrity_hash", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
   ]);
 

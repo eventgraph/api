@@ -87,9 +87,9 @@ export declare class ComponentTransaction_EntityPairPatch extends Message<Compon
      */
     entityPair?: EntityPair;
     /**
-     * @generated from field: int64 integrity = 2;
+     * @generated from field: int64 integrity_hash = 2;
      */
-    integrity: bigint;
+    integrityHash: bigint;
     /**
      * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
      */
