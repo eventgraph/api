@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package domainconfig.v1;
+
+import "domainconfig/v1/services.proto";
+import "domainconfig/v1/shared.proto";
+
+message DomainDefinition {
+  Metadata metadata = 1;
+  repeated ServiceDefinition services = 3;
+}
+
+message DomainDefinitions {
+  Metadata metadata = 1;
+  repeated DomainDefinition domains = 2;
+}

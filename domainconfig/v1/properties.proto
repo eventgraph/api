@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package domainconfig.v1;
+
+import "domainconfig/v1/shared.proto";
+
+message DataType {
+  oneof value {
+    bool no_value = 1;
+    int64 i64 = 2;
+    double f64 = 3;
+    string text = 4;
+    bytes binary = 5;
+  }
+}
+
+message ValueDefinition {
+  Metadata metadata = 1;
+  DataType data_type = 2;
+}
+
+message PropertyDefinition {
+  Metadata metadata = 1;
+  // Version version = 2;
+  repeated ValueDefinition values = 3;
+}

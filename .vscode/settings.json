@@ -1,0 +1,21 @@
+{
+  "cSpell.words": [
+    "bufbuild",
+    "connectweb",
+    "domainconfig",
+    "domainconfigv",
+    "eventgraph",
+    "eventsourcing",
+    "extendee",
+    "Idxs",
+    "nocheck",
+    "oneof",
+    "proto",
+    "protobuf",
+    "protoc",
+    "protocolbuffers",
+    "protoimpl",
+    "protoreflect"
+  ],
+  "editor.formatOnSave": true
+}

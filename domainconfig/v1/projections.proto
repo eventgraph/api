@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package domainconfig.v1;
+
+import "domainconfig/v1/archetypes.proto";
+import "domainconfig/v1/shared.proto";
+
+message ProjectionDefinition {
+  Metadata metadata = 1;
+  ArchetypeDefinition archetype = 2;
+}

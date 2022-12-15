@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package domainconfig.v1;
+
+import "domainconfig/v1/properties.proto";
+import "domainconfig/v1/components.proto";
+import "domainconfig/v1/shared.proto";
+import "domainconfig/v1/projections.proto";
+import "domainconfig/v1/archetypes.proto";
+
+message ServiceDefinition {
+  Metadata metadata = 1;
+  repeated PropertyDefinition properties = 3;
+  repeated ComponentDefinition components = 4;
+  repeated ArchetypeDefinition archetypes = 5;
+  repeated ProjectionDefinition projections = 6;
+}

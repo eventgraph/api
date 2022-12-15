@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package domainconfig.v1;
+
+import "domainconfig/v1/properties.proto";
+import "domainconfig/v1/shared.proto";
+
+message FieldDefinition {
+  Metadata metadata = 1;
+  int64 property_id = 2;
+
+  repeated DataType property_overrides = 3;
+}
+
+message ComponentDefinition {
+  message IndexEntry {
+    int64 value_index = 1;
+    bool is_descending = 2;
+  }
+
+  message Index { repeated IndexEntry entries = 1; }
+
+  Metadata metadata = 1;
+  bool is_edge = 2;
+  repeated FieldDefinition fields = 3;
+  repeated Index indices = 4;
+
+  bool disable_history = 5;
+}

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package domainconfig.v1;
+
+import "domainconfig/v1/shared.proto";
+
+message ComponentQuery {
+
+  message Connection {
+    enum Mode {
+      MODE_UNSPECIFIED = 0;
+      MODE_MANDATORY = 1;
+      MODE_OPTIONAL = 2;
+      MODE_EXCLUDED = 3;
+    }
+    oneof connection {
+      bool wildcard = 1;
+      bool any = 2;
+      string variable = 3;
+      int64 entity = 4;
+    }
+  }
+
+  message Filter {
+    enum Mode {
+      MODE_UNSPECIFIED = 0;
+      MODE_AND = 1;
+      MODE_OR = 2;
+    }
+
+    message Term {
+      Connection from = 1;
+      Connection to = 2;
+    }
+
+    Mode mode = 1;
+    repeated Term terms = 2;
+    repeated Filter nested = 3;
+  }
+}
+
+message ArchetypeDefinition {
+  Metadata metadata = 1;
+  ComponentQuery root = 2;
+}
