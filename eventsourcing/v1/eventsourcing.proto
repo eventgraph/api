@@ -16,8 +16,9 @@ message ComponentTransaction {
   }
 
   message EntityPairPatch {
-    int64 integrity = 1;
-    repeated ColumnIndex column_indices = 2;
+    EntityPair entity_pair = 1;
+    int64 integrity = 2;
+    repeated ColumnIndex column_indices = 3;
   }
 
   message Patch {

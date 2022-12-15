@@ -159,12 +159,17 @@ export class ComponentTransaction_ColumnIndex extends Message<ComponentTransacti
  */
 export class ComponentTransaction_EntityPairPatch extends Message<ComponentTransaction_EntityPairPatch> {
   /**
-   * @generated from field: int64 integrity = 1;
+   * @generated from field: eventsourcing.v1.EntityPair entity_pair = 1;
+   */
+  entityPair?: EntityPair;
+
+  /**
+   * @generated from field: int64 integrity = 2;
    */
   integrity = protoInt64.zero;
 
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 2;
+   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
    */
   columnIndices: ComponentTransaction_ColumnIndex[] = [];
 
@@ -176,8 +181,9 @@ export class ComponentTransaction_EntityPairPatch extends Message<ComponentTrans
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.ComponentTransaction.EntityPairPatch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "integrity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
+    { no: 1, name: "entity_pair", kind: "message", T: EntityPair },
+    { no: 2, name: "integrity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_EntityPairPatch {

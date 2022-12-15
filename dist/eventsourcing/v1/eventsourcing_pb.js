@@ -137,11 +137,11 @@ class ComponentTransaction_EntityPairPatch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 integrity = 1;
+         * @generated from field: int64 integrity = 2;
          */
         this.integrity = protobuf_1.protoInt64.zero;
         /**
-         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 2;
+         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
          */
         this.columnIndices = [];
         protobuf_1.proto3.util.initPartial(data, this);
@@ -163,8 +163,9 @@ exports.ComponentTransaction_EntityPairPatch = ComponentTransaction_EntityPairPa
 ComponentTransaction_EntityPairPatch.runtime = protobuf_1.proto3;
 ComponentTransaction_EntityPairPatch.typeName = "eventsourcing.v1.ComponentTransaction.EntityPairPatch";
 ComponentTransaction_EntityPairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "integrity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
+    { no: 1, name: "entity_pair", kind: "message", T: EntityPair },
+    { no: 2, name: "integrity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.ComponentTransaction.Patch
