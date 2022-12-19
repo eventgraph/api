@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { PatchRequest, PatchResponse, QueryRequest, QueryResponse, UniqueEntityRequest, UniqueEntityResponse } from "./eventsourcing_pb.js";
+import { PatchRequest, PatchResponse, QueryRequest, QueryResponse } from "./eventsourcing_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -12,15 +12,6 @@ import { MethodKind } from "@bufbuild/protobuf";
 export declare const EventStoreService: {
   readonly typeName: "eventsourcing.v1.EventStoreService",
   readonly methods: {
-    /**
-     * @generated from rpc eventsourcing.v1.EventStoreService.UniqueEntity
-     */
-    readonly uniqueEntity: {
-      readonly name: "UniqueEntity",
-      readonly I: typeof UniqueEntityRequest,
-      readonly O: typeof UniqueEntityResponse,
-      readonly kind: MethodKind.Unary,
-    },
     /**
      * @generated from rpc eventsourcing.v1.EventStoreService.Patch
      */

@@ -129,40 +129,6 @@ export declare class ComponentTransaction_Patch extends Message<ComponentTransac
     static equals(a: ComponentTransaction_Patch | PlainMessage<ComponentTransaction_Patch> | undefined, b: ComponentTransaction_Patch | PlainMessage<ComponentTransaction_Patch> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.UniqueEntityRequest
- */
-export declare class UniqueEntityRequest extends Message<UniqueEntityRequest> {
-    /**
-     * @generated from field: uint32 count = 1;
-     */
-    count: number;
-    constructor(data?: PartialMessage<UniqueEntityRequest>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.UniqueEntityRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UniqueEntityRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UniqueEntityRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UniqueEntityRequest;
-    static equals(a: UniqueEntityRequest | PlainMessage<UniqueEntityRequest> | undefined, b: UniqueEntityRequest | PlainMessage<UniqueEntityRequest> | undefined): boolean;
-}
-/**
- * @generated from message eventsourcing.v1.UniqueEntityResponse
- */
-export declare class UniqueEntityResponse extends Message<UniqueEntityResponse> {
-    /**
-     * @generated from field: repeated int64 entities = 1;
-     */
-    entities: bigint[];
-    constructor(data?: PartialMessage<UniqueEntityResponse>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.UniqueEntityResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): UniqueEntityResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): UniqueEntityResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): UniqueEntityResponse;
-    static equals(a: UniqueEntityResponse | PlainMessage<UniqueEntityResponse> | undefined, b: UniqueEntityResponse | PlainMessage<UniqueEntityResponse> | undefined): boolean;
-}
-/**
  * @generated from message eventsourcing.v1.PatchRequest
  */
 export declare class PatchRequest extends Message<PatchRequest> {

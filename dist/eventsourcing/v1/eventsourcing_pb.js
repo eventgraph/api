@@ -4,7 +4,7 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.QueryResponse = exports.QueryRequest = exports.PatchResponse_EntityPairIntegrityHash = exports.PatchResponse = exports.PatchRequest = exports.UniqueEntityResponse = exports.UniqueEntityRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_EntityPairPatch = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.EntityPair = void 0;
+exports.QueryResponse = exports.QueryRequest = exports.PatchResponse_EntityPairIntegrityHash = exports.PatchResponse = exports.PatchRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_EntityPairPatch = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.EntityPair = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 const archetypes_pb_js_1 = require("../../domainconfig/v1/archetypes_pb.js");
 /**
@@ -207,68 +207,6 @@ ComponentTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "added_pairs", kind: "message", T: EntityPair, repeated: true },
     { no: 2, name: "removed_pairs", kind: "message", T: EntityPair, repeated: true },
     { no: 3, name: "updated_entity_patches", kind: "message", T: ComponentTransaction_EntityPairPatch, repeated: true },
-]);
-/**
- * @generated from message eventsourcing.v1.UniqueEntityRequest
- */
-class UniqueEntityRequest extends protobuf_1.Message {
-    constructor(data) {
-        super();
-        /**
-         * @generated from field: uint32 count = 1;
-         */
-        this.count = 0;
-        protobuf_1.proto3.util.initPartial(data, this);
-    }
-    static fromBinary(bytes, options) {
-        return new UniqueEntityRequest().fromBinary(bytes, options);
-    }
-    static fromJson(jsonValue, options) {
-        return new UniqueEntityRequest().fromJson(jsonValue, options);
-    }
-    static fromJsonString(jsonString, options) {
-        return new UniqueEntityRequest().fromJsonString(jsonString, options);
-    }
-    static equals(a, b) {
-        return protobuf_1.proto3.util.equals(UniqueEntityRequest, a, b);
-    }
-}
-exports.UniqueEntityRequest = UniqueEntityRequest;
-UniqueEntityRequest.runtime = protobuf_1.proto3;
-UniqueEntityRequest.typeName = "eventsourcing.v1.UniqueEntityRequest";
-UniqueEntityRequest.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "count", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
-]);
-/**
- * @generated from message eventsourcing.v1.UniqueEntityResponse
- */
-class UniqueEntityResponse extends protobuf_1.Message {
-    constructor(data) {
-        super();
-        /**
-         * @generated from field: repeated int64 entities = 1;
-         */
-        this.entities = [];
-        protobuf_1.proto3.util.initPartial(data, this);
-    }
-    static fromBinary(bytes, options) {
-        return new UniqueEntityResponse().fromBinary(bytes, options);
-    }
-    static fromJson(jsonValue, options) {
-        return new UniqueEntityResponse().fromJson(jsonValue, options);
-    }
-    static fromJsonString(jsonString, options) {
-        return new UniqueEntityResponse().fromJsonString(jsonString, options);
-    }
-    static equals(a, b) {
-        return protobuf_1.proto3.util.equals(UniqueEntityResponse, a, b);
-    }
-}
-exports.UniqueEntityResponse = UniqueEntityResponse;
-UniqueEntityResponse.runtime = protobuf_1.proto3;
-UniqueEntityResponse.typeName = "eventsourcing.v1.UniqueEntityResponse";
-UniqueEntityResponse.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "entities", kind: "scalar", T: 3 /* ScalarType.INT64 */, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.PatchRequest

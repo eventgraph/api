@@ -35,13 +35,9 @@ message ComponentTransaction {
 }
 
 service EventStoreService {
-  rpc UniqueEntity(UniqueEntityRequest) returns (UniqueEntityResponse) {}
   rpc Patch(PatchRequest) returns (PatchResponse) {}
   rpc Query(QueryRequest) returns (QueryResponse) {}
 }
-
-message UniqueEntityRequest { uint32 count = 1; }
-message UniqueEntityResponse { repeated int64 entities = 1; }
 
 message PatchRequest { ComponentTransaction transaction = 1; }
 

@@ -27,7 +27,6 @@ const (
 
 // EventStoreServiceClient is a client for the eventsourcing.v1.EventStoreService service.
 type EventStoreServiceClient interface {
-	UniqueEntity(context.Context, *connect_go.Request[v1.UniqueEntityRequest]) (*connect_go.Response[v1.UniqueEntityResponse], error)
 	Patch(context.Context, *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error)
 	Query(context.Context, *connect_go.Request[v1.QueryRequest]) (*connect_go.Response[v1.QueryResponse], error)
 }
@@ -42,11 +41,6 @@ type EventStoreServiceClient interface {
 func NewEventStoreServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) EventStoreServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &eventStoreServiceClient{
-		uniqueEntity: connect_go.NewClient[v1.UniqueEntityRequest, v1.UniqueEntityResponse](
-			httpClient,
-			baseURL+"/eventsourcing.v1.EventStoreService/UniqueEntity",
-			opts...,
-		),
 		patch: connect_go.NewClient[v1.PatchRequest, v1.PatchResponse](
 			httpClient,
 			baseURL+"/eventsourcing.v1.EventStoreService/Patch",
@@ -62,14 +56,8 @@ func NewEventStoreServiceClient(httpClient connect_go.HTTPClient, baseURL string
 
 // eventStoreServiceClient implements EventStoreServiceClient.
 type eventStoreServiceClient struct {
-	uniqueEntity *connect_go.Client[v1.UniqueEntityRequest, v1.UniqueEntityResponse]
-	patch        *connect_go.Client[v1.PatchRequest, v1.PatchResponse]
-	query        *connect_go.Client[v1.QueryRequest, v1.QueryResponse]
-}
-
-// UniqueEntity calls eventsourcing.v1.EventStoreService.UniqueEntity.
-func (c *eventStoreServiceClient) UniqueEntity(ctx context.Context, req *connect_go.Request[v1.UniqueEntityRequest]) (*connect_go.Response[v1.UniqueEntityResponse], error) {
-	return c.uniqueEntity.CallUnary(ctx, req)
+	patch *connect_go.Client[v1.PatchRequest, v1.PatchResponse]
+	query *connect_go.Client[v1.QueryRequest, v1.QueryResponse]
 }
 
 // Patch calls eventsourcing.v1.EventStoreService.Patch.
@@ -84,7 +72,6 @@ func (c *eventStoreServiceClient) Query(ctx context.Context, req *connect_go.Req
 
 // EventStoreServiceHandler is an implementation of the eventsourcing.v1.EventStoreService service.
 type EventStoreServiceHandler interface {
-	UniqueEntity(context.Context, *connect_go.Request[v1.UniqueEntityRequest]) (*connect_go.Response[v1.UniqueEntityResponse], error)
 	Patch(context.Context, *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error)
 	Query(context.Context, *connect_go.Request[v1.QueryRequest]) (*connect_go.Response[v1.QueryResponse], error)
 }
@@ -96,11 +83,6 @@ type EventStoreServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewEventStoreServiceHandler(svc EventStoreServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
 	mux := http.NewServeMux()
-	mux.Handle("/eventsourcing.v1.EventStoreService/UniqueEntity", connect_go.NewUnaryHandler(
-		"/eventsourcing.v1.EventStoreService/UniqueEntity",
-		svc.UniqueEntity,
-		opts...,
-	))
 	mux.Handle("/eventsourcing.v1.EventStoreService/Patch", connect_go.NewUnaryHandler(
 		"/eventsourcing.v1.EventStoreService/Patch",
 		svc.Patch,
@@ -116,10 +98,6 @@ func NewEventStoreServiceHandler(svc EventStoreServiceHandler, opts ...connect_g
 
 // UnimplementedEventStoreServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedEventStoreServiceHandler struct{}
-
-func (UnimplementedEventStoreServiceHandler) UniqueEntity(context.Context, *connect_go.Request[v1.UniqueEntityRequest]) (*connect_go.Response[v1.UniqueEntityResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("eventsourcing.v1.EventStoreService.UniqueEntity is not implemented"))
-}
 
 func (UnimplementedEventStoreServiceHandler) Patch(context.Context, *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error) {
 	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("eventsourcing.v1.EventStoreService.Patch is not implemented"))
