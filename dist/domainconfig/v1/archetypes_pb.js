@@ -63,10 +63,8 @@ exports.ComponentQuery_Connection = ComponentQuery_Connection;
 ComponentQuery_Connection.runtime = protobuf_1.proto3;
 ComponentQuery_Connection.typeName = "domainconfig.v1.ComponentQuery.Connection";
 ComponentQuery_Connection.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "wildcard", kind: "scalar", T: 8 /* ScalarType.BOOL */, oneof: "connection" },
-    { no: 2, name: "any", kind: "scalar", T: 8 /* ScalarType.BOOL */, oneof: "connection" },
-    { no: 3, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "connection" },
-    { no: 4, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "connection" },
+    { no: 1, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "connection" },
+    { no: 2, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "connection" },
 ]);
 /**
  * @generated from enum domainconfig.v1.ComponentQuery.Connection.Mode

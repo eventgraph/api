@@ -27,25 +27,13 @@ export declare class ComponentQuery_Connection extends Message<ComponentQuery_Co
      */
     connection: {
         /**
-         * @generated from field: bool wildcard = 1;
-         */
-        value: boolean;
-        case: "wildcard";
-    } | {
-        /**
-         * @generated from field: bool any = 2;
-         */
-        value: boolean;
-        case: "any";
-    } | {
-        /**
-         * @generated from field: string variable = 3;
+         * @generated from field: string variable = 1;
          */
         value: string;
         case: "variable";
     } | {
         /**
-         * @generated from field: int64 entity = 4;
+         * @generated from field: int64 entity = 2;
          */
         value: bigint;
         case: "entity";

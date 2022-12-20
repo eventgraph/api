@@ -53,25 +53,13 @@ export class ComponentQuery_Connection extends Message<ComponentQuery_Connection
    */
   connection: {
     /**
-     * @generated from field: bool wildcard = 1;
-     */
-    value: boolean;
-    case: "wildcard";
-  } | {
-    /**
-     * @generated from field: bool any = 2;
-     */
-    value: boolean;
-    case: "any";
-  } | {
-    /**
-     * @generated from field: string variable = 3;
+     * @generated from field: string variable = 1;
      */
     value: string;
     case: "variable";
   } | {
     /**
-     * @generated from field: int64 entity = 4;
+     * @generated from field: int64 entity = 2;
      */
     value: bigint;
     case: "entity";
@@ -85,10 +73,8 @@ export class ComponentQuery_Connection extends Message<ComponentQuery_Connection
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.ComponentQuery.Connection";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "wildcard", kind: "scalar", T: 8 /* ScalarType.BOOL */, oneof: "connection" },
-    { no: 2, name: "any", kind: "scalar", T: 8 /* ScalarType.BOOL */, oneof: "connection" },
-    { no: 3, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "connection" },
-    { no: 4, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "connection" },
+    { no: 1, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "connection" },
+    { no: 2, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "connection" },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentQuery_Connection {

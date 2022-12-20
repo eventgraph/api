@@ -14,10 +14,8 @@ message ComponentQuery {
       MODE_EXCLUDED = 3;
     }
     oneof connection {
-      bool wildcard = 1;
-      bool any = 2;
-      string variable = 3;
-      int64 entity = 4;
+      string variable = 1;
+      int64 entity = 2;
     }
   }
 
