@@ -31,7 +31,9 @@ class ComponentQuery extends protobuf_1.Message {
 exports.ComponentQuery = ComponentQuery;
 ComponentQuery.runtime = protobuf_1.proto3;
 ComponentQuery.typeName = "domainconfig.v1.ComponentQuery";
-ComponentQuery.fields = protobuf_1.proto3.util.newFieldList(() => []);
+ComponentQuery.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "filter", kind: "message", T: ComponentQuery_Filter },
+]);
 /**
  * @generated from message domainconfig.v1.ComponentQuery.Connection
  */

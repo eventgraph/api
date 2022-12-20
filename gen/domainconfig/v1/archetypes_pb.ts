@@ -11,6 +11,11 @@ import { Metadata } from "./shared_pb.js";
  * @generated from message domainconfig.v1.ComponentQuery
  */
 export class ComponentQuery extends Message<ComponentQuery> {
+  /**
+   * @generated from field: domainconfig.v1.ComponentQuery.Filter filter = 1;
+   */
+  filter?: ComponentQuery_Filter;
+
   constructor(data?: PartialMessage<ComponentQuery>) {
     super();
     proto3.util.initPartial(data, this);
@@ -19,6 +24,7 @@ export class ComponentQuery extends Message<ComponentQuery> {
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.ComponentQuery";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "filter", kind: "message", T: ComponentQuery_Filter },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentQuery {

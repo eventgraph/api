@@ -37,6 +37,8 @@ message ComponentQuery {
     repeated Term terms = 2;
     repeated Filter nested = 3;
   }
+
+  Filter filter = 1;
 }
 
 message ArchetypeDefinition {

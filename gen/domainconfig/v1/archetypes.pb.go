@@ -125,6 +125,8 @@ type ComponentQuery struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
+
+	Filter *ComponentQuery_Filter `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
 }
 
 func (x *ComponentQuery) Reset() {
@@ -157,6 +159,13 @@ func (x *ComponentQuery) ProtoReflect() protoreflect.Message {
 // Deprecated: Use ComponentQuery.ProtoReflect.Descriptor instead.
 func (*ComponentQuery) Descriptor() ([]byte, []int) {
 	return file_domainconfig_v1_archetypes_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ComponentQuery) GetFilter() *ComponentQuery_Filter {
+	if x != nil {
+		return x.Filter
+	}
+	return nil
 }
 
 type ArchetypeDefinition struct {
@@ -449,8 +458,12 @@ var file_domainconfig_v1_archetypes_proto_rawDesc = []byte{
 	0x74, 0x6f, 0x12, 0x0f, 0x64, 0x6f, 0x6d, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x66, 0x69, 0x67,
 	0x2e, 0x76, 0x31, 0x1a, 0x1c, 0x64, 0x6f, 0x6d, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e, 0x66, 0x69,
 	0x67, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x68, 0x61, 0x72, 0x65, 0x64, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x22, 0xfc, 0x04, 0x0a, 0x0e, 0x43, 0x6f, 0x6d, 0x70, 0x6f, 0x6e, 0x65, 0x6e, 0x74, 0x51,
-	0x75, 0x65, 0x72, 0x79, 0x1a, 0xdc, 0x01, 0x0a, 0x0a, 0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74,
+	0x6f, 0x22, 0xbc, 0x05, 0x0a, 0x0e, 0x43, 0x6f, 0x6d, 0x70, 0x6f, 0x6e, 0x65, 0x6e, 0x74, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x12, 0x3e, 0x0a, 0x06, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e, 0x64, 0x6f, 0x6d, 0x61, 0x69, 0x6e, 0x63, 0x6f, 0x6e,
+	0x66, 0x69, 0x67, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x6d, 0x70, 0x6f, 0x6e, 0x65, 0x6e, 0x74,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x2e, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x52, 0x06, 0x66, 0x69,
+	0x6c, 0x74, 0x65, 0x72, 0x1a, 0xdc, 0x01, 0x0a, 0x0a, 0x43, 0x6f, 0x6e, 0x6e, 0x65, 0x63, 0x74,
 	0x69, 0x6f, 0x6e, 0x12, 0x1c, 0x0a, 0x08, 0x77, 0x69, 0x6c, 0x64, 0x63, 0x61, 0x72, 0x64, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x08, 0x48, 0x00, 0x52, 0x08, 0x77, 0x69, 0x6c, 0x64, 0x63, 0x61, 0x72,
 	0x64, 0x12, 0x12, 0x0a, 0x03, 0x61, 0x6e, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x48, 0x00,
@@ -537,18 +550,19 @@ var file_domainconfig_v1_archetypes_proto_goTypes = []interface{}{
 	(*Metadata)(nil),                    // 7: domainconfig.v1.Metadata
 }
 var file_domainconfig_v1_archetypes_proto_depIdxs = []int32{
-	7, // 0: domainconfig.v1.ArchetypeDefinition.metadata:type_name -> domainconfig.v1.Metadata
-	2, // 1: domainconfig.v1.ArchetypeDefinition.root:type_name -> domainconfig.v1.ComponentQuery
-	1, // 2: domainconfig.v1.ComponentQuery.Filter.mode:type_name -> domainconfig.v1.ComponentQuery.Filter.Mode
-	6, // 3: domainconfig.v1.ComponentQuery.Filter.terms:type_name -> domainconfig.v1.ComponentQuery.Filter.Term
-	5, // 4: domainconfig.v1.ComponentQuery.Filter.nested:type_name -> domainconfig.v1.ComponentQuery.Filter
-	4, // 5: domainconfig.v1.ComponentQuery.Filter.Term.from:type_name -> domainconfig.v1.ComponentQuery.Connection
-	4, // 6: domainconfig.v1.ComponentQuery.Filter.Term.to:type_name -> domainconfig.v1.ComponentQuery.Connection
-	7, // [7:7] is the sub-list for method output_type
-	7, // [7:7] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	5, // 0: domainconfig.v1.ComponentQuery.filter:type_name -> domainconfig.v1.ComponentQuery.Filter
+	7, // 1: domainconfig.v1.ArchetypeDefinition.metadata:type_name -> domainconfig.v1.Metadata
+	2, // 2: domainconfig.v1.ArchetypeDefinition.root:type_name -> domainconfig.v1.ComponentQuery
+	1, // 3: domainconfig.v1.ComponentQuery.Filter.mode:type_name -> domainconfig.v1.ComponentQuery.Filter.Mode
+	6, // 4: domainconfig.v1.ComponentQuery.Filter.terms:type_name -> domainconfig.v1.ComponentQuery.Filter.Term
+	5, // 5: domainconfig.v1.ComponentQuery.Filter.nested:type_name -> domainconfig.v1.ComponentQuery.Filter
+	4, // 6: domainconfig.v1.ComponentQuery.Filter.Term.from:type_name -> domainconfig.v1.ComponentQuery.Connection
+	4, // 7: domainconfig.v1.ComponentQuery.Filter.Term.to:type_name -> domainconfig.v1.ComponentQuery.Connection
+	8, // [8:8] is the sub-list for method output_type
+	8, // [8:8] is the sub-list for method input_type
+	8, // [8:8] is the sub-list for extension type_name
+	8, // [8:8] is the sub-list for extension extendee
+	0, // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_domainconfig_v1_archetypes_proto_init() }

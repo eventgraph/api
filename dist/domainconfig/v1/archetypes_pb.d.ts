@@ -5,6 +5,10 @@ import { Metadata } from "./shared_pb.js";
  * @generated from message domainconfig.v1.ComponentQuery
  */
 export declare class ComponentQuery extends Message<ComponentQuery> {
+    /**
+     * @generated from field: domainconfig.v1.ComponentQuery.Filter filter = 1;
+     */
+    filter?: ComponentQuery_Filter;
     constructor(data?: PartialMessage<ComponentQuery>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
     static readonly typeName = "domainconfig.v1.ComponentQuery";
