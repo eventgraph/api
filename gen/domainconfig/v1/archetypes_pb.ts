@@ -4,7 +4,7 @@
 // @ts-nocheck
 
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
 import { Metadata } from "./shared_pb.js";
 
 /**
@@ -220,12 +220,17 @@ proto3.util.setEnumType(ComponentQuery_Filter_Mode, "domainconfig.v1.ComponentQu
  */
 export class ComponentQuery_Filter_Term extends Message<ComponentQuery_Filter_Term> {
   /**
-   * @generated from field: domainconfig.v1.ComponentQuery.Connection from = 1;
+   * @generated from field: int64 component_id = 1;
+   */
+  componentId = protoInt64.zero;
+
+  /**
+   * @generated from field: domainconfig.v1.ComponentQuery.Connection from = 2;
    */
   from?: ComponentQuery_Connection;
 
   /**
-   * @generated from field: domainconfig.v1.ComponentQuery.Connection to = 2;
+   * @generated from field: domainconfig.v1.ComponentQuery.Connection to = 3;
    */
   to?: ComponentQuery_Connection;
 
@@ -237,8 +242,9 @@ export class ComponentQuery_Filter_Term extends Message<ComponentQuery_Filter_Te
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.ComponentQuery.Filter.Term";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "from", kind: "message", T: ComponentQuery_Connection },
-    { no: 2, name: "to", kind: "message", T: ComponentQuery_Connection },
+    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "from", kind: "message", T: ComponentQuery_Connection },
+    { no: 3, name: "to", kind: "message", T: ComponentQuery_Connection },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentQuery_Filter_Term {

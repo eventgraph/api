@@ -130,11 +130,15 @@ export declare enum ComponentQuery_Filter_Mode {
  */
 export declare class ComponentQuery_Filter_Term extends Message<ComponentQuery_Filter_Term> {
     /**
-     * @generated from field: domainconfig.v1.ComponentQuery.Connection from = 1;
+     * @generated from field: int64 component_id = 1;
+     */
+    componentId: bigint;
+    /**
+     * @generated from field: domainconfig.v1.ComponentQuery.Connection from = 2;
      */
     from?: ComponentQuery_Connection;
     /**
-     * @generated from field: domainconfig.v1.ComponentQuery.Connection to = 2;
+     * @generated from field: domainconfig.v1.ComponentQuery.Connection to = 3;
      */
     to?: ComponentQuery_Connection;
     constructor(data?: PartialMessage<ComponentQuery_Filter_Term>);

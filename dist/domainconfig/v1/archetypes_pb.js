@@ -168,6 +168,10 @@ protobuf_1.proto3.util.setEnumType(ComponentQuery_Filter_Mode, "domainconfig.v1.
 class ComponentQuery_Filter_Term extends protobuf_1.Message {
     constructor(data) {
         super();
+        /**
+         * @generated from field: int64 component_id = 1;
+         */
+        this.componentId = protobuf_1.protoInt64.zero;
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -187,8 +191,9 @@ exports.ComponentQuery_Filter_Term = ComponentQuery_Filter_Term;
 ComponentQuery_Filter_Term.runtime = protobuf_1.proto3;
 ComponentQuery_Filter_Term.typeName = "domainconfig.v1.ComponentQuery.Filter.Term";
 ComponentQuery_Filter_Term.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "from", kind: "message", T: ComponentQuery_Connection },
-    { no: 2, name: "to", kind: "message", T: ComponentQuery_Connection },
+    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "from", kind: "message", T: ComponentQuery_Connection },
+    { no: 3, name: "to", kind: "message", T: ComponentQuery_Connection },
 ]);
 /**
  * @generated from message domainconfig.v1.ArchetypeDefinition

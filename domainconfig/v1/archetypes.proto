@@ -29,8 +29,9 @@ message ComponentQuery {
     }
 
     message Term {
-      Connection from = 1;
-      Connection to = 2;
+      int64 component_id = 1;
+      Connection from = 2;
+      Connection to = 3;
     }
 
     Mode mode = 1;
