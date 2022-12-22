@@ -1,6 +1,5 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message } from "@bufbuild/protobuf";
-import { ComponentQuery } from "../../domainconfig/v1/archetypes_pb.js";
+import { Message, Timestamp } from "@bufbuild/protobuf";
 /**
  * @generated from message eventsourcing.v1.EntityPair
  */
@@ -14,7 +13,7 @@ export declare class EntityPair extends Message<EntityPair> {
      */
     toEntity: bigint;
     constructor(data?: PartialMessage<EntityPair>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.EntityPair";
     static readonly fields: FieldList;
     static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EntityPair;
@@ -49,7 +48,7 @@ export declare class ComponentTransaction extends Message<ComponentTransaction> 
         [key: string]: ComponentTransaction_Patch;
     };
     constructor(data?: PartialMessage<ComponentTransaction>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.ComponentTransaction";
     static readonly fields: FieldList;
     static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction;
@@ -70,7 +69,7 @@ export declare class ComponentTransaction_ColumnIndex extends Message<ComponentT
      */
     patchFieldIndex: number;
     constructor(data?: PartialMessage<ComponentTransaction_ColumnIndex>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.ComponentTransaction.ColumnIndex";
     static readonly fields: FieldList;
     static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_ColumnIndex;
@@ -95,7 +94,7 @@ export declare class ComponentTransaction_EntityPairPatch extends Message<Compon
      */
     columnIndices: ComponentTransaction_ColumnIndex[];
     constructor(data?: PartialMessage<ComponentTransaction_EntityPairPatch>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.ComponentTransaction.EntityPairPatch";
     static readonly fields: FieldList;
     static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_EntityPairPatch;
@@ -120,7 +119,7 @@ export declare class ComponentTransaction_Patch extends Message<ComponentTransac
      */
     updatedEntityPatches: ComponentTransaction_EntityPairPatch[];
     constructor(data?: PartialMessage<ComponentTransaction_Patch>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.ComponentTransaction.Patch";
     static readonly fields: FieldList;
     static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_Patch;
@@ -129,43 +128,43 @@ export declare class ComponentTransaction_Patch extends Message<ComponentTransac
     static equals(a: ComponentTransaction_Patch | PlainMessage<ComponentTransaction_Patch> | undefined, b: ComponentTransaction_Patch | PlainMessage<ComponentTransaction_Patch> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.PatchRequest
+ * @generated from message eventsourcing.v1.AppendRequest
  */
-export declare class PatchRequest extends Message<PatchRequest> {
+export declare class AppendRequest extends Message<AppendRequest> {
     /**
      * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 1;
      */
     transaction?: ComponentTransaction;
-    constructor(data?: PartialMessage<PatchRequest>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.PatchRequest";
+    constructor(data?: PartialMessage<AppendRequest>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.AppendRequest";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PatchRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PatchRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PatchRequest;
-    static equals(a: PatchRequest | PlainMessage<PatchRequest> | undefined, b: PatchRequest | PlainMessage<PatchRequest> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendRequest;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendRequest;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendRequest;
+    static equals(a: AppendRequest | PlainMessage<AppendRequest> | undefined, b: AppendRequest | PlainMessage<AppendRequest> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.PatchResponse
+ * @generated from message eventsourcing.v1.AppendResponse
  */
-export declare class PatchResponse extends Message<PatchResponse> {
+export declare class AppendResponse extends Message<AppendResponse> {
     /**
-     * @generated from field: repeated eventsourcing.v1.PatchResponse.EntityPairIntegrityHash updated_entity_pairs = 1;
+     * @generated from field: repeated eventsourcing.v1.AppendResponse.EntityPairIntegrityHash updated_entity_pairs = 1;
      */
-    updatedEntityPairs: PatchResponse_EntityPairIntegrityHash[];
-    constructor(data?: PartialMessage<PatchResponse>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.PatchResponse";
+    updatedEntityPairs: AppendResponse_EntityPairIntegrityHash[];
+    constructor(data?: PartialMessage<AppendResponse>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.AppendResponse";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PatchResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PatchResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PatchResponse;
-    static equals(a: PatchResponse | PlainMessage<PatchResponse> | undefined, b: PatchResponse | PlainMessage<PatchResponse> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse;
+    static equals(a: AppendResponse | PlainMessage<AppendResponse> | undefined, b: AppendResponse | PlainMessage<AppendResponse> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.PatchResponse.EntityPairIntegrityHash
+ * @generated from message eventsourcing.v1.AppendResponse.EntityPairIntegrityHash
  */
-export declare class PatchResponse_EntityPairIntegrityHash extends Message<PatchResponse_EntityPairIntegrityHash> {
+export declare class AppendResponse_EntityPairIntegrityHash extends Message<AppendResponse_EntityPairIntegrityHash> {
     /**
      * @generated from field: int64 component_entity = 1;
      */
@@ -178,50 +177,75 @@ export declare class PatchResponse_EntityPairIntegrityHash extends Message<Patch
      * @generated from field: int64 integrity_hash = 3;
      */
     integrityHash: bigint;
-    constructor(data?: PartialMessage<PatchResponse_EntityPairIntegrityHash>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.PatchResponse.EntityPairIntegrityHash";
+    constructor(data?: PartialMessage<AppendResponse_EntityPairIntegrityHash>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.AppendResponse.EntityPairIntegrityHash";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PatchResponse_EntityPairIntegrityHash;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PatchResponse_EntityPairIntegrityHash;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PatchResponse_EntityPairIntegrityHash;
-    static equals(a: PatchResponse_EntityPairIntegrityHash | PlainMessage<PatchResponse_EntityPairIntegrityHash> | undefined, b: PatchResponse_EntityPairIntegrityHash | PlainMessage<PatchResponse_EntityPairIntegrityHash> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse_EntityPairIntegrityHash;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse_EntityPairIntegrityHash;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse_EntityPairIntegrityHash;
+    static equals(a: AppendResponse_EntityPairIntegrityHash | PlainMessage<AppendResponse_EntityPairIntegrityHash> | undefined, b: AppendResponse_EntityPairIntegrityHash | PlainMessage<AppendResponse_EntityPairIntegrityHash> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.QueryRequest
+ * @generated from message eventsourcing.v1.EventsRequest
  */
-export declare class QueryRequest extends Message<QueryRequest> {
+export declare class EventsRequest extends Message<EventsRequest> {
     /**
-     * @generated from field: domainconfig.v1.ComponentQuery query = 1;
+     * @generated from field: uint32 last_transaction_id = 1;
      */
-    query?: ComponentQuery;
+    lastTransactionId: number;
     /**
      * @generated from field: uint32 limit = 2;
      */
     limit: number;
-    constructor(data?: PartialMessage<QueryRequest>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.QueryRequest";
+    constructor(data?: PartialMessage<EventsRequest>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.EventsRequest";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRequest;
-    static equals(a: QueryRequest | PlainMessage<QueryRequest> | undefined, b: QueryRequest | PlainMessage<QueryRequest> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsRequest;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventsRequest;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventsRequest;
+    static equals(a: EventsRequest | PlainMessage<EventsRequest> | undefined, b: EventsRequest | PlainMessage<EventsRequest> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.QueryResponse
+ * @generated from message eventsourcing.v1.EventsResponse
  */
-export declare class QueryResponse extends Message<QueryResponse> {
+export declare class EventsResponse extends Message<EventsResponse> {
     /**
-     * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 1;
+     * @generated from field: repeated eventsourcing.v1.EventsResponse.Event events = 1;
      */
-    transaction?: ComponentTransaction;
-    constructor(data?: PartialMessage<QueryResponse>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.QueryResponse";
+    events: EventsResponse_Event[];
+    constructor(data?: PartialMessage<EventsResponse>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.EventsResponse";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryResponse;
-    static equals(a: QueryResponse | PlainMessage<QueryResponse> | undefined, b: QueryResponse | PlainMessage<QueryResponse> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsResponse;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventsResponse;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventsResponse;
+    static equals(a: EventsResponse | PlainMessage<EventsResponse> | undefined, b: EventsResponse | PlainMessage<EventsResponse> | undefined): boolean;
+}
+/**
+ * @generated from message eventsourcing.v1.EventsResponse.Event
+ */
+export declare class EventsResponse_Event extends Message<EventsResponse_Event> {
+    /**
+     * @generated from field: uint32 transaction_id = 1;
+     */
+    transactionId: number;
+    /**
+     * @generated from field: google.protobuf.Timestamp created_at = 2;
+     */
+    createdAt?: Timestamp;
+    /**
+     * @generated from field: eventsourcing.v1.ComponentTransaction component_transaction = 3;
+     */
+    componentTransaction?: ComponentTransaction;
+    constructor(data?: PartialMessage<EventsResponse_Event>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.EventsResponse.Event";
+    static readonly fields: FieldList;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsResponse_Event;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EventsResponse_Event;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EventsResponse_Event;
+    static equals(a: EventsResponse_Event | PlainMessage<EventsResponse_Event> | undefined, b: EventsResponse_Event | PlainMessage<EventsResponse_Event> | undefined): boolean;
 }

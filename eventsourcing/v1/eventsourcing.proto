@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package eventsourcing.v1;
 
-import "domainconfig/v1/archetypes.proto";
+import "google/protobuf/timestamp.proto";
 
 message EntityPair {
   int64 from_entity = 1;
@@ -35,13 +35,13 @@ message ComponentTransaction {
 }
 
 service EventStoreService {
-  rpc Patch(PatchRequest) returns (PatchResponse) {}
-  rpc Query(QueryRequest) returns (QueryResponse) {}
+  rpc Append(AppendRequest) returns (AppendResponse) {}
+  rpc Events(EventsRequest) returns (EventsResponse) {}
 }
 
-message PatchRequest { ComponentTransaction transaction = 1; }
+message AppendRequest { ComponentTransaction transaction = 1; }
 
-message PatchResponse {
+message AppendResponse {
   message EntityPairIntegrityHash {
     int64 component_entity = 1;
     EntityPair entity_pair = 2;
@@ -50,9 +50,16 @@ message PatchResponse {
   repeated EntityPairIntegrityHash updated_entity_pairs = 1;
 }
 
-message QueryRequest {
-  domainconfig.v1.ComponentQuery query = 1;
+message EventsRequest {
+  uint32 last_transaction_id = 1;
   uint32 limit = 2;
 }
 
-message QueryResponse { ComponentTransaction transaction = 1; }
+message EventsResponse {
+  message Event {
+    uint32 transaction_id = 1;
+    google.protobuf.Timestamp created_at = 2;
+    ComponentTransaction component_transaction = 3;
+  }
+  repeated Event events = 1;
+}

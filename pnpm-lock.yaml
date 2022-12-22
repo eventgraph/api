@@ -1,19 +1,19 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@bufbuild/protobuf': ^0.5.0
+  '@bufbuild/protobuf': ^1.0.0
   npm-run-all: ^4.1.5
   typescript: ^4.9.4
 
 devDependencies:
-  '@bufbuild/protobuf': 0.5.0
+  '@bufbuild/protobuf': 1.0.0
   npm-run-all: 4.1.5
   typescript: 4.9.4
 
 packages:
 
-  /@bufbuild/protobuf/0.5.0:
-    resolution: {integrity: sha512-YNK44nXtZWdsOjki9PwN8XtERRjQ8roE172o6/cRQBfGXM07EP+aKGwPL4HQdeqwMLHvz54QdItxLQqkJw00gw==}
+  /@bufbuild/protobuf/1.0.0:
+    resolution: {integrity: sha512-oH3jHBrZ6to8Qf4zLg7O8KqSY42kQZNBRXJRMp5uSi0mqE4L8NbyMnZHeOsbXmTb0xpptRyH11LfS+KeVhXzAA==}
     dev: true
 
   /ansi-styles/3.2.1:

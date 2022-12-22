@@ -27,8 +27,8 @@ const (
 
 // EventStoreServiceClient is a client for the eventsourcing.v1.EventStoreService service.
 type EventStoreServiceClient interface {
-	Patch(context.Context, *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error)
-	Query(context.Context, *connect_go.Request[v1.QueryRequest]) (*connect_go.Response[v1.QueryResponse], error)
+	Append(context.Context, *connect_go.Request[v1.AppendRequest]) (*connect_go.Response[v1.AppendResponse], error)
+	Events(context.Context, *connect_go.Request[v1.EventsRequest]) (*connect_go.Response[v1.EventsResponse], error)
 }
 
 // NewEventStoreServiceClient constructs a client for the eventsourcing.v1.EventStoreService
@@ -41,14 +41,14 @@ type EventStoreServiceClient interface {
 func NewEventStoreServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) EventStoreServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &eventStoreServiceClient{
-		patch: connect_go.NewClient[v1.PatchRequest, v1.PatchResponse](
+		append: connect_go.NewClient[v1.AppendRequest, v1.AppendResponse](
 			httpClient,
-			baseURL+"/eventsourcing.v1.EventStoreService/Patch",
+			baseURL+"/eventsourcing.v1.EventStoreService/Append",
 			opts...,
 		),
-		query: connect_go.NewClient[v1.QueryRequest, v1.QueryResponse](
+		events: connect_go.NewClient[v1.EventsRequest, v1.EventsResponse](
 			httpClient,
-			baseURL+"/eventsourcing.v1.EventStoreService/Query",
+			baseURL+"/eventsourcing.v1.EventStoreService/Events",
 			opts...,
 		),
 	}
@@ -56,24 +56,24 @@ func NewEventStoreServiceClient(httpClient connect_go.HTTPClient, baseURL string
 
 // eventStoreServiceClient implements EventStoreServiceClient.
 type eventStoreServiceClient struct {
-	patch *connect_go.Client[v1.PatchRequest, v1.PatchResponse]
-	query *connect_go.Client[v1.QueryRequest, v1.QueryResponse]
+	append *connect_go.Client[v1.AppendRequest, v1.AppendResponse]
+	events *connect_go.Client[v1.EventsRequest, v1.EventsResponse]
 }
 
-// Patch calls eventsourcing.v1.EventStoreService.Patch.
-func (c *eventStoreServiceClient) Patch(ctx context.Context, req *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error) {
-	return c.patch.CallUnary(ctx, req)
+// Append calls eventsourcing.v1.EventStoreService.Append.
+func (c *eventStoreServiceClient) Append(ctx context.Context, req *connect_go.Request[v1.AppendRequest]) (*connect_go.Response[v1.AppendResponse], error) {
+	return c.append.CallUnary(ctx, req)
 }
 
-// Query calls eventsourcing.v1.EventStoreService.Query.
-func (c *eventStoreServiceClient) Query(ctx context.Context, req *connect_go.Request[v1.QueryRequest]) (*connect_go.Response[v1.QueryResponse], error) {
-	return c.query.CallUnary(ctx, req)
+// Events calls eventsourcing.v1.EventStoreService.Events.
+func (c *eventStoreServiceClient) Events(ctx context.Context, req *connect_go.Request[v1.EventsRequest]) (*connect_go.Response[v1.EventsResponse], error) {
+	return c.events.CallUnary(ctx, req)
 }
 
 // EventStoreServiceHandler is an implementation of the eventsourcing.v1.EventStoreService service.
 type EventStoreServiceHandler interface {
-	Patch(context.Context, *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error)
-	Query(context.Context, *connect_go.Request[v1.QueryRequest]) (*connect_go.Response[v1.QueryResponse], error)
+	Append(context.Context, *connect_go.Request[v1.AppendRequest]) (*connect_go.Response[v1.AppendResponse], error)
+	Events(context.Context, *connect_go.Request[v1.EventsRequest]) (*connect_go.Response[v1.EventsResponse], error)
 }
 
 // NewEventStoreServiceHandler builds an HTTP handler from the service implementation. It returns
@@ -83,14 +83,14 @@ type EventStoreServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewEventStoreServiceHandler(svc EventStoreServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
 	mux := http.NewServeMux()
-	mux.Handle("/eventsourcing.v1.EventStoreService/Patch", connect_go.NewUnaryHandler(
-		"/eventsourcing.v1.EventStoreService/Patch",
-		svc.Patch,
+	mux.Handle("/eventsourcing.v1.EventStoreService/Append", connect_go.NewUnaryHandler(
+		"/eventsourcing.v1.EventStoreService/Append",
+		svc.Append,
 		opts...,
 	))
-	mux.Handle("/eventsourcing.v1.EventStoreService/Query", connect_go.NewUnaryHandler(
-		"/eventsourcing.v1.EventStoreService/Query",
-		svc.Query,
+	mux.Handle("/eventsourcing.v1.EventStoreService/Events", connect_go.NewUnaryHandler(
+		"/eventsourcing.v1.EventStoreService/Events",
+		svc.Events,
 		opts...,
 	))
 	return "/eventsourcing.v1.EventStoreService/", mux
@@ -99,10 +99,10 @@ func NewEventStoreServiceHandler(svc EventStoreServiceHandler, opts ...connect_g
 // UnimplementedEventStoreServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedEventStoreServiceHandler struct{}
 
-func (UnimplementedEventStoreServiceHandler) Patch(context.Context, *connect_go.Request[v1.PatchRequest]) (*connect_go.Response[v1.PatchResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("eventsourcing.v1.EventStoreService.Patch is not implemented"))
+func (UnimplementedEventStoreServiceHandler) Append(context.Context, *connect_go.Request[v1.AppendRequest]) (*connect_go.Response[v1.AppendResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("eventsourcing.v1.EventStoreService.Append is not implemented"))
 }
 
-func (UnimplementedEventStoreServiceHandler) Query(context.Context, *connect_go.Request[v1.QueryRequest]) (*connect_go.Response[v1.QueryResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("eventsourcing.v1.EventStoreService.Query is not implemented"))
+func (UnimplementedEventStoreServiceHandler) Events(context.Context, *connect_go.Request[v1.EventsRequest]) (*connect_go.Response[v1.EventsResponse], error) {
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("eventsourcing.v1.EventStoreService.Events is not implemented"))
 }
