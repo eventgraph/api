@@ -4,7 +4,7 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse_IDPairIntegrity = exports.AppendResponse = exports.AppendRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_IDPairPatch = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.IDPair = void 0;
+exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse_IDPairIntegrity = exports.AppendResponse = exports.AppendRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_PairPatch = exports.ComponentTransaction_PairLastEvent = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.IDPair = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 /**
  * @generated from message eventsourcing.v1.IDPair
@@ -130,41 +130,68 @@ ComponentTransaction_ColumnIndex.fields = protobuf_1.proto3.util.newFieldList(()
     { no: 2, name: "patch_field_index", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
 ]);
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.IDPairPatch
+ * @generated from message eventsourcing.v1.ComponentTransaction.PairLastEvent
  */
-class ComponentTransaction_IDPairPatch extends protobuf_1.Message {
+class ComponentTransaction_PairLastEvent extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
          * @generated from field: int64 last_event_ledger_id = 2;
          */
         this.lastEventLedgerId = protobuf_1.protoInt64.zero;
+        protobuf_1.proto3.util.initPartial(data, this);
+    }
+    static fromBinary(bytes, options) {
+        return new ComponentTransaction_PairLastEvent().fromBinary(bytes, options);
+    }
+    static fromJson(jsonValue, options) {
+        return new ComponentTransaction_PairLastEvent().fromJson(jsonValue, options);
+    }
+    static fromJsonString(jsonString, options) {
+        return new ComponentTransaction_PairLastEvent().fromJsonString(jsonString, options);
+    }
+    static equals(a, b) {
+        return protobuf_1.proto3.util.equals(ComponentTransaction_PairLastEvent, a, b);
+    }
+}
+exports.ComponentTransaction_PairLastEvent = ComponentTransaction_PairLastEvent;
+ComponentTransaction_PairLastEvent.runtime = protobuf_1.proto3;
+ComponentTransaction_PairLastEvent.typeName = "eventsourcing.v1.ComponentTransaction.PairLastEvent";
+ComponentTransaction_PairLastEvent.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "pair", kind: "message", T: IDPair },
+    { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+]);
+/**
+ * @generated from message eventsourcing.v1.ComponentTransaction.PairPatch
+ */
+class ComponentTransaction_PairPatch extends protobuf_1.Message {
+    constructor(data) {
+        super();
         /**
-         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
+         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 2;
          */
         this.columnIndices = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new ComponentTransaction_IDPairPatch().fromBinary(bytes, options);
+        return new ComponentTransaction_PairPatch().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new ComponentTransaction_IDPairPatch().fromJson(jsonValue, options);
+        return new ComponentTransaction_PairPatch().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new ComponentTransaction_IDPairPatch().fromJsonString(jsonString, options);
+        return new ComponentTransaction_PairPatch().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(ComponentTransaction_IDPairPatch, a, b);
+        return protobuf_1.proto3.util.equals(ComponentTransaction_PairPatch, a, b);
     }
 }
-exports.ComponentTransaction_IDPairPatch = ComponentTransaction_IDPairPatch;
-ComponentTransaction_IDPairPatch.runtime = protobuf_1.proto3;
-ComponentTransaction_IDPairPatch.typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
-ComponentTransaction_IDPairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "pair", kind: "message", T: IDPair },
-    { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
+exports.ComponentTransaction_PairPatch = ComponentTransaction_PairPatch;
+ComponentTransaction_PairPatch.runtime = protobuf_1.proto3;
+ComponentTransaction_PairPatch.typeName = "eventsourcing.v1.ComponentTransaction.PairPatch";
+ComponentTransaction_PairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "pair_last_event", kind: "message", T: ComponentTransaction_PairLastEvent },
+    { no: 2, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.ComponentTransaction.Patch
@@ -173,15 +200,15 @@ class ComponentTransaction_Patch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
+         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent added_pairs = 1;
          */
         this.addedPairs = [];
         /**
-         * @generated from field: repeated eventsourcing.v1.IDPair removed_pairs = 2;
+         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent removed_pairs = 2;
          */
         this.removedPairs = [];
         /**
-         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.IDPairPatch updated_pair_patches = 3;
+         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairPatch updated_pair_patches = 3;
          */
         this.updatedPairPatches = [];
         protobuf_1.proto3.util.initPartial(data, this);
@@ -203,9 +230,9 @@ exports.ComponentTransaction_Patch = ComponentTransaction_Patch;
 ComponentTransaction_Patch.runtime = protobuf_1.proto3;
 ComponentTransaction_Patch.typeName = "eventsourcing.v1.ComponentTransaction.Patch";
 ComponentTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
-    { no: 2, name: "removed_pairs", kind: "message", T: IDPair, repeated: true },
-    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_IDPairPatch, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
+    { no: 2, name: "removed_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
+    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_PairPatch, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.AppendRequest

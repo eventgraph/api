@@ -154,9 +154,9 @@ export class ComponentTransaction_ColumnIndex extends Message<ComponentTransacti
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.IDPairPatch
+ * @generated from message eventsourcing.v1.ComponentTransaction.PairLastEvent
  */
-export class ComponentTransaction_IDPairPatch extends Message<ComponentTransaction_IDPairPatch> {
+export class ComponentTransaction_PairLastEvent extends Message<ComponentTransaction_PairLastEvent> {
   /**
    * @generated from field: eventsourcing.v1.IDPair pair = 1;
    */
@@ -167,38 +167,75 @@ export class ComponentTransaction_IDPairPatch extends Message<ComponentTransacti
    */
   lastEventLedgerId = protoInt64.zero;
 
-  /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
-   */
-  columnIndices: ComponentTransaction_ColumnIndex[] = [];
-
-  constructor(data?: PartialMessage<ComponentTransaction_IDPairPatch>) {
+  constructor(data?: PartialMessage<ComponentTransaction_PairLastEvent>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
+  static readonly typeName = "eventsourcing.v1.ComponentTransaction.PairLastEvent";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pair", kind: "message", T: IDPair },
     { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_IDPairPatch {
-    return new ComponentTransaction_IDPairPatch().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_PairLastEvent {
+    return new ComponentTransaction_PairLastEvent().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_IDPairPatch {
-    return new ComponentTransaction_IDPairPatch().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_PairLastEvent {
+    return new ComponentTransaction_PairLastEvent().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_IDPairPatch {
-    return new ComponentTransaction_IDPairPatch().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_PairLastEvent {
+    return new ComponentTransaction_PairLastEvent().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction_IDPairPatch | PlainMessage<ComponentTransaction_IDPairPatch> | undefined, b: ComponentTransaction_IDPairPatch | PlainMessage<ComponentTransaction_IDPairPatch> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction_IDPairPatch, a, b);
+  static equals(a: ComponentTransaction_PairLastEvent | PlainMessage<ComponentTransaction_PairLastEvent> | undefined, b: ComponentTransaction_PairLastEvent | PlainMessage<ComponentTransaction_PairLastEvent> | undefined): boolean {
+    return proto3.util.equals(ComponentTransaction_PairLastEvent, a, b);
+  }
+}
+
+/**
+ * @generated from message eventsourcing.v1.ComponentTransaction.PairPatch
+ */
+export class ComponentTransaction_PairPatch extends Message<ComponentTransaction_PairPatch> {
+  /**
+   * @generated from field: eventsourcing.v1.ComponentTransaction.PairLastEvent pair_last_event = 1;
+   */
+  pairLastEvent?: ComponentTransaction_PairLastEvent;
+
+  /**
+   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 2;
+   */
+  columnIndices: ComponentTransaction_ColumnIndex[] = [];
+
+  constructor(data?: PartialMessage<ComponentTransaction_PairPatch>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime = proto3;
+  static readonly typeName = "eventsourcing.v1.ComponentTransaction.PairPatch";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "pair_last_event", kind: "message", T: ComponentTransaction_PairLastEvent },
+    { no: 2, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_PairPatch {
+    return new ComponentTransaction_PairPatch().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_PairPatch {
+    return new ComponentTransaction_PairPatch().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_PairPatch {
+    return new ComponentTransaction_PairPatch().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: ComponentTransaction_PairPatch | PlainMessage<ComponentTransaction_PairPatch> | undefined, b: ComponentTransaction_PairPatch | PlainMessage<ComponentTransaction_PairPatch> | undefined): boolean {
+    return proto3.util.equals(ComponentTransaction_PairPatch, a, b);
   }
 }
 
@@ -207,19 +244,19 @@ export class ComponentTransaction_IDPairPatch extends Message<ComponentTransacti
  */
 export class ComponentTransaction_Patch extends Message<ComponentTransaction_Patch> {
   /**
-   * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
+   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent added_pairs = 1;
    */
-  addedPairs: IDPair[] = [];
+  addedPairs: ComponentTransaction_PairLastEvent[] = [];
 
   /**
-   * @generated from field: repeated eventsourcing.v1.IDPair removed_pairs = 2;
+   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent removed_pairs = 2;
    */
-  removedPairs: IDPair[] = [];
+  removedPairs: ComponentTransaction_PairLastEvent[] = [];
 
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.IDPairPatch updated_pair_patches = 3;
+   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairPatch updated_pair_patches = 3;
    */
-  updatedPairPatches: ComponentTransaction_IDPairPatch[] = [];
+  updatedPairPatches: ComponentTransaction_PairPatch[] = [];
 
   constructor(data?: PartialMessage<ComponentTransaction_Patch>) {
     super();
@@ -229,9 +266,9 @@ export class ComponentTransaction_Patch extends Message<ComponentTransaction_Pat
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.ComponentTransaction.Patch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
-    { no: 2, name: "removed_pairs", kind: "message", T: IDPair, repeated: true },
-    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_IDPairPatch, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
+    { no: 2, name: "removed_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
+    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_PairPatch, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_Patch {

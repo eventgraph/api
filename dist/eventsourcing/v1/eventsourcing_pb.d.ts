@@ -78,9 +78,9 @@ export declare class ComponentTransaction_ColumnIndex extends Message<ComponentT
     static equals(a: ComponentTransaction_ColumnIndex | PlainMessage<ComponentTransaction_ColumnIndex> | undefined, b: ComponentTransaction_ColumnIndex | PlainMessage<ComponentTransaction_ColumnIndex> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.IDPairPatch
+ * @generated from message eventsourcing.v1.ComponentTransaction.PairLastEvent
  */
-export declare class ComponentTransaction_IDPairPatch extends Message<ComponentTransaction_IDPairPatch> {
+export declare class ComponentTransaction_PairLastEvent extends Message<ComponentTransaction_PairLastEvent> {
     /**
      * @generated from field: eventsourcing.v1.IDPair pair = 1;
      */
@@ -89,35 +89,52 @@ export declare class ComponentTransaction_IDPairPatch extends Message<ComponentT
      * @generated from field: int64 last_event_ledger_id = 2;
      */
     lastEventLedgerId: bigint;
+    constructor(data?: PartialMessage<ComponentTransaction_PairLastEvent>);
+    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
+    static readonly typeName = "eventsourcing.v1.ComponentTransaction.PairLastEvent";
+    static readonly fields: FieldList;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_PairLastEvent;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_PairLastEvent;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_PairLastEvent;
+    static equals(a: ComponentTransaction_PairLastEvent | PlainMessage<ComponentTransaction_PairLastEvent> | undefined, b: ComponentTransaction_PairLastEvent | PlainMessage<ComponentTransaction_PairLastEvent> | undefined): boolean;
+}
+/**
+ * @generated from message eventsourcing.v1.ComponentTransaction.PairPatch
+ */
+export declare class ComponentTransaction_PairPatch extends Message<ComponentTransaction_PairPatch> {
     /**
-     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
+     * @generated from field: eventsourcing.v1.ComponentTransaction.PairLastEvent pair_last_event = 1;
+     */
+    pairLastEvent?: ComponentTransaction_PairLastEvent;
+    /**
+     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 2;
      */
     columnIndices: ComponentTransaction_ColumnIndex[];
-    constructor(data?: PartialMessage<ComponentTransaction_IDPairPatch>);
+    constructor(data?: PartialMessage<ComponentTransaction_PairPatch>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
+    static readonly typeName = "eventsourcing.v1.ComponentTransaction.PairPatch";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_IDPairPatch;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_IDPairPatch;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_IDPairPatch;
-    static equals(a: ComponentTransaction_IDPairPatch | PlainMessage<ComponentTransaction_IDPairPatch> | undefined, b: ComponentTransaction_IDPairPatch | PlainMessage<ComponentTransaction_IDPairPatch> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_PairPatch;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_PairPatch;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_PairPatch;
+    static equals(a: ComponentTransaction_PairPatch | PlainMessage<ComponentTransaction_PairPatch> | undefined, b: ComponentTransaction_PairPatch | PlainMessage<ComponentTransaction_PairPatch> | undefined): boolean;
 }
 /**
  * @generated from message eventsourcing.v1.ComponentTransaction.Patch
  */
 export declare class ComponentTransaction_Patch extends Message<ComponentTransaction_Patch> {
     /**
-     * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
+     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent added_pairs = 1;
      */
-    addedPairs: IDPair[];
+    addedPairs: ComponentTransaction_PairLastEvent[];
     /**
-     * @generated from field: repeated eventsourcing.v1.IDPair removed_pairs = 2;
+     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent removed_pairs = 2;
      */
-    removedPairs: IDPair[];
+    removedPairs: ComponentTransaction_PairLastEvent[];
     /**
-     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.IDPairPatch updated_pair_patches = 3;
+     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairPatch updated_pair_patches = 3;
      */
-    updatedPairPatches: ComponentTransaction_IDPairPatch[];
+    updatedPairPatches: ComponentTransaction_PairPatch[];
     constructor(data?: PartialMessage<ComponentTransaction_Patch>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.ComponentTransaction.Patch";

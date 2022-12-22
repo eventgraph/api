@@ -15,16 +15,20 @@ message ComponentTransaction {
     uint32 patch_field_index = 2;
   }
 
-  message IDPairPatch {
+  message PairLastEvent {
     IDPair pair = 1;
     int64 last_event_ledger_id = 2;
-    repeated ColumnIndex column_indices = 3;
+  }
+
+  message PairPatch {
+    PairLastEvent pair_last_event = 1;
+    repeated ColumnIndex column_indices = 2;
   }
 
   message Patch {
-    repeated IDPair added_pairs = 1;
-    repeated IDPair removed_pairs = 2;
-    repeated IDPairPatch updated_pair_patches = 3;
+    repeated PairLastEvent added_pairs = 1;
+    repeated PairLastEvent removed_pairs = 2;
+    repeated PairPatch updated_pair_patches = 3;
   }
 
   repeated int64 i64s = 1;
