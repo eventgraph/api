@@ -4,9 +4,9 @@ package eventsourcing.v1;
 
 import "google/protobuf/timestamp.proto";
 
-message EntityPair {
-  int64 from_entity = 1;
-  int64 to_entity = 2;
+message IDPair {
+  int64 from_id = 1;
+  int64 to_id = 2;
 }
 
 message ComponentTransaction {
@@ -15,16 +15,16 @@ message ComponentTransaction {
     uint32 patch_field_index = 2;
   }
 
-  message EntityPairPatch {
-    EntityPair entity_pair = 1;
-    int64 integrity_hash = 2;
+  message IDPairPatch {
+    IDPair pair = 1;
+    bytes integrity_hash = 2;
     repeated ColumnIndex column_indices = 3;
   }
 
   message Patch {
-    repeated EntityPair added_pairs = 1;
-    repeated EntityPair removed_pairs = 2;
-    repeated EntityPairPatch updated_entity_patches = 3;
+    repeated IDPair added_pairs = 1;
+    repeated IDPair removed_pairs = 2;
+    repeated IDPairPatch updated_pair_patches = 3;
   }
 
   repeated int64 i64s = 1;
@@ -42,12 +42,12 @@ service EventStoreService {
 message AppendRequest { ComponentTransaction transaction = 1; }
 
 message AppendResponse {
-  message EntityPairIntegrityHash {
-    int64 component_entity = 1;
-    EntityPair entity_pair = 2;
-    int64 integrity_hash = 3;
+  message IDPairIntegrity {
+    int64 component_id = 1;
+    IDPair pair = 2;
+    bytes integrity_hash = 3;
   }
-  repeated EntityPairIntegrityHash updated_entity_pairs = 1;
+  repeated IDPairIntegrity updated_pairs = 1;
 }
 
 message EventsRequest {

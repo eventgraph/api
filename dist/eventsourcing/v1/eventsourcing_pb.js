@@ -4,43 +4,43 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse_EntityPairIntegrityHash = exports.AppendResponse = exports.AppendRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_EntityPairPatch = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.EntityPair = void 0;
+exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse_IDPairIntegrity = exports.AppendResponse = exports.AppendRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_IDPairPatch = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.IDPair = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 /**
- * @generated from message eventsourcing.v1.EntityPair
+ * @generated from message eventsourcing.v1.IDPair
  */
-class EntityPair extends protobuf_1.Message {
+class IDPair extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 from_entity = 1;
+         * @generated from field: int64 from_id = 1;
          */
-        this.fromEntity = protobuf_1.protoInt64.zero;
+        this.fromId = protobuf_1.protoInt64.zero;
         /**
-         * @generated from field: int64 to_entity = 2;
+         * @generated from field: int64 to_id = 2;
          */
-        this.toEntity = protobuf_1.protoInt64.zero;
+        this.toId = protobuf_1.protoInt64.zero;
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new EntityPair().fromBinary(bytes, options);
+        return new IDPair().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new EntityPair().fromJson(jsonValue, options);
+        return new IDPair().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new EntityPair().fromJsonString(jsonString, options);
+        return new IDPair().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(EntityPair, a, b);
+        return protobuf_1.proto3.util.equals(IDPair, a, b);
     }
 }
-exports.EntityPair = EntityPair;
-EntityPair.runtime = protobuf_1.proto3;
-EntityPair.typeName = "eventsourcing.v1.EntityPair";
-EntityPair.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "from_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "to_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+exports.IDPair = IDPair;
+IDPair.runtime = protobuf_1.proto3;
+IDPair.typeName = "eventsourcing.v1.IDPair";
+IDPair.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "from_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "to_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
  * @generated from message eventsourcing.v1.ComponentTransaction
@@ -130,15 +130,15 @@ ComponentTransaction_ColumnIndex.fields = protobuf_1.proto3.util.newFieldList(()
     { no: 2, name: "patch_field_index", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
 ]);
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.EntityPairPatch
+ * @generated from message eventsourcing.v1.ComponentTransaction.IDPairPatch
  */
-class ComponentTransaction_EntityPairPatch extends protobuf_1.Message {
+class ComponentTransaction_IDPairPatch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 integrity_hash = 2;
+         * @generated from field: bytes integrity_hash = 2;
          */
-        this.integrityHash = protobuf_1.protoInt64.zero;
+        this.integrityHash = new Uint8Array(0);
         /**
          * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
          */
@@ -146,24 +146,24 @@ class ComponentTransaction_EntityPairPatch extends protobuf_1.Message {
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new ComponentTransaction_EntityPairPatch().fromBinary(bytes, options);
+        return new ComponentTransaction_IDPairPatch().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new ComponentTransaction_EntityPairPatch().fromJson(jsonValue, options);
+        return new ComponentTransaction_IDPairPatch().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new ComponentTransaction_EntityPairPatch().fromJsonString(jsonString, options);
+        return new ComponentTransaction_IDPairPatch().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(ComponentTransaction_EntityPairPatch, a, b);
+        return protobuf_1.proto3.util.equals(ComponentTransaction_IDPairPatch, a, b);
     }
 }
-exports.ComponentTransaction_EntityPairPatch = ComponentTransaction_EntityPairPatch;
-ComponentTransaction_EntityPairPatch.runtime = protobuf_1.proto3;
-ComponentTransaction_EntityPairPatch.typeName = "eventsourcing.v1.ComponentTransaction.EntityPairPatch";
-ComponentTransaction_EntityPairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "entity_pair", kind: "message", T: EntityPair },
-    { no: 2, name: "integrity_hash", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+exports.ComponentTransaction_IDPairPatch = ComponentTransaction_IDPairPatch;
+ComponentTransaction_IDPairPatch.runtime = protobuf_1.proto3;
+ComponentTransaction_IDPairPatch.typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
+ComponentTransaction_IDPairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "pair", kind: "message", T: IDPair },
+    { no: 2, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
 ]);
 /**
@@ -173,17 +173,17 @@ class ComponentTransaction_Patch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.EntityPair added_pairs = 1;
+         * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
          */
         this.addedPairs = [];
         /**
-         * @generated from field: repeated eventsourcing.v1.EntityPair removed_pairs = 2;
+         * @generated from field: repeated eventsourcing.v1.IDPair removed_pairs = 2;
          */
         this.removedPairs = [];
         /**
-         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.EntityPairPatch updated_entity_patches = 3;
+         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.IDPairPatch updated_pair_patches = 3;
          */
-        this.updatedEntityPatches = [];
+        this.updatedPairPatches = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -203,9 +203,9 @@ exports.ComponentTransaction_Patch = ComponentTransaction_Patch;
 ComponentTransaction_Patch.runtime = protobuf_1.proto3;
 ComponentTransaction_Patch.typeName = "eventsourcing.v1.ComponentTransaction.Patch";
 ComponentTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: EntityPair, repeated: true },
-    { no: 2, name: "removed_pairs", kind: "message", T: EntityPair, repeated: true },
-    { no: 3, name: "updated_entity_patches", kind: "message", T: ComponentTransaction_EntityPairPatch, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
+    { no: 2, name: "removed_pairs", kind: "message", T: IDPair, repeated: true },
+    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_IDPairPatch, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.AppendRequest
@@ -241,9 +241,9 @@ class AppendResponse extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.AppendResponse.EntityPairIntegrityHash updated_entity_pairs = 1;
+         * @generated from field: repeated eventsourcing.v1.AppendResponse.IDPairIntegrity updated_pairs = 1;
          */
-        this.updatedEntityPairs = [];
+        this.updatedPairs = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -263,44 +263,44 @@ exports.AppendResponse = AppendResponse;
 AppendResponse.runtime = protobuf_1.proto3;
 AppendResponse.typeName = "eventsourcing.v1.AppendResponse";
 AppendResponse.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "updated_entity_pairs", kind: "message", T: AppendResponse_EntityPairIntegrityHash, repeated: true },
+    { no: 1, name: "updated_pairs", kind: "message", T: AppendResponse_IDPairIntegrity, repeated: true },
 ]);
 /**
- * @generated from message eventsourcing.v1.AppendResponse.EntityPairIntegrityHash
+ * @generated from message eventsourcing.v1.AppendResponse.IDPairIntegrity
  */
-class AppendResponse_EntityPairIntegrityHash extends protobuf_1.Message {
+class AppendResponse_IDPairIntegrity extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 component_entity = 1;
+         * @generated from field: int64 component_id = 1;
          */
-        this.componentEntity = protobuf_1.protoInt64.zero;
+        this.componentId = protobuf_1.protoInt64.zero;
         /**
-         * @generated from field: int64 integrity_hash = 3;
+         * @generated from field: bytes integrity_hash = 3;
          */
-        this.integrityHash = protobuf_1.protoInt64.zero;
+        this.integrityHash = new Uint8Array(0);
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new AppendResponse_EntityPairIntegrityHash().fromBinary(bytes, options);
+        return new AppendResponse_IDPairIntegrity().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new AppendResponse_EntityPairIntegrityHash().fromJson(jsonValue, options);
+        return new AppendResponse_IDPairIntegrity().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new AppendResponse_EntityPairIntegrityHash().fromJsonString(jsonString, options);
+        return new AppendResponse_IDPairIntegrity().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(AppendResponse_EntityPairIntegrityHash, a, b);
+        return protobuf_1.proto3.util.equals(AppendResponse_IDPairIntegrity, a, b);
     }
 }
-exports.AppendResponse_EntityPairIntegrityHash = AppendResponse_EntityPairIntegrityHash;
-AppendResponse_EntityPairIntegrityHash.runtime = protobuf_1.proto3;
-AppendResponse_EntityPairIntegrityHash.typeName = "eventsourcing.v1.AppendResponse.EntityPairIntegrityHash";
-AppendResponse_EntityPairIntegrityHash.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "component_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "entity_pair", kind: "message", T: EntityPair },
-    { no: 3, name: "integrity_hash", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+exports.AppendResponse_IDPairIntegrity = AppendResponse_IDPairIntegrity;
+AppendResponse_IDPairIntegrity.runtime = protobuf_1.proto3;
+AppendResponse_IDPairIntegrity.typeName = "eventsourcing.v1.AppendResponse.IDPairIntegrity";
+AppendResponse_IDPairIntegrity.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "pair", kind: "message", T: IDPair },
+    { no: 3, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
 ]);
 /**
  * @generated from message eventsourcing.v1.EventsRequest

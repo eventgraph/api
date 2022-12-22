@@ -7,45 +7,45 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64, Timestamp } from "@bufbuild/protobuf";
 
 /**
- * @generated from message eventsourcing.v1.EntityPair
+ * @generated from message eventsourcing.v1.IDPair
  */
-export class EntityPair extends Message<EntityPair> {
+export class IDPair extends Message<IDPair> {
   /**
-   * @generated from field: int64 from_entity = 1;
+   * @generated from field: int64 from_id = 1;
    */
-  fromEntity = protoInt64.zero;
+  fromId = protoInt64.zero;
 
   /**
-   * @generated from field: int64 to_entity = 2;
+   * @generated from field: int64 to_id = 2;
    */
-  toEntity = protoInt64.zero;
+  toId = protoInt64.zero;
 
-  constructor(data?: PartialMessage<EntityPair>) {
+  constructor(data?: PartialMessage<IDPair>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.EntityPair";
+  static readonly typeName = "eventsourcing.v1.IDPair";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "from_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "to_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "from_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "to_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EntityPair {
-    return new EntityPair().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IDPair {
+    return new IDPair().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EntityPair {
-    return new EntityPair().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IDPair {
+    return new IDPair().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EntityPair {
-    return new EntityPair().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IDPair {
+    return new IDPair().fromJsonString(jsonString, options);
   }
 
-  static equals(a: EntityPair | PlainMessage<EntityPair> | undefined, b: EntityPair | PlainMessage<EntityPair> | undefined): boolean {
-    return proto3.util.equals(EntityPair, a, b);
+  static equals(a: IDPair | PlainMessage<IDPair> | undefined, b: IDPair | PlainMessage<IDPair> | undefined): boolean {
+    return proto3.util.equals(IDPair, a, b);
   }
 }
 
@@ -154,51 +154,51 @@ export class ComponentTransaction_ColumnIndex extends Message<ComponentTransacti
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.EntityPairPatch
+ * @generated from message eventsourcing.v1.ComponentTransaction.IDPairPatch
  */
-export class ComponentTransaction_EntityPairPatch extends Message<ComponentTransaction_EntityPairPatch> {
+export class ComponentTransaction_IDPairPatch extends Message<ComponentTransaction_IDPairPatch> {
   /**
-   * @generated from field: eventsourcing.v1.EntityPair entity_pair = 1;
+   * @generated from field: eventsourcing.v1.IDPair pair = 1;
    */
-  entityPair?: EntityPair;
+  pair?: IDPair;
 
   /**
-   * @generated from field: int64 integrity_hash = 2;
+   * @generated from field: bytes integrity_hash = 2;
    */
-  integrityHash = protoInt64.zero;
+  integrityHash = new Uint8Array(0);
 
   /**
    * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
    */
   columnIndices: ComponentTransaction_ColumnIndex[] = [];
 
-  constructor(data?: PartialMessage<ComponentTransaction_EntityPairPatch>) {
+  constructor(data?: PartialMessage<ComponentTransaction_IDPairPatch>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction.EntityPairPatch";
+  static readonly typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "entity_pair", kind: "message", T: EntityPair },
-    { no: 2, name: "integrity_hash", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "pair", kind: "message", T: IDPair },
+    { no: 2, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_EntityPairPatch {
-    return new ComponentTransaction_EntityPairPatch().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_IDPairPatch {
+    return new ComponentTransaction_IDPairPatch().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_EntityPairPatch {
-    return new ComponentTransaction_EntityPairPatch().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_IDPairPatch {
+    return new ComponentTransaction_IDPairPatch().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_EntityPairPatch {
-    return new ComponentTransaction_EntityPairPatch().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_IDPairPatch {
+    return new ComponentTransaction_IDPairPatch().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction_EntityPairPatch | PlainMessage<ComponentTransaction_EntityPairPatch> | undefined, b: ComponentTransaction_EntityPairPatch | PlainMessage<ComponentTransaction_EntityPairPatch> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction_EntityPairPatch, a, b);
+  static equals(a: ComponentTransaction_IDPairPatch | PlainMessage<ComponentTransaction_IDPairPatch> | undefined, b: ComponentTransaction_IDPairPatch | PlainMessage<ComponentTransaction_IDPairPatch> | undefined): boolean {
+    return proto3.util.equals(ComponentTransaction_IDPairPatch, a, b);
   }
 }
 
@@ -207,19 +207,19 @@ export class ComponentTransaction_EntityPairPatch extends Message<ComponentTrans
  */
 export class ComponentTransaction_Patch extends Message<ComponentTransaction_Patch> {
   /**
-   * @generated from field: repeated eventsourcing.v1.EntityPair added_pairs = 1;
+   * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
    */
-  addedPairs: EntityPair[] = [];
+  addedPairs: IDPair[] = [];
 
   /**
-   * @generated from field: repeated eventsourcing.v1.EntityPair removed_pairs = 2;
+   * @generated from field: repeated eventsourcing.v1.IDPair removed_pairs = 2;
    */
-  removedPairs: EntityPair[] = [];
+  removedPairs: IDPair[] = [];
 
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.EntityPairPatch updated_entity_patches = 3;
+   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.IDPairPatch updated_pair_patches = 3;
    */
-  updatedEntityPatches: ComponentTransaction_EntityPairPatch[] = [];
+  updatedPairPatches: ComponentTransaction_IDPairPatch[] = [];
 
   constructor(data?: PartialMessage<ComponentTransaction_Patch>) {
     super();
@@ -229,9 +229,9 @@ export class ComponentTransaction_Patch extends Message<ComponentTransaction_Pat
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.ComponentTransaction.Patch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: EntityPair, repeated: true },
-    { no: 2, name: "removed_pairs", kind: "message", T: EntityPair, repeated: true },
-    { no: 3, name: "updated_entity_patches", kind: "message", T: ComponentTransaction_EntityPairPatch, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
+    { no: 2, name: "removed_pairs", kind: "message", T: IDPair, repeated: true },
+    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_IDPairPatch, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_Patch {
@@ -293,9 +293,9 @@ export class AppendRequest extends Message<AppendRequest> {
  */
 export class AppendResponse extends Message<AppendResponse> {
   /**
-   * @generated from field: repeated eventsourcing.v1.AppendResponse.EntityPairIntegrityHash updated_entity_pairs = 1;
+   * @generated from field: repeated eventsourcing.v1.AppendResponse.IDPairIntegrity updated_pairs = 1;
    */
-  updatedEntityPairs: AppendResponse_EntityPairIntegrityHash[] = [];
+  updatedPairs: AppendResponse_IDPairIntegrity[] = [];
 
   constructor(data?: PartialMessage<AppendResponse>) {
     super();
@@ -305,7 +305,7 @@ export class AppendResponse extends Message<AppendResponse> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.AppendResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "updated_entity_pairs", kind: "message", T: AppendResponse_EntityPairIntegrityHash, repeated: true },
+    { no: 1, name: "updated_pairs", kind: "message", T: AppendResponse_IDPairIntegrity, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse {
@@ -326,51 +326,51 @@ export class AppendResponse extends Message<AppendResponse> {
 }
 
 /**
- * @generated from message eventsourcing.v1.AppendResponse.EntityPairIntegrityHash
+ * @generated from message eventsourcing.v1.AppendResponse.IDPairIntegrity
  */
-export class AppendResponse_EntityPairIntegrityHash extends Message<AppendResponse_EntityPairIntegrityHash> {
+export class AppendResponse_IDPairIntegrity extends Message<AppendResponse_IDPairIntegrity> {
   /**
-   * @generated from field: int64 component_entity = 1;
+   * @generated from field: int64 component_id = 1;
    */
-  componentEntity = protoInt64.zero;
+  componentId = protoInt64.zero;
 
   /**
-   * @generated from field: eventsourcing.v1.EntityPair entity_pair = 2;
+   * @generated from field: eventsourcing.v1.IDPair pair = 2;
    */
-  entityPair?: EntityPair;
+  pair?: IDPair;
 
   /**
-   * @generated from field: int64 integrity_hash = 3;
+   * @generated from field: bytes integrity_hash = 3;
    */
-  integrityHash = protoInt64.zero;
+  integrityHash = new Uint8Array(0);
 
-  constructor(data?: PartialMessage<AppendResponse_EntityPairIntegrityHash>) {
+  constructor(data?: PartialMessage<AppendResponse_IDPairIntegrity>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.AppendResponse.EntityPairIntegrityHash";
+  static readonly typeName = "eventsourcing.v1.AppendResponse.IDPairIntegrity";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "component_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "entity_pair", kind: "message", T: EntityPair },
-    { no: 3, name: "integrity_hash", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "pair", kind: "message", T: IDPair },
+    { no: 3, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse_EntityPairIntegrityHash {
-    return new AppendResponse_EntityPairIntegrityHash().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse_IDPairIntegrity {
+    return new AppendResponse_IDPairIntegrity().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse_EntityPairIntegrityHash {
-    return new AppendResponse_EntityPairIntegrityHash().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse_IDPairIntegrity {
+    return new AppendResponse_IDPairIntegrity().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse_EntityPairIntegrityHash {
-    return new AppendResponse_EntityPairIntegrityHash().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse_IDPairIntegrity {
+    return new AppendResponse_IDPairIntegrity().fromJsonString(jsonString, options);
   }
 
-  static equals(a: AppendResponse_EntityPairIntegrityHash | PlainMessage<AppendResponse_EntityPairIntegrityHash> | undefined, b: AppendResponse_EntityPairIntegrityHash | PlainMessage<AppendResponse_EntityPairIntegrityHash> | undefined): boolean {
-    return proto3.util.equals(AppendResponse_EntityPairIntegrityHash, a, b);
+  static equals(a: AppendResponse_IDPairIntegrity | PlainMessage<AppendResponse_IDPairIntegrity> | undefined, b: AppendResponse_IDPairIntegrity | PlainMessage<AppendResponse_IDPairIntegrity> | undefined): boolean {
+    return proto3.util.equals(AppendResponse_IDPairIntegrity, a, b);
   }
 }
 
