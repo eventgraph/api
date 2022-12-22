@@ -200,7 +200,7 @@ class ComponentTransaction_Patch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent added_pairs = 1;
+         * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
          */
         this.addedPairs = [];
         /**
@@ -230,7 +230,7 @@ exports.ComponentTransaction_Patch = ComponentTransaction_Patch;
 ComponentTransaction_Patch.runtime = protobuf_1.proto3;
 ComponentTransaction_Patch.typeName = "eventsourcing.v1.ComponentTransaction.Patch";
 ComponentTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
     { no: 2, name: "removed_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
     { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_PairPatch, repeated: true },
 ]);

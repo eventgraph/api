@@ -26,7 +26,7 @@ message ComponentTransaction {
   }
 
   message Patch {
-    repeated PairLastEvent added_pairs = 1;
+    repeated IDPair added_pairs = 1;
     repeated PairLastEvent removed_pairs = 2;
     repeated PairPatch updated_pair_patches = 3;
   }

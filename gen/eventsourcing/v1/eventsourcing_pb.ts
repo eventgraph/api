@@ -244,9 +244,9 @@ export class ComponentTransaction_PairPatch extends Message<ComponentTransaction
  */
 export class ComponentTransaction_Patch extends Message<ComponentTransaction_Patch> {
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent added_pairs = 1;
+   * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
    */
-  addedPairs: ComponentTransaction_PairLastEvent[] = [];
+  addedPairs: IDPair[] = [];
 
   /**
    * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent removed_pairs = 2;
@@ -266,7 +266,7 @@ export class ComponentTransaction_Patch extends Message<ComponentTransaction_Pat
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.ComponentTransaction.Patch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
     { no: 2, name: "removed_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
     { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_PairPatch, repeated: true },
   ]);

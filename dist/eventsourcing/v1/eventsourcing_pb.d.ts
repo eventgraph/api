@@ -124,9 +124,9 @@ export declare class ComponentTransaction_PairPatch extends Message<ComponentTra
  */
 export declare class ComponentTransaction_Patch extends Message<ComponentTransaction_Patch> {
     /**
-     * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent added_pairs = 1;
+     * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
      */
-    addedPairs: ComponentTransaction_PairLastEvent[];
+    addedPairs: IDPair[];
     /**
      * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent removed_pairs = 2;
      */
