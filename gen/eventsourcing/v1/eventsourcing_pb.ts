@@ -330,9 +330,9 @@ export class AppendRequest extends Message<AppendRequest> {
  */
 export class AppendResponse extends Message<AppendResponse> {
   /**
-   * @generated from field: repeated eventsourcing.v1.AppendResponse.IDPairIntegrity updated_pairs = 1;
+   * @generated from field: int64 last_event_ledger_id = 3;
    */
-  updatedPairs: AppendResponse_IDPairIntegrity[] = [];
+  lastEventLedgerId = protoInt64.zero;
 
   constructor(data?: PartialMessage<AppendResponse>) {
     super();
@@ -342,7 +342,7 @@ export class AppendResponse extends Message<AppendResponse> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.AppendResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "updated_pairs", kind: "message", T: AppendResponse_IDPairIntegrity, repeated: true },
+    { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse {
@@ -359,55 +359,6 @@ export class AppendResponse extends Message<AppendResponse> {
 
   static equals(a: AppendResponse | PlainMessage<AppendResponse> | undefined, b: AppendResponse | PlainMessage<AppendResponse> | undefined): boolean {
     return proto3.util.equals(AppendResponse, a, b);
-  }
-}
-
-/**
- * @generated from message eventsourcing.v1.AppendResponse.IDPairIntegrity
- */
-export class AppendResponse_IDPairIntegrity extends Message<AppendResponse_IDPairIntegrity> {
-  /**
-   * @generated from field: int64 component_id = 1;
-   */
-  componentId = protoInt64.zero;
-
-  /**
-   * @generated from field: eventsourcing.v1.IDPair pair = 2;
-   */
-  pair?: IDPair;
-
-  /**
-   * @generated from field: int64 last_event_ledger_id = 3;
-   */
-  lastEventLedgerId = protoInt64.zero;
-
-  constructor(data?: PartialMessage<AppendResponse_IDPairIntegrity>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.AppendResponse.IDPairIntegrity";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "pair", kind: "message", T: IDPair },
-    { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse_IDPairIntegrity {
-    return new AppendResponse_IDPairIntegrity().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse_IDPairIntegrity {
-    return new AppendResponse_IDPairIntegrity().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse_IDPairIntegrity {
-    return new AppendResponse_IDPairIntegrity().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: AppendResponse_IDPairIntegrity | PlainMessage<AppendResponse_IDPairIntegrity> | undefined, b: AppendResponse_IDPairIntegrity | PlainMessage<AppendResponse_IDPairIntegrity> | undefined): boolean {
-    return proto3.util.equals(AppendResponse_IDPairIntegrity, a, b);
   }
 }
 

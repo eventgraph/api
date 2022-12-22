@@ -4,7 +4,7 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse_IDPairIntegrity = exports.AppendResponse = exports.AppendRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_PairPatch = exports.ComponentTransaction_PairLastEvent = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.IDPair = void 0;
+exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse = exports.AppendRequest = exports.ComponentTransaction_Patch = exports.ComponentTransaction_PairPatch = exports.ComponentTransaction_PairLastEvent = exports.ComponentTransaction_ColumnIndex = exports.ComponentTransaction = exports.IDPair = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 /**
  * @generated from message eventsourcing.v1.IDPair
@@ -268,9 +268,9 @@ class AppendResponse extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.AppendResponse.IDPairIntegrity updated_pairs = 1;
+         * @generated from field: int64 last_event_ledger_id = 3;
          */
-        this.updatedPairs = [];
+        this.lastEventLedgerId = protobuf_1.protoInt64.zero;
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -290,43 +290,6 @@ exports.AppendResponse = AppendResponse;
 AppendResponse.runtime = protobuf_1.proto3;
 AppendResponse.typeName = "eventsourcing.v1.AppendResponse";
 AppendResponse.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "updated_pairs", kind: "message", T: AppendResponse_IDPairIntegrity, repeated: true },
-]);
-/**
- * @generated from message eventsourcing.v1.AppendResponse.IDPairIntegrity
- */
-class AppendResponse_IDPairIntegrity extends protobuf_1.Message {
-    constructor(data) {
-        super();
-        /**
-         * @generated from field: int64 component_id = 1;
-         */
-        this.componentId = protobuf_1.protoInt64.zero;
-        /**
-         * @generated from field: int64 last_event_ledger_id = 3;
-         */
-        this.lastEventLedgerId = protobuf_1.protoInt64.zero;
-        protobuf_1.proto3.util.initPartial(data, this);
-    }
-    static fromBinary(bytes, options) {
-        return new AppendResponse_IDPairIntegrity().fromBinary(bytes, options);
-    }
-    static fromJson(jsonValue, options) {
-        return new AppendResponse_IDPairIntegrity().fromJson(jsonValue, options);
-    }
-    static fromJsonString(jsonString, options) {
-        return new AppendResponse_IDPairIntegrity().fromJsonString(jsonString, options);
-    }
-    static equals(a, b) {
-        return protobuf_1.proto3.util.equals(AppendResponse_IDPairIntegrity, a, b);
-    }
-}
-exports.AppendResponse_IDPairIntegrity = AppendResponse_IDPairIntegrity;
-AppendResponse_IDPairIntegrity.runtime = protobuf_1.proto3;
-AppendResponse_IDPairIntegrity.typeName = "eventsourcing.v1.AppendResponse.IDPairIntegrity";
-AppendResponse_IDPairIntegrity.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "pair", kind: "message", T: IDPair },
     { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**

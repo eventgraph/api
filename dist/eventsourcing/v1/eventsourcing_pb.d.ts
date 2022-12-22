@@ -166,9 +166,9 @@ export declare class AppendRequest extends Message<AppendRequest> {
  */
 export declare class AppendResponse extends Message<AppendResponse> {
     /**
-     * @generated from field: repeated eventsourcing.v1.AppendResponse.IDPairIntegrity updated_pairs = 1;
+     * @generated from field: int64 last_event_ledger_id = 3;
      */
-    updatedPairs: AppendResponse_IDPairIntegrity[];
+    lastEventLedgerId: bigint;
     constructor(data?: PartialMessage<AppendResponse>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.AppendResponse";
@@ -177,31 +177,6 @@ export declare class AppendResponse extends Message<AppendResponse> {
     static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse;
     static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse;
     static equals(a: AppendResponse | PlainMessage<AppendResponse> | undefined, b: AppendResponse | PlainMessage<AppendResponse> | undefined): boolean;
-}
-/**
- * @generated from message eventsourcing.v1.AppendResponse.IDPairIntegrity
- */
-export declare class AppendResponse_IDPairIntegrity extends Message<AppendResponse_IDPairIntegrity> {
-    /**
-     * @generated from field: int64 component_id = 1;
-     */
-    componentId: bigint;
-    /**
-     * @generated from field: eventsourcing.v1.IDPair pair = 2;
-     */
-    pair?: IDPair;
-    /**
-     * @generated from field: int64 last_event_ledger_id = 3;
-     */
-    lastEventLedgerId: bigint;
-    constructor(data?: PartialMessage<AppendResponse_IDPairIntegrity>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.AppendResponse.IDPairIntegrity";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse_IDPairIntegrity;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): AppendResponse_IDPairIntegrity;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): AppendResponse_IDPairIntegrity;
-    static equals(a: AppendResponse_IDPairIntegrity | PlainMessage<AppendResponse_IDPairIntegrity> | undefined, b: AppendResponse_IDPairIntegrity | PlainMessage<AppendResponse_IDPairIntegrity> | undefined): boolean;
 }
 /**
  * @generated from message eventsourcing.v1.EventsRequest
