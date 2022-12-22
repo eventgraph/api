@@ -86,9 +86,9 @@ export declare class ComponentTransaction_IDPairPatch extends Message<ComponentT
      */
     pair?: IDPair;
     /**
-     * @generated from field: bytes integrity_hash = 2;
+     * @generated from field: int64 last_event_ledger_id = 2;
      */
-    integrityHash: Uint8Array;
+    lastEventLedgerId: bigint;
     /**
      * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
      */
@@ -174,9 +174,9 @@ export declare class AppendResponse_IDPairIntegrity extends Message<AppendRespon
      */
     pair?: IDPair;
     /**
-     * @generated from field: bytes integrity_hash = 3;
+     * @generated from field: int64 last_event_ledger_id = 3;
      */
-    integrityHash: Uint8Array;
+    lastEventLedgerId: bigint;
     constructor(data?: PartialMessage<AppendResponse_IDPairIntegrity>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.AppendResponse.IDPairIntegrity";
@@ -233,11 +233,15 @@ export declare class EventsResponse_Event extends Message<EventsResponse_Event> 
      */
     transactionId: number;
     /**
-     * @generated from field: google.protobuf.Timestamp created_at = 2;
+     * @generated from field: bytes integrity = 2;
+     */
+    integrity: Uint8Array;
+    /**
+     * @generated from field: google.protobuf.Timestamp created_at = 3;
      */
     createdAt?: Timestamp;
     /**
-     * @generated from field: eventsourcing.v1.ComponentTransaction component_transaction = 3;
+     * @generated from field: eventsourcing.v1.ComponentTransaction component_transaction = 4;
      */
     componentTransaction?: ComponentTransaction;
     constructor(data?: PartialMessage<EventsResponse_Event>);

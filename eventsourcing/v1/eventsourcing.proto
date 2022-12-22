@@ -17,7 +17,7 @@ message ComponentTransaction {
 
   message IDPairPatch {
     IDPair pair = 1;
-    bytes integrity_hash = 2;
+    int64 last_event_ledger_id = 2;
     repeated ColumnIndex column_indices = 3;
   }
 
@@ -45,7 +45,7 @@ message AppendResponse {
   message IDPairIntegrity {
     int64 component_id = 1;
     IDPair pair = 2;
-    bytes integrity_hash = 3;
+    int64 last_event_ledger_id = 3;
   }
   repeated IDPairIntegrity updated_pairs = 1;
 }
@@ -58,8 +58,9 @@ message EventsRequest {
 message EventsResponse {
   message Event {
     uint32 transaction_id = 1;
-    google.protobuf.Timestamp created_at = 2;
-    ComponentTransaction component_transaction = 3;
+    bytes integrity = 2;
+    google.protobuf.Timestamp created_at = 3;
+    ComponentTransaction component_transaction = 4;
   }
   repeated Event events = 1;
 }

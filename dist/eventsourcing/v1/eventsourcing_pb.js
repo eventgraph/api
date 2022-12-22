@@ -136,9 +136,9 @@ class ComponentTransaction_IDPairPatch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: bytes integrity_hash = 2;
+         * @generated from field: int64 last_event_ledger_id = 2;
          */
-        this.integrityHash = new Uint8Array(0);
+        this.lastEventLedgerId = protobuf_1.protoInt64.zero;
         /**
          * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
          */
@@ -163,7 +163,7 @@ ComponentTransaction_IDPairPatch.runtime = protobuf_1.proto3;
 ComponentTransaction_IDPairPatch.typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
 ComponentTransaction_IDPairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "pair", kind: "message", T: IDPair },
-    { no: 2, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
 ]);
 /**
@@ -276,9 +276,9 @@ class AppendResponse_IDPairIntegrity extends protobuf_1.Message {
          */
         this.componentId = protobuf_1.protoInt64.zero;
         /**
-         * @generated from field: bytes integrity_hash = 3;
+         * @generated from field: int64 last_event_ledger_id = 3;
          */
-        this.integrityHash = new Uint8Array(0);
+        this.lastEventLedgerId = protobuf_1.protoInt64.zero;
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -300,7 +300,7 @@ AppendResponse_IDPairIntegrity.typeName = "eventsourcing.v1.AppendResponse.IDPai
 AppendResponse_IDPairIntegrity.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "pair", kind: "message", T: IDPair },
-    { no: 3, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
  * @generated from message eventsourcing.v1.EventsRequest
@@ -379,6 +379,10 @@ class EventsResponse_Event extends protobuf_1.Message {
          * @generated from field: uint32 transaction_id = 1;
          */
         this.transactionId = 0;
+        /**
+         * @generated from field: bytes integrity = 2;
+         */
+        this.integrity = new Uint8Array(0);
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -399,6 +403,7 @@ EventsResponse_Event.runtime = protobuf_1.proto3;
 EventsResponse_Event.typeName = "eventsourcing.v1.EventsResponse.Event";
 EventsResponse_Event.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
-    { no: 2, name: "created_at", kind: "message", T: protobuf_1.Timestamp },
-    { no: 3, name: "component_transaction", kind: "message", T: ComponentTransaction },
+    { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: "created_at", kind: "message", T: protobuf_1.Timestamp },
+    { no: 4, name: "component_transaction", kind: "message", T: ComponentTransaction },
 ]);

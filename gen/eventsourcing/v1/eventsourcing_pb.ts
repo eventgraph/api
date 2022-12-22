@@ -163,9 +163,9 @@ export class ComponentTransaction_IDPairPatch extends Message<ComponentTransacti
   pair?: IDPair;
 
   /**
-   * @generated from field: bytes integrity_hash = 2;
+   * @generated from field: int64 last_event_ledger_id = 2;
    */
-  integrityHash = new Uint8Array(0);
+  lastEventLedgerId = protoInt64.zero;
 
   /**
    * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 3;
@@ -181,7 +181,7 @@ export class ComponentTransaction_IDPairPatch extends Message<ComponentTransacti
   static readonly typeName = "eventsourcing.v1.ComponentTransaction.IDPairPatch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pair", kind: "message", T: IDPair },
-    { no: 2, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 3, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
   ]);
 
@@ -340,9 +340,9 @@ export class AppendResponse_IDPairIntegrity extends Message<AppendResponse_IDPai
   pair?: IDPair;
 
   /**
-   * @generated from field: bytes integrity_hash = 3;
+   * @generated from field: int64 last_event_ledger_id = 3;
    */
-  integrityHash = new Uint8Array(0);
+  lastEventLedgerId = protoInt64.zero;
 
   constructor(data?: PartialMessage<AppendResponse_IDPairIntegrity>) {
     super();
@@ -354,7 +354,7 @@ export class AppendResponse_IDPairIntegrity extends Message<AppendResponse_IDPai
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "pair", kind: "message", T: IDPair },
-    { no: 3, name: "integrity_hash", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse_IDPairIntegrity {
@@ -464,12 +464,17 @@ export class EventsResponse_Event extends Message<EventsResponse_Event> {
   transactionId = 0;
 
   /**
-   * @generated from field: google.protobuf.Timestamp created_at = 2;
+   * @generated from field: bytes integrity = 2;
+   */
+  integrity = new Uint8Array(0);
+
+  /**
+   * @generated from field: google.protobuf.Timestamp created_at = 3;
    */
   createdAt?: Timestamp;
 
   /**
-   * @generated from field: eventsourcing.v1.ComponentTransaction component_transaction = 3;
+   * @generated from field: eventsourcing.v1.ComponentTransaction component_transaction = 4;
    */
   componentTransaction?: ComponentTransaction;
 
@@ -482,8 +487,9 @@ export class EventsResponse_Event extends Message<EventsResponse_Event> {
   static readonly typeName = "eventsourcing.v1.EventsResponse.Event";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
-    { no: 2, name: "created_at", kind: "message", T: Timestamp },
-    { no: 3, name: "component_transaction", kind: "message", T: ComponentTransaction },
+    { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 3, name: "created_at", kind: "message", T: Timestamp },
+    { no: 4, name: "component_transaction", kind: "message", T: ComponentTransaction },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsResponse_Event {
