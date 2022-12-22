@@ -166,9 +166,9 @@ export declare class AppendRequest extends Message<AppendRequest> {
  */
 export declare class AppendResponse extends Message<AppendResponse> {
     /**
-     * @generated from field: int64 last_event_ledger_id = 1;
+     * @generated from field: int64 event_id = 1;
      */
-    lastEventLedgerId: bigint;
+    eventId: bigint;
     /**
      * @generated from field: bytes integrity = 2;
      */
@@ -187,9 +187,9 @@ export declare class AppendResponse extends Message<AppendResponse> {
  */
 export declare class EventsRequest extends Message<EventsRequest> {
     /**
-     * @generated from field: uint32 last_transaction_id = 1;
+     * @generated from field: int64 last_event_id = 1;
      */
-    lastTransactionId: number;
+    lastEventId: bigint;
     /**
      * @generated from field: uint32 limit = 2;
      */
@@ -225,9 +225,9 @@ export declare class EventsResponse extends Message<EventsResponse> {
  */
 export declare class EventsResponse_Event extends Message<EventsResponse_Event> {
     /**
-     * @generated from field: uint32 transaction_id = 1;
+     * @generated from field: int64 id = 1;
      */
-    transactionId: number;
+    id: bigint;
     /**
      * @generated from field: bytes integrity = 2;
      */

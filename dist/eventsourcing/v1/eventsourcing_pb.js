@@ -268,9 +268,9 @@ class AppendResponse extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 last_event_ledger_id = 1;
+         * @generated from field: int64 event_id = 1;
          */
-        this.lastEventLedgerId = protobuf_1.protoInt64.zero;
+        this.eventId = protobuf_1.protoInt64.zero;
         /**
          * @generated from field: bytes integrity = 2;
          */
@@ -294,7 +294,7 @@ exports.AppendResponse = AppendResponse;
 AppendResponse.runtime = protobuf_1.proto3;
 AppendResponse.typeName = "eventsourcing.v1.AppendResponse";
 AppendResponse.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "event_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
 ]);
 /**
@@ -304,9 +304,9 @@ class EventsRequest extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: uint32 last_transaction_id = 1;
+         * @generated from field: int64 last_event_id = 1;
          */
-        this.lastTransactionId = 0;
+        this.lastEventId = protobuf_1.protoInt64.zero;
         /**
          * @generated from field: uint32 limit = 2;
          */
@@ -330,7 +330,7 @@ exports.EventsRequest = EventsRequest;
 EventsRequest.runtime = protobuf_1.proto3;
 EventsRequest.typeName = "eventsourcing.v1.EventsRequest";
 EventsRequest.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "last_transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 1, name: "last_event_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "limit", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
 ]);
 /**
@@ -371,9 +371,9 @@ class EventsResponse_Event extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: uint32 transaction_id = 1;
+         * @generated from field: int64 id = 1;
          */
-        this.transactionId = 0;
+        this.id = protobuf_1.protoInt64.zero;
         /**
          * @generated from field: bytes integrity = 2;
          */
@@ -397,7 +397,7 @@ exports.EventsResponse_Event = EventsResponse_Event;
 EventsResponse_Event.runtime = protobuf_1.proto3;
 EventsResponse_Event.typeName = "eventsourcing.v1.EventsResponse.Event";
 EventsResponse_Event.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 1, name: "id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 3, name: "created_at", kind: "message", T: protobuf_1.Timestamp },
     { no: 4, name: "data_table_transaction", kind: "message", T: DataTableTransaction },

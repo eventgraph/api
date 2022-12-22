@@ -330,9 +330,9 @@ export class AppendRequest extends Message<AppendRequest> {
  */
 export class AppendResponse extends Message<AppendResponse> {
   /**
-   * @generated from field: int64 last_event_ledger_id = 1;
+   * @generated from field: int64 event_id = 1;
    */
-  lastEventLedgerId = protoInt64.zero;
+  eventId = protoInt64.zero;
 
   /**
    * @generated from field: bytes integrity = 2;
@@ -347,7 +347,7 @@ export class AppendResponse extends Message<AppendResponse> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.AppendResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "event_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
   ]);
 
@@ -373,9 +373,9 @@ export class AppendResponse extends Message<AppendResponse> {
  */
 export class EventsRequest extends Message<EventsRequest> {
   /**
-   * @generated from field: uint32 last_transaction_id = 1;
+   * @generated from field: int64 last_event_id = 1;
    */
-  lastTransactionId = 0;
+  lastEventId = protoInt64.zero;
 
   /**
    * @generated from field: uint32 limit = 2;
@@ -390,7 +390,7 @@ export class EventsRequest extends Message<EventsRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.EventsRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "last_transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 1, name: "last_event_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "limit", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
@@ -453,9 +453,9 @@ export class EventsResponse extends Message<EventsResponse> {
  */
 export class EventsResponse_Event extends Message<EventsResponse_Event> {
   /**
-   * @generated from field: uint32 transaction_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  transactionId = 0;
+  id = protoInt64.zero;
 
   /**
    * @generated from field: bytes integrity = 2;
@@ -480,7 +480,7 @@ export class EventsResponse_Event extends Message<EventsResponse_Event> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.EventsResponse.Event";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 1, name: "id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 3, name: "created_at", kind: "message", T: Timestamp },
     { no: 4, name: "data_table_transaction", kind: "message", T: DataTableTransaction },
