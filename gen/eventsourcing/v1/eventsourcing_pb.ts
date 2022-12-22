@@ -50,9 +50,9 @@ export class IDPair extends Message<IDPair> {
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction
+ * @generated from message eventsourcing.v1.DataTableTransaction
  */
-export class ComponentTransaction extends Message<ComponentTransaction> {
+export class DataTableTransaction extends Message<DataTableTransaction> {
   /**
    * @generated from field: repeated int64 i64s = 1;
    */
@@ -74,46 +74,46 @@ export class ComponentTransaction extends Message<ComponentTransaction> {
   binaries: Uint8Array[] = [];
 
   /**
-   * @generated from field: map<int64, eventsourcing.v1.ComponentTransaction.Patch> component_patches = 5;
+   * @generated from field: map<int64, eventsourcing.v1.DataTableTransaction.Patch> patches = 5;
    */
-  componentPatches: { [key: string]: ComponentTransaction_Patch } = {};
+  patches: { [key: string]: DataTableTransaction_Patch } = {};
 
-  constructor(data?: PartialMessage<ComponentTransaction>) {
+  constructor(data?: PartialMessage<DataTableTransaction>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction";
+  static readonly typeName = "eventsourcing.v1.DataTableTransaction";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "i64s", kind: "scalar", T: 3 /* ScalarType.INT64 */, repeated: true },
     { no: 2, name: "f64s", kind: "scalar", T: 1 /* ScalarType.DOUBLE */, repeated: true },
     { no: 3, name: "texts", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 4, name: "binaries", kind: "scalar", T: 12 /* ScalarType.BYTES */, repeated: true },
-    { no: 5, name: "component_patches", kind: "map", K: 3 /* ScalarType.INT64 */, V: {kind: "message", T: ComponentTransaction_Patch} },
+    { no: 5, name: "patches", kind: "map", K: 3 /* ScalarType.INT64 */, V: {kind: "message", T: DataTableTransaction_Patch} },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction {
-    return new ComponentTransaction().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction {
+    return new DataTableTransaction().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction {
-    return new ComponentTransaction().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction {
+    return new DataTableTransaction().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction {
-    return new ComponentTransaction().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction {
+    return new DataTableTransaction().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction | PlainMessage<ComponentTransaction> | undefined, b: ComponentTransaction | PlainMessage<ComponentTransaction> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction, a, b);
+  static equals(a: DataTableTransaction | PlainMessage<DataTableTransaction> | undefined, b: DataTableTransaction | PlainMessage<DataTableTransaction> | undefined): boolean {
+    return proto3.util.equals(DataTableTransaction, a, b);
   }
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.ColumnIndex
+ * @generated from message eventsourcing.v1.DataTableTransaction.ColumnIndex
  */
-export class ComponentTransaction_ColumnIndex extends Message<ComponentTransaction_ColumnIndex> {
+export class DataTableTransaction_ColumnIndex extends Message<DataTableTransaction_ColumnIndex> {
   /**
    * @generated from field: uint32 table_index = 1;
    */
@@ -124,39 +124,39 @@ export class ComponentTransaction_ColumnIndex extends Message<ComponentTransacti
    */
   patchFieldIndex = 0;
 
-  constructor(data?: PartialMessage<ComponentTransaction_ColumnIndex>) {
+  constructor(data?: PartialMessage<DataTableTransaction_ColumnIndex>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction.ColumnIndex";
+  static readonly typeName = "eventsourcing.v1.DataTableTransaction.ColumnIndex";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "table_index", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 2, name: "patch_field_index", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_ColumnIndex {
-    return new ComponentTransaction_ColumnIndex().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_ColumnIndex {
+    return new DataTableTransaction_ColumnIndex().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_ColumnIndex {
-    return new ComponentTransaction_ColumnIndex().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_ColumnIndex {
+    return new DataTableTransaction_ColumnIndex().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_ColumnIndex {
-    return new ComponentTransaction_ColumnIndex().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_ColumnIndex {
+    return new DataTableTransaction_ColumnIndex().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction_ColumnIndex | PlainMessage<ComponentTransaction_ColumnIndex> | undefined, b: ComponentTransaction_ColumnIndex | PlainMessage<ComponentTransaction_ColumnIndex> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction_ColumnIndex, a, b);
+  static equals(a: DataTableTransaction_ColumnIndex | PlainMessage<DataTableTransaction_ColumnIndex> | undefined, b: DataTableTransaction_ColumnIndex | PlainMessage<DataTableTransaction_ColumnIndex> | undefined): boolean {
+    return proto3.util.equals(DataTableTransaction_ColumnIndex, a, b);
   }
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.PairLastEvent
+ * @generated from message eventsourcing.v1.DataTableTransaction.PairLastEvent
  */
-export class ComponentTransaction_PairLastEvent extends Message<ComponentTransaction_PairLastEvent> {
+export class DataTableTransaction_PairLastEvent extends Message<DataTableTransaction_PairLastEvent> {
   /**
    * @generated from field: eventsourcing.v1.IDPair pair = 1;
    */
@@ -167,124 +167,124 @@ export class ComponentTransaction_PairLastEvent extends Message<ComponentTransac
    */
   lastEventLedgerId = protoInt64.zero;
 
-  constructor(data?: PartialMessage<ComponentTransaction_PairLastEvent>) {
+  constructor(data?: PartialMessage<DataTableTransaction_PairLastEvent>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction.PairLastEvent";
+  static readonly typeName = "eventsourcing.v1.DataTableTransaction.PairLastEvent";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "pair", kind: "message", T: IDPair },
     { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_PairLastEvent {
-    return new ComponentTransaction_PairLastEvent().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_PairLastEvent {
+    return new DataTableTransaction_PairLastEvent().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_PairLastEvent {
-    return new ComponentTransaction_PairLastEvent().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_PairLastEvent {
+    return new DataTableTransaction_PairLastEvent().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_PairLastEvent {
-    return new ComponentTransaction_PairLastEvent().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_PairLastEvent {
+    return new DataTableTransaction_PairLastEvent().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction_PairLastEvent | PlainMessage<ComponentTransaction_PairLastEvent> | undefined, b: ComponentTransaction_PairLastEvent | PlainMessage<ComponentTransaction_PairLastEvent> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction_PairLastEvent, a, b);
+  static equals(a: DataTableTransaction_PairLastEvent | PlainMessage<DataTableTransaction_PairLastEvent> | undefined, b: DataTableTransaction_PairLastEvent | PlainMessage<DataTableTransaction_PairLastEvent> | undefined): boolean {
+    return proto3.util.equals(DataTableTransaction_PairLastEvent, a, b);
   }
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.PairPatch
+ * @generated from message eventsourcing.v1.DataTableTransaction.PairPatch
  */
-export class ComponentTransaction_PairPatch extends Message<ComponentTransaction_PairPatch> {
+export class DataTableTransaction_PairPatch extends Message<DataTableTransaction_PairPatch> {
   /**
-   * @generated from field: eventsourcing.v1.ComponentTransaction.PairLastEvent pair_last_event = 1;
+   * @generated from field: eventsourcing.v1.DataTableTransaction.PairLastEvent pair_last_event = 1;
    */
-  pairLastEvent?: ComponentTransaction_PairLastEvent;
+  pairLastEvent?: DataTableTransaction_PairLastEvent;
 
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.ColumnIndex column_indices = 2;
+   * @generated from field: repeated eventsourcing.v1.DataTableTransaction.ColumnIndex column_indices = 2;
    */
-  columnIndices: ComponentTransaction_ColumnIndex[] = [];
+  columnIndices: DataTableTransaction_ColumnIndex[] = [];
 
-  constructor(data?: PartialMessage<ComponentTransaction_PairPatch>) {
+  constructor(data?: PartialMessage<DataTableTransaction_PairPatch>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction.PairPatch";
+  static readonly typeName = "eventsourcing.v1.DataTableTransaction.PairPatch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pair_last_event", kind: "message", T: ComponentTransaction_PairLastEvent },
-    { no: 2, name: "column_indices", kind: "message", T: ComponentTransaction_ColumnIndex, repeated: true },
+    { no: 1, name: "pair_last_event", kind: "message", T: DataTableTransaction_PairLastEvent },
+    { no: 2, name: "column_indices", kind: "message", T: DataTableTransaction_ColumnIndex, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_PairPatch {
-    return new ComponentTransaction_PairPatch().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_PairPatch {
+    return new DataTableTransaction_PairPatch().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_PairPatch {
-    return new ComponentTransaction_PairPatch().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_PairPatch {
+    return new DataTableTransaction_PairPatch().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_PairPatch {
-    return new ComponentTransaction_PairPatch().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_PairPatch {
+    return new DataTableTransaction_PairPatch().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction_PairPatch | PlainMessage<ComponentTransaction_PairPatch> | undefined, b: ComponentTransaction_PairPatch | PlainMessage<ComponentTransaction_PairPatch> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction_PairPatch, a, b);
+  static equals(a: DataTableTransaction_PairPatch | PlainMessage<DataTableTransaction_PairPatch> | undefined, b: DataTableTransaction_PairPatch | PlainMessage<DataTableTransaction_PairPatch> | undefined): boolean {
+    return proto3.util.equals(DataTableTransaction_PairPatch, a, b);
   }
 }
 
 /**
- * @generated from message eventsourcing.v1.ComponentTransaction.Patch
+ * @generated from message eventsourcing.v1.DataTableTransaction.Patch
  */
-export class ComponentTransaction_Patch extends Message<ComponentTransaction_Patch> {
+export class DataTableTransaction_Patch extends Message<DataTableTransaction_Patch> {
   /**
    * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
    */
   addedPairs: IDPair[] = [];
 
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairLastEvent removed_pairs = 2;
+   * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairLastEvent removed_pairs = 2;
    */
-  removedPairs: ComponentTransaction_PairLastEvent[] = [];
+  removedPairs: DataTableTransaction_PairLastEvent[] = [];
 
   /**
-   * @generated from field: repeated eventsourcing.v1.ComponentTransaction.PairPatch updated_pair_patches = 3;
+   * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairPatch updated_pair_patches = 3;
    */
-  updatedPairPatches: ComponentTransaction_PairPatch[] = [];
+  updatedPairPatches: DataTableTransaction_PairPatch[] = [];
 
-  constructor(data?: PartialMessage<ComponentTransaction_Patch>) {
+  constructor(data?: PartialMessage<DataTableTransaction_Patch>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.ComponentTransaction.Patch";
+  static readonly typeName = "eventsourcing.v1.DataTableTransaction.Patch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
-    { no: 2, name: "removed_pairs", kind: "message", T: ComponentTransaction_PairLastEvent, repeated: true },
-    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentTransaction_PairPatch, repeated: true },
+    { no: 2, name: "removed_pairs", kind: "message", T: DataTableTransaction_PairLastEvent, repeated: true },
+    { no: 3, name: "updated_pair_patches", kind: "message", T: DataTableTransaction_PairPatch, repeated: true },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentTransaction_Patch {
-    return new ComponentTransaction_Patch().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_Patch {
+    return new DataTableTransaction_Patch().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentTransaction_Patch {
-    return new ComponentTransaction_Patch().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_Patch {
+    return new DataTableTransaction_Patch().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentTransaction_Patch {
-    return new ComponentTransaction_Patch().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_Patch {
+    return new DataTableTransaction_Patch().fromJsonString(jsonString, options);
   }
 
-  static equals(a: ComponentTransaction_Patch | PlainMessage<ComponentTransaction_Patch> | undefined, b: ComponentTransaction_Patch | PlainMessage<ComponentTransaction_Patch> | undefined): boolean {
-    return proto3.util.equals(ComponentTransaction_Patch, a, b);
+  static equals(a: DataTableTransaction_Patch | PlainMessage<DataTableTransaction_Patch> | undefined, b: DataTableTransaction_Patch | PlainMessage<DataTableTransaction_Patch> | undefined): boolean {
+    return proto3.util.equals(DataTableTransaction_Patch, a, b);
   }
 }
 
@@ -293,14 +293,9 @@ export class ComponentTransaction_Patch extends Message<ComponentTransaction_Pat
  */
 export class AppendRequest extends Message<AppendRequest> {
   /**
-   * @generated from field: bytes expected_integrity = 1;
+   * @generated from field: eventsourcing.v1.DataTableTransaction transaction = 1;
    */
-  expectedIntegrity = new Uint8Array(0);
-
-  /**
-   * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 2;
-   */
-  transaction?: ComponentTransaction;
+  transaction?: DataTableTransaction;
 
   constructor(data?: PartialMessage<AppendRequest>) {
     super();
@@ -310,8 +305,7 @@ export class AppendRequest extends Message<AppendRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.AppendRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "expected_integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
-    { no: 2, name: "transaction", kind: "message", T: ComponentTransaction },
+    { no: 1, name: "transaction", kind: "message", T: DataTableTransaction },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendRequest {
@@ -474,9 +468,9 @@ export class EventsResponse_Event extends Message<EventsResponse_Event> {
   createdAt?: Timestamp;
 
   /**
-   * @generated from field: eventsourcing.v1.ComponentTransaction component_transaction = 4;
+   * @generated from field: eventsourcing.v1.DataTableTransaction data_table_transaction = 4;
    */
-  componentTransaction?: ComponentTransaction;
+  dataTableTransaction?: DataTableTransaction;
 
   constructor(data?: PartialMessage<EventsResponse_Event>) {
     super();
@@ -489,7 +483,7 @@ export class EventsResponse_Event extends Message<EventsResponse_Event> {
     { no: 1, name: "transaction_id", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 3, name: "created_at", kind: "message", T: Timestamp },
-    { no: 4, name: "component_transaction", kind: "message", T: ComponentTransaction },
+    { no: 4, name: "data_table_transaction", kind: "message", T: DataTableTransaction },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsResponse_Event {
