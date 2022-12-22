@@ -293,7 +293,12 @@ export class ComponentTransaction_Patch extends Message<ComponentTransaction_Pat
  */
 export class AppendRequest extends Message<AppendRequest> {
   /**
-   * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 1;
+   * @generated from field: bytes expected_integrity = 1;
+   */
+  expectedIntegrity = new Uint8Array(0);
+
+  /**
+   * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 2;
    */
   transaction?: ComponentTransaction;
 
@@ -305,7 +310,8 @@ export class AppendRequest extends Message<AppendRequest> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.AppendRequest";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "transaction", kind: "message", T: ComponentTransaction },
+    { no: 1, name: "expected_integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 2, name: "transaction", kind: "message", T: ComponentTransaction },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendRequest {
@@ -330,9 +336,14 @@ export class AppendRequest extends Message<AppendRequest> {
  */
 export class AppendResponse extends Message<AppendResponse> {
   /**
-   * @generated from field: int64 last_event_ledger_id = 3;
+   * @generated from field: int64 last_event_ledger_id = 1;
    */
   lastEventLedgerId = protoInt64.zero;
+
+  /**
+   * @generated from field: bytes integrity = 2;
+   */
+  integrity = new Uint8Array(0);
 
   constructor(data?: PartialMessage<AppendResponse>) {
     super();
@@ -342,7 +353,8 @@ export class AppendResponse extends Message<AppendResponse> {
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.AppendResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): AppendResponse {

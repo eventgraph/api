@@ -149,7 +149,11 @@ export declare class ComponentTransaction_Patch extends Message<ComponentTransac
  */
 export declare class AppendRequest extends Message<AppendRequest> {
     /**
-     * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 1;
+     * @generated from field: bytes expected_integrity = 1;
+     */
+    expectedIntegrity: Uint8Array;
+    /**
+     * @generated from field: eventsourcing.v1.ComponentTransaction transaction = 2;
      */
     transaction?: ComponentTransaction;
     constructor(data?: PartialMessage<AppendRequest>);
@@ -166,9 +170,13 @@ export declare class AppendRequest extends Message<AppendRequest> {
  */
 export declare class AppendResponse extends Message<AppendResponse> {
     /**
-     * @generated from field: int64 last_event_ledger_id = 3;
+     * @generated from field: int64 last_event_ledger_id = 1;
      */
     lastEventLedgerId: bigint;
+    /**
+     * @generated from field: bytes integrity = 2;
+     */
+    integrity: Uint8Array;
     constructor(data?: PartialMessage<AppendResponse>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.AppendResponse";

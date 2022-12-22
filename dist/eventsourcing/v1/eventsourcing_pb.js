@@ -240,6 +240,10 @@ ComponentTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
 class AppendRequest extends protobuf_1.Message {
     constructor(data) {
         super();
+        /**
+         * @generated from field: bytes expected_integrity = 1;
+         */
+        this.expectedIntegrity = new Uint8Array(0);
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -259,7 +263,8 @@ exports.AppendRequest = AppendRequest;
 AppendRequest.runtime = protobuf_1.proto3;
 AppendRequest.typeName = "eventsourcing.v1.AppendRequest";
 AppendRequest.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "transaction", kind: "message", T: ComponentTransaction },
+    { no: 1, name: "expected_integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
+    { no: 2, name: "transaction", kind: "message", T: ComponentTransaction },
 ]);
 /**
  * @generated from message eventsourcing.v1.AppendResponse
@@ -268,9 +273,13 @@ class AppendResponse extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 last_event_ledger_id = 3;
+         * @generated from field: int64 last_event_ledger_id = 1;
          */
         this.lastEventLedgerId = protobuf_1.protoInt64.zero;
+        /**
+         * @generated from field: bytes integrity = 2;
+         */
+        this.integrity = new Uint8Array(0);
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -290,7 +299,8 @@ exports.AppendResponse = AppendResponse;
 AppendResponse.runtime = protobuf_1.proto3;
 AppendResponse.typeName = "eventsourcing.v1.AppendResponse";
 AppendResponse.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 3, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
 ]);
 /**
  * @generated from message eventsourcing.v1.EventsRequest
