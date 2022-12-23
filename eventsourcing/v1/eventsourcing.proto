@@ -63,4 +63,6 @@ message EventsResponse {
     DataTableTransaction data_table_transaction = 4;
   }
   repeated Event events = 1;
+  bool has_more = 2;
+  int64 count = 3;
 }

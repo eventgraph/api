@@ -343,6 +343,14 @@ class EventsResponse extends protobuf_1.Message {
          * @generated from field: repeated eventsourcing.v1.EventsResponse.Event events = 1;
          */
         this.events = [];
+        /**
+         * @generated from field: bool has_more = 2;
+         */
+        this.hasMore = false;
+        /**
+         * @generated from field: int64 count = 3;
+         */
+        this.count = protobuf_1.protoInt64.zero;
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -363,6 +371,8 @@ EventsResponse.runtime = protobuf_1.proto3;
 EventsResponse.typeName = "eventsourcing.v1.EventsResponse";
 EventsResponse.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "events", kind: "message", T: EventsResponse_Event, repeated: true },
+    { no: 2, name: "has_more", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "count", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
  * @generated from message eventsourcing.v1.EventsResponse.Event

@@ -211,6 +211,14 @@ export declare class EventsResponse extends Message<EventsResponse> {
      * @generated from field: repeated eventsourcing.v1.EventsResponse.Event events = 1;
      */
     events: EventsResponse_Event[];
+    /**
+     * @generated from field: bool has_more = 2;
+     */
+    hasMore: boolean;
+    /**
+     * @generated from field: int64 count = 3;
+     */
+    count: bigint;
     constructor(data?: PartialMessage<EventsResponse>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.EventsResponse";

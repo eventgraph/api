@@ -420,6 +420,16 @@ export class EventsResponse extends Message<EventsResponse> {
    */
   events: EventsResponse_Event[] = [];
 
+  /**
+   * @generated from field: bool has_more = 2;
+   */
+  hasMore = false;
+
+  /**
+   * @generated from field: int64 count = 3;
+   */
+  count = protoInt64.zero;
+
   constructor(data?: PartialMessage<EventsResponse>) {
     super();
     proto3.util.initPartial(data, this);
@@ -429,6 +439,8 @@ export class EventsResponse extends Message<EventsResponse> {
   static readonly typeName = "eventsourcing.v1.EventsResponse";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "events", kind: "message", T: EventsResponse_Event, repeated: true },
+    { no: 2, name: "has_more", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 3, name: "count", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsResponse {
