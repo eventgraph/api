@@ -68,14 +68,27 @@ export class QueryTerm extends Message<QueryTerm> {
  */
 export class QueryTerm_Connection extends Message<QueryTerm_Connection> {
   /**
-   * @generated from field: domainconfig.v1.QueryTerm.Connection.Mode mode = 1;
+   * @generated from oneof domainconfig.v1.QueryTerm.Connection.mode
    */
-  mode = QueryTerm_Connection_Mode.UNSPECIFIED;
-
-  /**
-   * @generated from field: int64 value = 2;
-   */
-  value = protoInt64.zero;
+  mode: {
+    /**
+     * @generated from field: int64 instance = 1;
+     */
+    value: bigint;
+    case: "instance";
+  } | {
+    /**
+     * @generated from field: string init_variable = 2;
+     */
+    value: string;
+    case: "initVariable";
+  } | {
+    /**
+     * @generated from field: string variable = 3;
+     */
+    value: string;
+    case: "variable";
+  } | { case: undefined; value?: undefined } = { case: undefined };
 
   constructor(data?: PartialMessage<QueryTerm_Connection>) {
     super();
@@ -85,8 +98,9 @@ export class QueryTerm_Connection extends Message<QueryTerm_Connection> {
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.QueryTerm.Connection";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "mode", kind: "enum", T: proto3.getEnumType(QueryTerm_Connection_Mode) },
-    { no: 2, name: "value", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "instance", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "mode" },
+    { no: 2, name: "init_variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "mode" },
+    { no: 3, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "mode" },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm_Connection {
@@ -105,38 +119,6 @@ export class QueryTerm_Connection extends Message<QueryTerm_Connection> {
     return proto3.util.equals(QueryTerm_Connection, a, b);
   }
 }
-
-/**
- * @generated from enum domainconfig.v1.QueryTerm.Connection.Mode
- */
-export enum QueryTerm_Connection_Mode {
-  /**
-   * @generated from enum value: MODE_UNSPECIFIED = 0;
-   */
-  UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: MODE_INSTANCE = 1;
-   */
-  INSTANCE = 1,
-
-  /**
-   * @generated from enum value: MODE_INIT_VARIABLE = 2;
-   */
-  INIT_VARIABLE = 2,
-
-  /**
-   * @generated from enum value: MODE_VARIABLE = 3;
-   */
-  VARIABLE = 3,
-}
-// Retrieve enum metadata with: proto3.getEnumType(QueryTerm_Connection_Mode)
-proto3.util.setEnumType(QueryTerm_Connection_Mode, "domainconfig.v1.QueryTerm.Connection.Mode", [
-  { no: 0, name: "MODE_UNSPECIFIED" },
-  { no: 1, name: "MODE_INSTANCE" },
-  { no: 2, name: "MODE_INIT_VARIABLE" },
-  { no: 3, name: "MODE_VARIABLE" },
-]);
 
 /**
  * @generated from message domainconfig.v1.QueryTerm.EdgeConnection

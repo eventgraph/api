@@ -42,13 +42,30 @@ export declare class QueryTerm extends Message<QueryTerm> {
  */
 export declare class QueryTerm_Connection extends Message<QueryTerm_Connection> {
     /**
-     * @generated from field: domainconfig.v1.QueryTerm.Connection.Mode mode = 1;
+     * @generated from oneof domainconfig.v1.QueryTerm.Connection.mode
      */
-    mode: QueryTerm_Connection_Mode;
-    /**
-     * @generated from field: int64 value = 2;
-     */
-    value: bigint;
+    mode: {
+        /**
+         * @generated from field: int64 instance = 1;
+         */
+        value: bigint;
+        case: "instance";
+    } | {
+        /**
+         * @generated from field: string init_variable = 2;
+         */
+        value: string;
+        case: "initVariable";
+    } | {
+        /**
+         * @generated from field: string variable = 3;
+         */
+        value: string;
+        case: "variable";
+    } | {
+        case: undefined;
+        value?: undefined;
+    };
     constructor(data?: PartialMessage<QueryTerm_Connection>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
     static readonly typeName = "domainconfig.v1.QueryTerm.Connection";
@@ -57,27 +74,6 @@ export declare class QueryTerm_Connection extends Message<QueryTerm_Connection> 
     static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTerm_Connection;
     static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTerm_Connection;
     static equals(a: QueryTerm_Connection | PlainMessage<QueryTerm_Connection> | undefined, b: QueryTerm_Connection | PlainMessage<QueryTerm_Connection> | undefined): boolean;
-}
-/**
- * @generated from enum domainconfig.v1.QueryTerm.Connection.Mode
- */
-export declare enum QueryTerm_Connection_Mode {
-    /**
-     * @generated from enum value: MODE_UNSPECIFIED = 0;
-     */
-    UNSPECIFIED = 0,
-    /**
-     * @generated from enum value: MODE_INSTANCE = 1;
-     */
-    INSTANCE = 1,
-    /**
-     * @generated from enum value: MODE_INIT_VARIABLE = 2;
-     */
-    INIT_VARIABLE = 2,
-    /**
-     * @generated from enum value: MODE_VARIABLE = 3;
-     */
-    VARIABLE = 3
 }
 /**
  * @generated from message domainconfig.v1.QueryTerm.EdgeConnection
