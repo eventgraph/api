@@ -6,6 +6,7 @@
     "domainconfigv",
     "eventgraph",
     "eventsourcing",
+    "eventsourcingv",
     "extendee",
     "Idxs",
     "nocheck",
@@ -15,7 +16,8 @@
     "protoc",
     "protocolbuffers",
     "protoimpl",
-    "protoreflect"
+    "protoreflect",
+    "timestamppb"
   ],
   "editor.formatOnSave": true
 }

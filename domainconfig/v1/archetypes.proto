@@ -4,43 +4,34 @@ package domainconfig.v1;
 
 import "domainconfig/v1/shared.proto";
 
-message ComponentQuery {
-
+message QueryTerm {
   message Connection {
     enum Mode {
       MODE_UNSPECIFIED = 0;
-      MODE_MANDATORY = 1;
-      MODE_OPTIONAL = 2;
-      MODE_EXCLUDED = 3;
-    }
-    oneof connection {
-      string variable = 1;
-      int64 entity = 2;
-    }
-  }
-
-  message Filter {
-    enum Mode {
-      MODE_UNSPECIFIED = 0;
-      MODE_AND = 1;
-      MODE_OR = 2;
-    }
-
-    message Term {
-      int64 component_id = 1;
-      Connection from = 2;
-      Connection to = 3;
+      MODE_INSTANCE = 1;
+      MODE_INIT_VARIABLE = 2;
+      MODE_VARIABLE = 3;
     }
 
     Mode mode = 1;
-    repeated Term terms = 2;
-    repeated Filter nested = 3;
+    int64 value = 2;
   }
 
-  Filter filter = 1;
+  message EdgeConnection {
+    Connection from_id = 1;
+    Connection to_id = 2;
+  }
+
+  message LeafConnection { Connection id = 1; }
+
+  int64 component_id = 1;
+  oneof connection {
+    EdgeConnection edge = 2;
+    LeafConnection leaf = 3;
+  }
 }
 
 message ArchetypeDefinition {
   Metadata metadata = 1;
-  ComponentQuery root = 2;
+  repeated QueryTerm query_terms = 2;
 }

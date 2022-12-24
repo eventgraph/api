@@ -4,194 +4,165 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ArchetypeDefinition = exports.ComponentQuery_Filter_Term = exports.ComponentQuery_Filter_Mode = exports.ComponentQuery_Filter = exports.ComponentQuery_Connection_Mode = exports.ComponentQuery_Connection = exports.ComponentQuery = void 0;
+exports.ArchetypeDefinition = exports.QueryTerm_LeafConnection = exports.QueryTerm_EdgeConnection = exports.QueryTerm_Connection_Mode = exports.QueryTerm_Connection = exports.QueryTerm = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 const shared_pb_js_1 = require("./shared_pb.js");
 /**
- * @generated from message domainconfig.v1.ComponentQuery
+ * @generated from message domainconfig.v1.QueryTerm
  */
-class ComponentQuery extends protobuf_1.Message {
-    constructor(data) {
-        super();
-        protobuf_1.proto3.util.initPartial(data, this);
-    }
-    static fromBinary(bytes, options) {
-        return new ComponentQuery().fromBinary(bytes, options);
-    }
-    static fromJson(jsonValue, options) {
-        return new ComponentQuery().fromJson(jsonValue, options);
-    }
-    static fromJsonString(jsonString, options) {
-        return new ComponentQuery().fromJsonString(jsonString, options);
-    }
-    static equals(a, b) {
-        return protobuf_1.proto3.util.equals(ComponentQuery, a, b);
-    }
-}
-exports.ComponentQuery = ComponentQuery;
-ComponentQuery.runtime = protobuf_1.proto3;
-ComponentQuery.typeName = "domainconfig.v1.ComponentQuery";
-ComponentQuery.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "filter", kind: "message", T: ComponentQuery_Filter },
-]);
-/**
- * @generated from message domainconfig.v1.ComponentQuery.Connection
- */
-class ComponentQuery_Connection extends protobuf_1.Message {
-    constructor(data) {
-        super();
-        /**
-         * @generated from oneof domainconfig.v1.ComponentQuery.Connection.connection
-         */
-        this.connection = { case: undefined };
-        protobuf_1.proto3.util.initPartial(data, this);
-    }
-    static fromBinary(bytes, options) {
-        return new ComponentQuery_Connection().fromBinary(bytes, options);
-    }
-    static fromJson(jsonValue, options) {
-        return new ComponentQuery_Connection().fromJson(jsonValue, options);
-    }
-    static fromJsonString(jsonString, options) {
-        return new ComponentQuery_Connection().fromJsonString(jsonString, options);
-    }
-    static equals(a, b) {
-        return protobuf_1.proto3.util.equals(ComponentQuery_Connection, a, b);
-    }
-}
-exports.ComponentQuery_Connection = ComponentQuery_Connection;
-ComponentQuery_Connection.runtime = protobuf_1.proto3;
-ComponentQuery_Connection.typeName = "domainconfig.v1.ComponentQuery.Connection";
-ComponentQuery_Connection.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "connection" },
-    { no: 2, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "connection" },
-]);
-/**
- * @generated from enum domainconfig.v1.ComponentQuery.Connection.Mode
- */
-var ComponentQuery_Connection_Mode;
-(function (ComponentQuery_Connection_Mode) {
-    /**
-     * @generated from enum value: MODE_UNSPECIFIED = 0;
-     */
-    ComponentQuery_Connection_Mode[ComponentQuery_Connection_Mode["UNSPECIFIED"] = 0] = "UNSPECIFIED";
-    /**
-     * @generated from enum value: MODE_MANDATORY = 1;
-     */
-    ComponentQuery_Connection_Mode[ComponentQuery_Connection_Mode["MANDATORY"] = 1] = "MANDATORY";
-    /**
-     * @generated from enum value: MODE_OPTIONAL = 2;
-     */
-    ComponentQuery_Connection_Mode[ComponentQuery_Connection_Mode["OPTIONAL"] = 2] = "OPTIONAL";
-    /**
-     * @generated from enum value: MODE_EXCLUDED = 3;
-     */
-    ComponentQuery_Connection_Mode[ComponentQuery_Connection_Mode["EXCLUDED"] = 3] = "EXCLUDED";
-})(ComponentQuery_Connection_Mode = exports.ComponentQuery_Connection_Mode || (exports.ComponentQuery_Connection_Mode = {}));
-// Retrieve enum metadata with: proto3.getEnumType(ComponentQuery_Connection_Mode)
-protobuf_1.proto3.util.setEnumType(ComponentQuery_Connection_Mode, "domainconfig.v1.ComponentQuery.Connection.Mode", [
-    { no: 0, name: "MODE_UNSPECIFIED" },
-    { no: 1, name: "MODE_MANDATORY" },
-    { no: 2, name: "MODE_OPTIONAL" },
-    { no: 3, name: "MODE_EXCLUDED" },
-]);
-/**
- * @generated from message domainconfig.v1.ComponentQuery.Filter
- */
-class ComponentQuery_Filter extends protobuf_1.Message {
-    constructor(data) {
-        super();
-        /**
-         * @generated from field: domainconfig.v1.ComponentQuery.Filter.Mode mode = 1;
-         */
-        this.mode = ComponentQuery_Filter_Mode.UNSPECIFIED;
-        /**
-         * @generated from field: repeated domainconfig.v1.ComponentQuery.Filter.Term terms = 2;
-         */
-        this.terms = [];
-        /**
-         * @generated from field: repeated domainconfig.v1.ComponentQuery.Filter nested = 3;
-         */
-        this.nested = [];
-        protobuf_1.proto3.util.initPartial(data, this);
-    }
-    static fromBinary(bytes, options) {
-        return new ComponentQuery_Filter().fromBinary(bytes, options);
-    }
-    static fromJson(jsonValue, options) {
-        return new ComponentQuery_Filter().fromJson(jsonValue, options);
-    }
-    static fromJsonString(jsonString, options) {
-        return new ComponentQuery_Filter().fromJsonString(jsonString, options);
-    }
-    static equals(a, b) {
-        return protobuf_1.proto3.util.equals(ComponentQuery_Filter, a, b);
-    }
-}
-exports.ComponentQuery_Filter = ComponentQuery_Filter;
-ComponentQuery_Filter.runtime = protobuf_1.proto3;
-ComponentQuery_Filter.typeName = "domainconfig.v1.ComponentQuery.Filter";
-ComponentQuery_Filter.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "mode", kind: "enum", T: protobuf_1.proto3.getEnumType(ComponentQuery_Filter_Mode) },
-    { no: 2, name: "terms", kind: "message", T: ComponentQuery_Filter_Term, repeated: true },
-    { no: 3, name: "nested", kind: "message", T: ComponentQuery_Filter, repeated: true },
-]);
-/**
- * @generated from enum domainconfig.v1.ComponentQuery.Filter.Mode
- */
-var ComponentQuery_Filter_Mode;
-(function (ComponentQuery_Filter_Mode) {
-    /**
-     * @generated from enum value: MODE_UNSPECIFIED = 0;
-     */
-    ComponentQuery_Filter_Mode[ComponentQuery_Filter_Mode["UNSPECIFIED"] = 0] = "UNSPECIFIED";
-    /**
-     * @generated from enum value: MODE_AND = 1;
-     */
-    ComponentQuery_Filter_Mode[ComponentQuery_Filter_Mode["AND"] = 1] = "AND";
-    /**
-     * @generated from enum value: MODE_OR = 2;
-     */
-    ComponentQuery_Filter_Mode[ComponentQuery_Filter_Mode["OR"] = 2] = "OR";
-})(ComponentQuery_Filter_Mode = exports.ComponentQuery_Filter_Mode || (exports.ComponentQuery_Filter_Mode = {}));
-// Retrieve enum metadata with: proto3.getEnumType(ComponentQuery_Filter_Mode)
-protobuf_1.proto3.util.setEnumType(ComponentQuery_Filter_Mode, "domainconfig.v1.ComponentQuery.Filter.Mode", [
-    { no: 0, name: "MODE_UNSPECIFIED" },
-    { no: 1, name: "MODE_AND" },
-    { no: 2, name: "MODE_OR" },
-]);
-/**
- * @generated from message domainconfig.v1.ComponentQuery.Filter.Term
- */
-class ComponentQuery_Filter_Term extends protobuf_1.Message {
+class QueryTerm extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
          * @generated from field: int64 component_id = 1;
          */
         this.componentId = protobuf_1.protoInt64.zero;
+        /**
+         * @generated from oneof domainconfig.v1.QueryTerm.connection
+         */
+        this.connection = { case: undefined };
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new ComponentQuery_Filter_Term().fromBinary(bytes, options);
+        return new QueryTerm().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new ComponentQuery_Filter_Term().fromJson(jsonValue, options);
+        return new QueryTerm().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new ComponentQuery_Filter_Term().fromJsonString(jsonString, options);
+        return new QueryTerm().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(ComponentQuery_Filter_Term, a, b);
+        return protobuf_1.proto3.util.equals(QueryTerm, a, b);
     }
 }
-exports.ComponentQuery_Filter_Term = ComponentQuery_Filter_Term;
-ComponentQuery_Filter_Term.runtime = protobuf_1.proto3;
-ComponentQuery_Filter_Term.typeName = "domainconfig.v1.ComponentQuery.Filter.Term";
-ComponentQuery_Filter_Term.fields = protobuf_1.proto3.util.newFieldList(() => [
+exports.QueryTerm = QueryTerm;
+QueryTerm.runtime = protobuf_1.proto3;
+QueryTerm.typeName = "domainconfig.v1.QueryTerm";
+QueryTerm.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "from", kind: "message", T: ComponentQuery_Connection },
-    { no: 3, name: "to", kind: "message", T: ComponentQuery_Connection },
+    { no: 2, name: "edge", kind: "message", T: QueryTerm_EdgeConnection, oneof: "connection" },
+    { no: 3, name: "leaf", kind: "message", T: QueryTerm_LeafConnection, oneof: "connection" },
+]);
+/**
+ * @generated from message domainconfig.v1.QueryTerm.Connection
+ */
+class QueryTerm_Connection extends protobuf_1.Message {
+    constructor(data) {
+        super();
+        /**
+         * @generated from field: domainconfig.v1.QueryTerm.Connection.Mode mode = 1;
+         */
+        this.mode = QueryTerm_Connection_Mode.UNSPECIFIED;
+        /**
+         * @generated from field: int64 value = 2;
+         */
+        this.value = protobuf_1.protoInt64.zero;
+        protobuf_1.proto3.util.initPartial(data, this);
+    }
+    static fromBinary(bytes, options) {
+        return new QueryTerm_Connection().fromBinary(bytes, options);
+    }
+    static fromJson(jsonValue, options) {
+        return new QueryTerm_Connection().fromJson(jsonValue, options);
+    }
+    static fromJsonString(jsonString, options) {
+        return new QueryTerm_Connection().fromJsonString(jsonString, options);
+    }
+    static equals(a, b) {
+        return protobuf_1.proto3.util.equals(QueryTerm_Connection, a, b);
+    }
+}
+exports.QueryTerm_Connection = QueryTerm_Connection;
+QueryTerm_Connection.runtime = protobuf_1.proto3;
+QueryTerm_Connection.typeName = "domainconfig.v1.QueryTerm.Connection";
+QueryTerm_Connection.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "mode", kind: "enum", T: protobuf_1.proto3.getEnumType(QueryTerm_Connection_Mode) },
+    { no: 2, name: "value", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+]);
+/**
+ * @generated from enum domainconfig.v1.QueryTerm.Connection.Mode
+ */
+var QueryTerm_Connection_Mode;
+(function (QueryTerm_Connection_Mode) {
+    /**
+     * @generated from enum value: MODE_UNSPECIFIED = 0;
+     */
+    QueryTerm_Connection_Mode[QueryTerm_Connection_Mode["UNSPECIFIED"] = 0] = "UNSPECIFIED";
+    /**
+     * @generated from enum value: MODE_INSTANCE = 1;
+     */
+    QueryTerm_Connection_Mode[QueryTerm_Connection_Mode["INSTANCE"] = 1] = "INSTANCE";
+    /**
+     * @generated from enum value: MODE_INIT_VARIABLE = 2;
+     */
+    QueryTerm_Connection_Mode[QueryTerm_Connection_Mode["INIT_VARIABLE"] = 2] = "INIT_VARIABLE";
+    /**
+     * @generated from enum value: MODE_VARIABLE = 3;
+     */
+    QueryTerm_Connection_Mode[QueryTerm_Connection_Mode["VARIABLE"] = 3] = "VARIABLE";
+})(QueryTerm_Connection_Mode = exports.QueryTerm_Connection_Mode || (exports.QueryTerm_Connection_Mode = {}));
+// Retrieve enum metadata with: proto3.getEnumType(QueryTerm_Connection_Mode)
+protobuf_1.proto3.util.setEnumType(QueryTerm_Connection_Mode, "domainconfig.v1.QueryTerm.Connection.Mode", [
+    { no: 0, name: "MODE_UNSPECIFIED" },
+    { no: 1, name: "MODE_INSTANCE" },
+    { no: 2, name: "MODE_INIT_VARIABLE" },
+    { no: 3, name: "MODE_VARIABLE" },
+]);
+/**
+ * @generated from message domainconfig.v1.QueryTerm.EdgeConnection
+ */
+class QueryTerm_EdgeConnection extends protobuf_1.Message {
+    constructor(data) {
+        super();
+        protobuf_1.proto3.util.initPartial(data, this);
+    }
+    static fromBinary(bytes, options) {
+        return new QueryTerm_EdgeConnection().fromBinary(bytes, options);
+    }
+    static fromJson(jsonValue, options) {
+        return new QueryTerm_EdgeConnection().fromJson(jsonValue, options);
+    }
+    static fromJsonString(jsonString, options) {
+        return new QueryTerm_EdgeConnection().fromJsonString(jsonString, options);
+    }
+    static equals(a, b) {
+        return protobuf_1.proto3.util.equals(QueryTerm_EdgeConnection, a, b);
+    }
+}
+exports.QueryTerm_EdgeConnection = QueryTerm_EdgeConnection;
+QueryTerm_EdgeConnection.runtime = protobuf_1.proto3;
+QueryTerm_EdgeConnection.typeName = "domainconfig.v1.QueryTerm.EdgeConnection";
+QueryTerm_EdgeConnection.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "from_id", kind: "message", T: QueryTerm_Connection },
+    { no: 2, name: "to_id", kind: "message", T: QueryTerm_Connection },
+]);
+/**
+ * @generated from message domainconfig.v1.QueryTerm.LeafConnection
+ */
+class QueryTerm_LeafConnection extends protobuf_1.Message {
+    constructor(data) {
+        super();
+        protobuf_1.proto3.util.initPartial(data, this);
+    }
+    static fromBinary(bytes, options) {
+        return new QueryTerm_LeafConnection().fromBinary(bytes, options);
+    }
+    static fromJson(jsonValue, options) {
+        return new QueryTerm_LeafConnection().fromJson(jsonValue, options);
+    }
+    static fromJsonString(jsonString, options) {
+        return new QueryTerm_LeafConnection().fromJsonString(jsonString, options);
+    }
+    static equals(a, b) {
+        return protobuf_1.proto3.util.equals(QueryTerm_LeafConnection, a, b);
+    }
+}
+exports.QueryTerm_LeafConnection = QueryTerm_LeafConnection;
+QueryTerm_LeafConnection.runtime = protobuf_1.proto3;
+QueryTerm_LeafConnection.typeName = "domainconfig.v1.QueryTerm.LeafConnection";
+QueryTerm_LeafConnection.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "id", kind: "message", T: QueryTerm_Connection },
 ]);
 /**
  * @generated from message domainconfig.v1.ArchetypeDefinition
@@ -199,6 +170,10 @@ ComponentQuery_Filter_Term.fields = protobuf_1.proto3.util.newFieldList(() => [
 class ArchetypeDefinition extends protobuf_1.Message {
     constructor(data) {
         super();
+        /**
+         * @generated from field: repeated domainconfig.v1.QueryTerm query_terms = 2;
+         */
+        this.queryTerms = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -219,5 +194,5 @@ ArchetypeDefinition.runtime = protobuf_1.proto3;
 ArchetypeDefinition.typeName = "domainconfig.v1.ArchetypeDefinition";
 ArchetypeDefinition.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "metadata", kind: "message", T: shared_pb_js_1.Metadata },
-    { no: 2, name: "root", kind: "message", T: ComponentQuery },
+    { no: 2, name: "query_terms", kind: "message", T: QueryTerm, repeated: true },
 ]);
