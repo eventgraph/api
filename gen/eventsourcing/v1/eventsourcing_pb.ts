@@ -382,6 +382,11 @@ export class EventsRequest extends Message<EventsRequest> {
    */
   limit = 0;
 
+  /**
+   * @generated from field: repeated int64 effected_component_ids = 3;
+   */
+  effectedComponentIds: bigint[] = [];
+
   constructor(data?: PartialMessage<EventsRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -392,6 +397,7 @@ export class EventsRequest extends Message<EventsRequest> {
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "last_event_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "limit", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 3, name: "effected_component_ids", kind: "scalar", T: 3 /* ScalarType.INT64 */, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EventsRequest {

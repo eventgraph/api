@@ -53,6 +53,7 @@ message AppendResponse {
 message EventsRequest {
   int64 last_event_id = 1;
   uint32 limit = 2;
+  repeated int64 effected_component_ids = 3;
 }
 
 message EventsResponse {

@@ -194,6 +194,10 @@ export declare class EventsRequest extends Message<EventsRequest> {
      * @generated from field: uint32 limit = 2;
      */
     limit: number;
+    /**
+     * @generated from field: repeated int64 effected_component_ids = 3;
+     */
+    effectedComponentIds: bigint[];
     constructor(data?: PartialMessage<EventsRequest>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.EventsRequest";

@@ -311,6 +311,10 @@ class EventsRequest extends protobuf_1.Message {
          * @generated from field: uint32 limit = 2;
          */
         this.limit = 0;
+        /**
+         * @generated from field: repeated int64 effected_component_ids = 3;
+         */
+        this.effectedComponentIds = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
@@ -332,6 +336,7 @@ EventsRequest.typeName = "eventsourcing.v1.EventsRequest";
 EventsRequest.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "last_event_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "limit", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
+    { no: 3, name: "effected_component_ids", kind: "scalar", T: 3 /* ScalarType.INT64 */, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.EventsResponse
