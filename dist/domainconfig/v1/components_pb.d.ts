@@ -11,9 +11,9 @@ export declare class FieldDefinition extends Message<FieldDefinition> {
      */
     metadata?: Metadata;
     /**
-     * @generated from field: int64 property_id = 2;
+     * @generated from field: int64 property_entity = 2;
      */
-    propertyId: bigint;
+    propertyEntity: bigint;
     /**
      * @generated from field: repeated domainconfig.v1.DataType property_overrides = 3;
      */
@@ -36,19 +36,15 @@ export declare class ComponentDefinition extends Message<ComponentDefinition> {
      */
     metadata?: Metadata;
     /**
-     * @generated from field: bool is_edge = 2;
-     */
-    isEdge: boolean;
-    /**
-     * @generated from field: repeated domainconfig.v1.FieldDefinition fields = 3;
+     * @generated from field: repeated domainconfig.v1.FieldDefinition fields = 2;
      */
     fields: FieldDefinition[];
     /**
-     * @generated from field: repeated domainconfig.v1.ComponentDefinition.Index indices = 4;
+     * @generated from field: repeated domainconfig.v1.ComponentDefinition.Index indices = 3;
      */
     indices: ComponentDefinition_Index[];
     /**
-     * @generated from field: bool disable_history = 5;
+     * @generated from field: bool disable_history = 4;
      */
     disableHistory: boolean;
     constructor(data?: PartialMessage<ComponentDefinition>);

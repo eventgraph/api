@@ -11,9 +11,9 @@ import { Message, proto3, protoInt64 } from "@bufbuild/protobuf";
  */
 export class Metadata extends Message<Metadata> {
   /**
-   * @generated from field: int64 id = 1;
+   * @generated from field: int64 entity = 1;
    */
-  id = protoInt64.zero;
+  entity = protoInt64.zero;
 
   /**
    * @generated from field: string label = 2;
@@ -33,7 +33,7 @@ export class Metadata extends Message<Metadata> {
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.Metadata";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "label", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "description", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);

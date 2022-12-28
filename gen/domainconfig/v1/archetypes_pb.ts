@@ -12,26 +12,19 @@ import { Metadata } from "./shared_pb.js";
  */
 export class QueryTerm extends Message<QueryTerm> {
   /**
-   * @generated from field: int64 component_id = 1;
+   * @generated from field: int64 component_entity = 1;
    */
-  componentId = protoInt64.zero;
+  componentEntity = protoInt64.zero;
 
   /**
-   * @generated from oneof domainconfig.v1.QueryTerm.connection
+   * @generated from field: domainconfig.v1.QueryTerm.Connection from_entity = 2;
    */
-  connection: {
-    /**
-     * @generated from field: domainconfig.v1.QueryTerm.EdgeConnection edge = 2;
-     */
-    value: QueryTerm_EdgeConnection;
-    case: "edge";
-  } | {
-    /**
-     * @generated from field: domainconfig.v1.QueryTerm.LeafConnection leaf = 3;
-     */
-    value: QueryTerm_LeafConnection;
-    case: "leaf";
-  } | { case: undefined; value?: undefined } = { case: undefined };
+  fromEntity?: QueryTerm_Connection;
+
+  /**
+   * @generated from field: domainconfig.v1.QueryTerm.Connection to_entity = 3;
+   */
+  toEntity?: QueryTerm_Connection;
 
   constructor(data?: PartialMessage<QueryTerm>) {
     super();
@@ -41,9 +34,9 @@ export class QueryTerm extends Message<QueryTerm> {
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.QueryTerm";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "component_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "edge", kind: "message", T: QueryTerm_EdgeConnection, oneof: "connection" },
-    { no: 3, name: "leaf", kind: "message", T: QueryTerm_LeafConnection, oneof: "connection" },
+    { no: 1, name: "component_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "from_entity", kind: "message", T: QueryTerm_Connection },
+    { no: 3, name: "to_entity", kind: "message", T: QueryTerm_Connection },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm {
@@ -72,19 +65,25 @@ export class QueryTerm_Connection extends Message<QueryTerm_Connection> {
    */
   mode: {
     /**
-     * @generated from field: int64 instance = 1;
+     * @generated from field: bool empty = 1;
+     */
+    value: boolean;
+    case: "empty";
+  } | {
+    /**
+     * @generated from field: int64 instance = 2;
      */
     value: bigint;
     case: "instance";
   } | {
     /**
-     * @generated from field: string init_variable = 2;
+     * @generated from field: string init_variable = 3;
      */
     value: string;
     case: "initVariable";
   } | {
     /**
-     * @generated from field: string variable = 3;
+     * @generated from field: string variable = 4;
      */
     value: string;
     case: "variable";
@@ -98,9 +97,10 @@ export class QueryTerm_Connection extends Message<QueryTerm_Connection> {
   static readonly runtime = proto3;
   static readonly typeName = "domainconfig.v1.QueryTerm.Connection";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "instance", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "mode" },
-    { no: 2, name: "init_variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "mode" },
-    { no: 3, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "mode" },
+    { no: 1, name: "empty", kind: "scalar", T: 8 /* ScalarType.BOOL */, oneof: "mode" },
+    { no: 2, name: "instance", kind: "scalar", T: 3 /* ScalarType.INT64 */, oneof: "mode" },
+    { no: 3, name: "init_variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "mode" },
+    { no: 4, name: "variable", kind: "scalar", T: 9 /* ScalarType.STRING */, oneof: "mode" },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm_Connection {
@@ -117,86 +117,6 @@ export class QueryTerm_Connection extends Message<QueryTerm_Connection> {
 
   static equals(a: QueryTerm_Connection | PlainMessage<QueryTerm_Connection> | undefined, b: QueryTerm_Connection | PlainMessage<QueryTerm_Connection> | undefined): boolean {
     return proto3.util.equals(QueryTerm_Connection, a, b);
-  }
-}
-
-/**
- * @generated from message domainconfig.v1.QueryTerm.EdgeConnection
- */
-export class QueryTerm_EdgeConnection extends Message<QueryTerm_EdgeConnection> {
-  /**
-   * @generated from field: domainconfig.v1.QueryTerm.Connection from_id = 1;
-   */
-  fromId?: QueryTerm_Connection;
-
-  /**
-   * @generated from field: domainconfig.v1.QueryTerm.Connection to_id = 2;
-   */
-  toId?: QueryTerm_Connection;
-
-  constructor(data?: PartialMessage<QueryTerm_EdgeConnection>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime = proto3;
-  static readonly typeName = "domainconfig.v1.QueryTerm.EdgeConnection";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "from_id", kind: "message", T: QueryTerm_Connection },
-    { no: 2, name: "to_id", kind: "message", T: QueryTerm_Connection },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm_EdgeConnection {
-    return new QueryTerm_EdgeConnection().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTerm_EdgeConnection {
-    return new QueryTerm_EdgeConnection().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTerm_EdgeConnection {
-    return new QueryTerm_EdgeConnection().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryTerm_EdgeConnection | PlainMessage<QueryTerm_EdgeConnection> | undefined, b: QueryTerm_EdgeConnection | PlainMessage<QueryTerm_EdgeConnection> | undefined): boolean {
-    return proto3.util.equals(QueryTerm_EdgeConnection, a, b);
-  }
-}
-
-/**
- * @generated from message domainconfig.v1.QueryTerm.LeafConnection
- */
-export class QueryTerm_LeafConnection extends Message<QueryTerm_LeafConnection> {
-  /**
-   * @generated from field: domainconfig.v1.QueryTerm.Connection id = 1;
-   */
-  id?: QueryTerm_Connection;
-
-  constructor(data?: PartialMessage<QueryTerm_LeafConnection>) {
-    super();
-    proto3.util.initPartial(data, this);
-  }
-
-  static readonly runtime = proto3;
-  static readonly typeName = "domainconfig.v1.QueryTerm.LeafConnection";
-  static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "message", T: QueryTerm_Connection },
-  ]);
-
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm_LeafConnection {
-    return new QueryTerm_LeafConnection().fromBinary(bytes, options);
-  }
-
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTerm_LeafConnection {
-    return new QueryTerm_LeafConnection().fromJson(jsonValue, options);
-  }
-
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTerm_LeafConnection {
-    return new QueryTerm_LeafConnection().fromJsonString(jsonString, options);
-  }
-
-  static equals(a: QueryTerm_LeafConnection | PlainMessage<QueryTerm_LeafConnection> | undefined, b: QueryTerm_LeafConnection | PlainMessage<QueryTerm_LeafConnection> | undefined): boolean {
-    return proto3.util.equals(QueryTerm_LeafConnection, a, b);
   }
 }
 

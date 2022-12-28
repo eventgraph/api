@@ -4,9 +4,9 @@ package eventsourcing.v1;
 
 import "google/protobuf/timestamp.proto";
 
-message IDPair {
-  int64 from_id = 1;
-  int64 to_id = 2;
+message EntityPair {
+  int64 from_entity = 1;
+  int64 to_entity = 2;
 }
 
 message DataTableTransaction {
@@ -16,7 +16,7 @@ message DataTableTransaction {
   }
 
   message PairLastEvent {
-    IDPair pair = 1;
+    EntityPair pair = 1;
     int64 last_event_ledger_id = 2;
   }
 
@@ -26,7 +26,7 @@ message DataTableTransaction {
   }
 
   message Patch {
-    repeated IDPair added_pairs = 1;
+    repeated EntityPair added_pairs = 1;
     repeated PairLastEvent removed_pairs = 2;
     repeated PairPatch updated_pair_patches = 3;
   }

@@ -6,28 +6,17 @@ import { Metadata } from "./shared_pb.js";
  */
 export declare class QueryTerm extends Message<QueryTerm> {
     /**
-     * @generated from field: int64 component_id = 1;
+     * @generated from field: int64 component_entity = 1;
      */
-    componentId: bigint;
+    componentEntity: bigint;
     /**
-     * @generated from oneof domainconfig.v1.QueryTerm.connection
+     * @generated from field: domainconfig.v1.QueryTerm.Connection from_entity = 2;
      */
-    connection: {
-        /**
-         * @generated from field: domainconfig.v1.QueryTerm.EdgeConnection edge = 2;
-         */
-        value: QueryTerm_EdgeConnection;
-        case: "edge";
-    } | {
-        /**
-         * @generated from field: domainconfig.v1.QueryTerm.LeafConnection leaf = 3;
-         */
-        value: QueryTerm_LeafConnection;
-        case: "leaf";
-    } | {
-        case: undefined;
-        value?: undefined;
-    };
+    fromEntity?: QueryTerm_Connection;
+    /**
+     * @generated from field: domainconfig.v1.QueryTerm.Connection to_entity = 3;
+     */
+    toEntity?: QueryTerm_Connection;
     constructor(data?: PartialMessage<QueryTerm>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
     static readonly typeName = "domainconfig.v1.QueryTerm";
@@ -46,19 +35,25 @@ export declare class QueryTerm_Connection extends Message<QueryTerm_Connection> 
      */
     mode: {
         /**
-         * @generated from field: int64 instance = 1;
+         * @generated from field: bool empty = 1;
+         */
+        value: boolean;
+        case: "empty";
+    } | {
+        /**
+         * @generated from field: int64 instance = 2;
          */
         value: bigint;
         case: "instance";
     } | {
         /**
-         * @generated from field: string init_variable = 2;
+         * @generated from field: string init_variable = 3;
          */
         value: string;
         case: "initVariable";
     } | {
         /**
-         * @generated from field: string variable = 3;
+         * @generated from field: string variable = 4;
          */
         value: string;
         case: "variable";
@@ -74,44 +69,6 @@ export declare class QueryTerm_Connection extends Message<QueryTerm_Connection> 
     static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTerm_Connection;
     static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTerm_Connection;
     static equals(a: QueryTerm_Connection | PlainMessage<QueryTerm_Connection> | undefined, b: QueryTerm_Connection | PlainMessage<QueryTerm_Connection> | undefined): boolean;
-}
-/**
- * @generated from message domainconfig.v1.QueryTerm.EdgeConnection
- */
-export declare class QueryTerm_EdgeConnection extends Message<QueryTerm_EdgeConnection> {
-    /**
-     * @generated from field: domainconfig.v1.QueryTerm.Connection from_id = 1;
-     */
-    fromId?: QueryTerm_Connection;
-    /**
-     * @generated from field: domainconfig.v1.QueryTerm.Connection to_id = 2;
-     */
-    toId?: QueryTerm_Connection;
-    constructor(data?: PartialMessage<QueryTerm_EdgeConnection>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "domainconfig.v1.QueryTerm.EdgeConnection";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm_EdgeConnection;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTerm_EdgeConnection;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTerm_EdgeConnection;
-    static equals(a: QueryTerm_EdgeConnection | PlainMessage<QueryTerm_EdgeConnection> | undefined, b: QueryTerm_EdgeConnection | PlainMessage<QueryTerm_EdgeConnection> | undefined): boolean;
-}
-/**
- * @generated from message domainconfig.v1.QueryTerm.LeafConnection
- */
-export declare class QueryTerm_LeafConnection extends Message<QueryTerm_LeafConnection> {
-    /**
-     * @generated from field: domainconfig.v1.QueryTerm.Connection id = 1;
-     */
-    id?: QueryTerm_Connection;
-    constructor(data?: PartialMessage<QueryTerm_LeafConnection>);
-    static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime.js").ProtoRuntime;
-    static readonly typeName = "domainconfig.v1.QueryTerm.LeafConnection";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryTerm_LeafConnection;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryTerm_LeafConnection;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryTerm_LeafConnection;
-    static equals(a: QueryTerm_LeafConnection | PlainMessage<QueryTerm_LeafConnection> | undefined, b: QueryTerm_LeafConnection | PlainMessage<QueryTerm_LeafConnection> | undefined): boolean;
 }
 /**
  * @generated from message domainconfig.v1.ArchetypeDefinition

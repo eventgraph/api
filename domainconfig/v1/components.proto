@@ -7,7 +7,7 @@ import "domainconfig/v1/shared.proto";
 
 message FieldDefinition {
   Metadata metadata = 1;
-  int64 property_id = 2;
+  int64 property_entity = 2;
 
   repeated DataType property_overrides = 3;
 }
@@ -21,9 +21,7 @@ message ComponentDefinition {
   message Index { repeated IndexEntry entries = 1; }
 
   Metadata metadata = 1;
-  bool is_edge = 2;
-  repeated FieldDefinition fields = 3;
-  repeated Index indices = 4;
-
-  bool disable_history = 5;
+  repeated FieldDefinition fields = 2;
+  repeated Index indices = 3;
+  bool disable_history = 4;
 }

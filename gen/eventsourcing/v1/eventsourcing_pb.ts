@@ -7,45 +7,45 @@ import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialM
 import { Message, proto3, protoInt64, Timestamp } from "@bufbuild/protobuf";
 
 /**
- * @generated from message eventsourcing.v1.IDPair
+ * @generated from message eventsourcing.v1.EntityPair
  */
-export class IDPair extends Message<IDPair> {
+export class EntityPair extends Message<EntityPair> {
   /**
-   * @generated from field: int64 from_id = 1;
+   * @generated from field: int64 from_entity = 1;
    */
-  fromId = protoInt64.zero;
+  fromEntity = protoInt64.zero;
 
   /**
-   * @generated from field: int64 to_id = 2;
+   * @generated from field: int64 to_entity = 2;
    */
-  toId = protoInt64.zero;
+  toEntity = protoInt64.zero;
 
-  constructor(data?: PartialMessage<IDPair>) {
+  constructor(data?: PartialMessage<EntityPair>) {
     super();
     proto3.util.initPartial(data, this);
   }
 
   static readonly runtime = proto3;
-  static readonly typeName = "eventsourcing.v1.IDPair";
+  static readonly typeName = "eventsourcing.v1.EntityPair";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "from_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "to_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "from_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "to_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
-  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IDPair {
-    return new IDPair().fromBinary(bytes, options);
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EntityPair {
+    return new EntityPair().fromBinary(bytes, options);
   }
 
-  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IDPair {
-    return new IDPair().fromJson(jsonValue, options);
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EntityPair {
+    return new EntityPair().fromJson(jsonValue, options);
   }
 
-  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IDPair {
-    return new IDPair().fromJsonString(jsonString, options);
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EntityPair {
+    return new EntityPair().fromJsonString(jsonString, options);
   }
 
-  static equals(a: IDPair | PlainMessage<IDPair> | undefined, b: IDPair | PlainMessage<IDPair> | undefined): boolean {
-    return proto3.util.equals(IDPair, a, b);
+  static equals(a: EntityPair | PlainMessage<EntityPair> | undefined, b: EntityPair | PlainMessage<EntityPair> | undefined): boolean {
+    return proto3.util.equals(EntityPair, a, b);
   }
 }
 
@@ -158,9 +158,9 @@ export class DataTableTransaction_ColumnIndex extends Message<DataTableTransacti
  */
 export class DataTableTransaction_PairLastEvent extends Message<DataTableTransaction_PairLastEvent> {
   /**
-   * @generated from field: eventsourcing.v1.IDPair pair = 1;
+   * @generated from field: eventsourcing.v1.EntityPair pair = 1;
    */
-  pair?: IDPair;
+  pair?: EntityPair;
 
   /**
    * @generated from field: int64 last_event_ledger_id = 2;
@@ -175,7 +175,7 @@ export class DataTableTransaction_PairLastEvent extends Message<DataTableTransac
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.DataTableTransaction.PairLastEvent";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "pair", kind: "message", T: IDPair },
+    { no: 1, name: "pair", kind: "message", T: EntityPair },
     { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
   ]);
 
@@ -244,9 +244,9 @@ export class DataTableTransaction_PairPatch extends Message<DataTableTransaction
  */
 export class DataTableTransaction_Patch extends Message<DataTableTransaction_Patch> {
   /**
-   * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
+   * @generated from field: repeated eventsourcing.v1.EntityPair added_pairs = 1;
    */
-  addedPairs: IDPair[] = [];
+  addedPairs: EntityPair[] = [];
 
   /**
    * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairLastEvent removed_pairs = 2;
@@ -266,7 +266,7 @@ export class DataTableTransaction_Patch extends Message<DataTableTransaction_Pat
   static readonly runtime = proto3;
   static readonly typeName = "eventsourcing.v1.DataTableTransaction.Patch";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: EntityPair, repeated: true },
     { no: 2, name: "removed_pairs", kind: "message", T: DataTableTransaction_PairLastEvent, repeated: true },
     { no: 3, name: "updated_pair_patches", kind: "message", T: DataTableTransaction_PairPatch, repeated: true },
   ]);

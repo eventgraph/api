@@ -5,9 +5,9 @@ import { Message } from "@bufbuild/protobuf";
  */
 export declare class Metadata extends Message<Metadata> {
     /**
-     * @generated from field: int64 id = 1;
+     * @generated from field: int64 entity = 1;
      */
-    id: bigint;
+    entity: bigint;
     /**
      * @generated from field: string label = 2;
      */

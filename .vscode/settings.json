@@ -17,7 +17,8 @@
     "protocolbuffers",
     "protoimpl",
     "protoreflect",
-    "timestamppb"
+    "timestamppb",
+    "xxhash"
   ],
   "editor.formatOnSave": true
 }

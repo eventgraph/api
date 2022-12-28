@@ -4,43 +4,43 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse = exports.AppendRequest = exports.DataTableTransaction_Patch = exports.DataTableTransaction_PairPatch = exports.DataTableTransaction_PairLastEvent = exports.DataTableTransaction_ColumnIndex = exports.DataTableTransaction = exports.IDPair = void 0;
+exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse = exports.AppendRequest = exports.DataTableTransaction_Patch = exports.DataTableTransaction_PairPatch = exports.DataTableTransaction_PairLastEvent = exports.DataTableTransaction_ColumnIndex = exports.DataTableTransaction = exports.EntityPair = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 /**
- * @generated from message eventsourcing.v1.IDPair
+ * @generated from message eventsourcing.v1.EntityPair
  */
-class IDPair extends protobuf_1.Message {
+class EntityPair extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 from_id = 1;
+         * @generated from field: int64 from_entity = 1;
          */
-        this.fromId = protobuf_1.protoInt64.zero;
+        this.fromEntity = protobuf_1.protoInt64.zero;
         /**
-         * @generated from field: int64 to_id = 2;
+         * @generated from field: int64 to_entity = 2;
          */
-        this.toId = protobuf_1.protoInt64.zero;
+        this.toEntity = protobuf_1.protoInt64.zero;
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new IDPair().fromBinary(bytes, options);
+        return new EntityPair().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new IDPair().fromJson(jsonValue, options);
+        return new EntityPair().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new IDPair().fromJsonString(jsonString, options);
+        return new EntityPair().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(IDPair, a, b);
+        return protobuf_1.proto3.util.equals(EntityPair, a, b);
     }
 }
-exports.IDPair = IDPair;
-IDPair.runtime = protobuf_1.proto3;
-IDPair.typeName = "eventsourcing.v1.IDPair";
-IDPair.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "from_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
-    { no: 2, name: "to_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+exports.EntityPair = EntityPair;
+EntityPair.runtime = protobuf_1.proto3;
+EntityPair.typeName = "eventsourcing.v1.EntityPair";
+EntityPair.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "from_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "to_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
  * @generated from message eventsourcing.v1.DataTableTransaction
@@ -158,7 +158,7 @@ exports.DataTableTransaction_PairLastEvent = DataTableTransaction_PairLastEvent;
 DataTableTransaction_PairLastEvent.runtime = protobuf_1.proto3;
 DataTableTransaction_PairLastEvent.typeName = "eventsourcing.v1.DataTableTransaction.PairLastEvent";
 DataTableTransaction_PairLastEvent.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "pair", kind: "message", T: IDPair },
+    { no: 1, name: "pair", kind: "message", T: EntityPair },
     { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
@@ -200,7 +200,7 @@ class DataTableTransaction_Patch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
+         * @generated from field: repeated eventsourcing.v1.EntityPair added_pairs = 1;
          */
         this.addedPairs = [];
         /**
@@ -230,7 +230,7 @@ exports.DataTableTransaction_Patch = DataTableTransaction_Patch;
 DataTableTransaction_Patch.runtime = protobuf_1.proto3;
 DataTableTransaction_Patch.typeName = "eventsourcing.v1.DataTableTransaction.Patch";
 DataTableTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "added_pairs", kind: "message", T: IDPair, repeated: true },
+    { no: 1, name: "added_pairs", kind: "message", T: EntityPair, repeated: true },
     { no: 2, name: "removed_pairs", kind: "message", T: DataTableTransaction_PairLastEvent, repeated: true },
     { no: 3, name: "updated_pair_patches", kind: "message", T: DataTableTransaction_PairPatch, repeated: true },
 ]);

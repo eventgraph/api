@@ -18,9 +18,9 @@ export class FieldDefinition extends Message<FieldDefinition> {
   metadata?: Metadata;
 
   /**
-   * @generated from field: int64 property_id = 2;
+   * @generated from field: int64 property_entity = 2;
    */
-  propertyId = protoInt64.zero;
+  propertyEntity = protoInt64.zero;
 
   /**
    * @generated from field: repeated domainconfig.v1.DataType property_overrides = 3;
@@ -36,7 +36,7 @@ export class FieldDefinition extends Message<FieldDefinition> {
   static readonly typeName = "domainconfig.v1.FieldDefinition";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "metadata", kind: "message", T: Metadata },
-    { no: 2, name: "property_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 2, name: "property_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 3, name: "property_overrides", kind: "message", T: DataType, repeated: true },
   ]);
 
@@ -67,22 +67,17 @@ export class ComponentDefinition extends Message<ComponentDefinition> {
   metadata?: Metadata;
 
   /**
-   * @generated from field: bool is_edge = 2;
-   */
-  isEdge = false;
-
-  /**
-   * @generated from field: repeated domainconfig.v1.FieldDefinition fields = 3;
+   * @generated from field: repeated domainconfig.v1.FieldDefinition fields = 2;
    */
   fields: FieldDefinition[] = [];
 
   /**
-   * @generated from field: repeated domainconfig.v1.ComponentDefinition.Index indices = 4;
+   * @generated from field: repeated domainconfig.v1.ComponentDefinition.Index indices = 3;
    */
   indices: ComponentDefinition_Index[] = [];
 
   /**
-   * @generated from field: bool disable_history = 5;
+   * @generated from field: bool disable_history = 4;
    */
   disableHistory = false;
 
@@ -95,10 +90,9 @@ export class ComponentDefinition extends Message<ComponentDefinition> {
   static readonly typeName = "domainconfig.v1.ComponentDefinition";
   static readonly fields: FieldList = proto3.util.newFieldList(() => [
     { no: 1, name: "metadata", kind: "message", T: Metadata },
-    { no: 2, name: "is_edge", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
-    { no: 3, name: "fields", kind: "message", T: FieldDefinition, repeated: true },
-    { no: 4, name: "indices", kind: "message", T: ComponentDefinition_Index, repeated: true },
-    { no: 5, name: "disable_history", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
+    { no: 2, name: "fields", kind: "message", T: FieldDefinition, repeated: true },
+    { no: 3, name: "indices", kind: "message", T: ComponentDefinition_Index, repeated: true },
+    { no: 4, name: "disable_history", kind: "scalar", T: 8 /* ScalarType.BOOL */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentDefinition {

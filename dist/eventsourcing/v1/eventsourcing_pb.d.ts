@@ -1,25 +1,25 @@
 import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
 import { Message, Timestamp } from "@bufbuild/protobuf";
 /**
- * @generated from message eventsourcing.v1.IDPair
+ * @generated from message eventsourcing.v1.EntityPair
  */
-export declare class IDPair extends Message<IDPair> {
+export declare class EntityPair extends Message<EntityPair> {
     /**
-     * @generated from field: int64 from_id = 1;
+     * @generated from field: int64 from_entity = 1;
      */
-    fromId: bigint;
+    fromEntity: bigint;
     /**
-     * @generated from field: int64 to_id = 2;
+     * @generated from field: int64 to_entity = 2;
      */
-    toId: bigint;
-    constructor(data?: PartialMessage<IDPair>);
+    toEntity: bigint;
+    constructor(data?: PartialMessage<EntityPair>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.IDPair";
+    static readonly typeName = "eventsourcing.v1.EntityPair";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IDPair;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IDPair;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IDPair;
-    static equals(a: IDPair | PlainMessage<IDPair> | undefined, b: IDPair | PlainMessage<IDPair> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): EntityPair;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): EntityPair;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): EntityPair;
+    static equals(a: EntityPair | PlainMessage<EntityPair> | undefined, b: EntityPair | PlainMessage<EntityPair> | undefined): boolean;
 }
 /**
  * @generated from message eventsourcing.v1.DataTableTransaction
@@ -82,9 +82,9 @@ export declare class DataTableTransaction_ColumnIndex extends Message<DataTableT
  */
 export declare class DataTableTransaction_PairLastEvent extends Message<DataTableTransaction_PairLastEvent> {
     /**
-     * @generated from field: eventsourcing.v1.IDPair pair = 1;
+     * @generated from field: eventsourcing.v1.EntityPair pair = 1;
      */
-    pair?: IDPair;
+    pair?: EntityPair;
     /**
      * @generated from field: int64 last_event_ledger_id = 2;
      */
@@ -124,9 +124,9 @@ export declare class DataTableTransaction_PairPatch extends Message<DataTableTra
  */
 export declare class DataTableTransaction_Patch extends Message<DataTableTransaction_Patch> {
     /**
-     * @generated from field: repeated eventsourcing.v1.IDPair added_pairs = 1;
+     * @generated from field: repeated eventsourcing.v1.EntityPair added_pairs = 1;
      */
-    addedPairs: IDPair[];
+    addedPairs: EntityPair[];
     /**
      * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairLastEvent removed_pairs = 2;
      */

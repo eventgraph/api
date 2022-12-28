@@ -7,24 +7,16 @@ import "domainconfig/v1/shared.proto";
 message QueryTerm {
   message Connection {
     oneof mode {
-      int64 instance = 1;
-      string init_variable = 2;
-      string variable = 3;
+      bool empty = 1;
+      int64 instance = 2;
+      string init_variable = 3;
+      string variable = 4;
     }
   }
 
-  message EdgeConnection {
-    Connection from_id = 1;
-    Connection to_id = 2;
-  }
-
-  message LeafConnection { Connection id = 1; }
-
-  int64 component_id = 1;
-  oneof connection {
-    EdgeConnection edge = 2;
-    LeafConnection leaf = 3;
-  }
+  int64 component_entity = 1;
+  Connection from_entity = 2;
+  Connection to_entity = 3;
 }
 
 message ArchetypeDefinition {

@@ -13,9 +13,9 @@ class Metadata extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: int64 id = 1;
+         * @generated from field: int64 entity = 1;
          */
-        this.id = protobuf_1.protoInt64.zero;
+        this.entity = protobuf_1.protoInt64.zero;
         /**
          * @generated from field: string label = 2;
          */
@@ -43,7 +43,7 @@ exports.Metadata = Metadata;
 Metadata.runtime = protobuf_1.proto3;
 Metadata.typeName = "domainconfig.v1.Metadata";
 Metadata.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
+    { no: 1, name: "entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "label", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "description", kind: "scalar", T: 9 /* ScalarType.STRING */ },
 ]);
