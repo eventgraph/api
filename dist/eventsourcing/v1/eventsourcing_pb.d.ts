@@ -22,9 +22,9 @@ export declare class EntityPair extends Message<EntityPair> {
     static equals(a: EntityPair | PlainMessage<EntityPair> | undefined, b: EntityPair | PlainMessage<EntityPair> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction
+ * @generated from message eventsourcing.v1.ComponentsTransaction
  */
-export declare class DataTableTransaction extends Message<DataTableTransaction> {
+export declare class ComponentsTransaction extends Message<ComponentsTransaction> {
     /**
      * @generated from field: repeated int64 i64s = 1;
      */
@@ -42,24 +42,24 @@ export declare class DataTableTransaction extends Message<DataTableTransaction> 
      */
     binaries: Uint8Array[];
     /**
-     * @generated from field: map<int64, eventsourcing.v1.DataTableTransaction.Patch> patches = 5;
+     * @generated from field: map<int64, eventsourcing.v1.ComponentsTransaction.Patch> patches = 5;
      */
     patches: {
-        [key: string]: DataTableTransaction_Patch;
+        [key: string]: ComponentsTransaction_Patch;
     };
-    constructor(data?: PartialMessage<DataTableTransaction>);
+    constructor(data?: PartialMessage<ComponentsTransaction>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.DataTableTransaction";
+    static readonly typeName = "eventsourcing.v1.ComponentsTransaction";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction;
-    static equals(a: DataTableTransaction | PlainMessage<DataTableTransaction> | undefined, b: DataTableTransaction | PlainMessage<DataTableTransaction> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentsTransaction;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentsTransaction;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentsTransaction;
+    static equals(a: ComponentsTransaction | PlainMessage<ComponentsTransaction> | undefined, b: ComponentsTransaction | PlainMessage<ComponentsTransaction> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.ColumnIndex
+ * @generated from message eventsourcing.v1.ComponentsTransaction.ColumnIndex
  */
-export declare class DataTableTransaction_ColumnIndex extends Message<DataTableTransaction_ColumnIndex> {
+export declare class ComponentsTransaction_ColumnIndex extends Message<ComponentsTransaction_ColumnIndex> {
     /**
      * @generated from field: uint32 table_index = 1;
      */
@@ -68,19 +68,19 @@ export declare class DataTableTransaction_ColumnIndex extends Message<DataTableT
      * @generated from field: uint32 patch_field_index = 2;
      */
     patchFieldIndex: number;
-    constructor(data?: PartialMessage<DataTableTransaction_ColumnIndex>);
+    constructor(data?: PartialMessage<ComponentsTransaction_ColumnIndex>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.DataTableTransaction.ColumnIndex";
+    static readonly typeName = "eventsourcing.v1.ComponentsTransaction.ColumnIndex";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_ColumnIndex;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_ColumnIndex;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_ColumnIndex;
-    static equals(a: DataTableTransaction_ColumnIndex | PlainMessage<DataTableTransaction_ColumnIndex> | undefined, b: DataTableTransaction_ColumnIndex | PlainMessage<DataTableTransaction_ColumnIndex> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentsTransaction_ColumnIndex;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentsTransaction_ColumnIndex;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentsTransaction_ColumnIndex;
+    static equals(a: ComponentsTransaction_ColumnIndex | PlainMessage<ComponentsTransaction_ColumnIndex> | undefined, b: ComponentsTransaction_ColumnIndex | PlainMessage<ComponentsTransaction_ColumnIndex> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.PairLastEvent
+ * @generated from message eventsourcing.v1.ComponentsTransaction.PairLastEvent
  */
-export declare class DataTableTransaction_PairLastEvent extends Message<DataTableTransaction_PairLastEvent> {
+export declare class ComponentsTransaction_PairLastEvent extends Message<ComponentsTransaction_PairLastEvent> {
     /**
      * @generated from field: eventsourcing.v1.EntityPair pair = 1;
      */
@@ -89,69 +89,69 @@ export declare class DataTableTransaction_PairLastEvent extends Message<DataTabl
      * @generated from field: int64 last_event_ledger_id = 2;
      */
     lastEventLedgerId: bigint;
-    constructor(data?: PartialMessage<DataTableTransaction_PairLastEvent>);
+    constructor(data?: PartialMessage<ComponentsTransaction_PairLastEvent>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.DataTableTransaction.PairLastEvent";
+    static readonly typeName = "eventsourcing.v1.ComponentsTransaction.PairLastEvent";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_PairLastEvent;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_PairLastEvent;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_PairLastEvent;
-    static equals(a: DataTableTransaction_PairLastEvent | PlainMessage<DataTableTransaction_PairLastEvent> | undefined, b: DataTableTransaction_PairLastEvent | PlainMessage<DataTableTransaction_PairLastEvent> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentsTransaction_PairLastEvent;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentsTransaction_PairLastEvent;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentsTransaction_PairLastEvent;
+    static equals(a: ComponentsTransaction_PairLastEvent | PlainMessage<ComponentsTransaction_PairLastEvent> | undefined, b: ComponentsTransaction_PairLastEvent | PlainMessage<ComponentsTransaction_PairLastEvent> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.PairPatch
+ * @generated from message eventsourcing.v1.ComponentsTransaction.PairPatch
  */
-export declare class DataTableTransaction_PairPatch extends Message<DataTableTransaction_PairPatch> {
+export declare class ComponentsTransaction_PairPatch extends Message<ComponentsTransaction_PairPatch> {
     /**
-     * @generated from field: eventsourcing.v1.DataTableTransaction.PairLastEvent pair_last_event = 1;
+     * @generated from field: eventsourcing.v1.ComponentsTransaction.PairLastEvent pair_last_event = 1;
      */
-    pairLastEvent?: DataTableTransaction_PairLastEvent;
+    pairLastEvent?: ComponentsTransaction_PairLastEvent;
     /**
-     * @generated from field: repeated eventsourcing.v1.DataTableTransaction.ColumnIndex column_indices = 2;
+     * @generated from field: repeated eventsourcing.v1.ComponentsTransaction.ColumnIndex column_indices = 2;
      */
-    columnIndices: DataTableTransaction_ColumnIndex[];
-    constructor(data?: PartialMessage<DataTableTransaction_PairPatch>);
+    columnIndices: ComponentsTransaction_ColumnIndex[];
+    constructor(data?: PartialMessage<ComponentsTransaction_PairPatch>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.DataTableTransaction.PairPatch";
+    static readonly typeName = "eventsourcing.v1.ComponentsTransaction.PairPatch";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_PairPatch;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_PairPatch;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_PairPatch;
-    static equals(a: DataTableTransaction_PairPatch | PlainMessage<DataTableTransaction_PairPatch> | undefined, b: DataTableTransaction_PairPatch | PlainMessage<DataTableTransaction_PairPatch> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentsTransaction_PairPatch;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentsTransaction_PairPatch;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentsTransaction_PairPatch;
+    static equals(a: ComponentsTransaction_PairPatch | PlainMessage<ComponentsTransaction_PairPatch> | undefined, b: ComponentsTransaction_PairPatch | PlainMessage<ComponentsTransaction_PairPatch> | undefined): boolean;
 }
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.Patch
+ * @generated from message eventsourcing.v1.ComponentsTransaction.Patch
  */
-export declare class DataTableTransaction_Patch extends Message<DataTableTransaction_Patch> {
+export declare class ComponentsTransaction_Patch extends Message<ComponentsTransaction_Patch> {
     /**
      * @generated from field: repeated eventsourcing.v1.EntityPair added_pairs = 1;
      */
     addedPairs: EntityPair[];
     /**
-     * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairLastEvent removed_pairs = 2;
+     * @generated from field: repeated eventsourcing.v1.ComponentsTransaction.PairLastEvent removed_pairs = 2;
      */
-    removedPairs: DataTableTransaction_PairLastEvent[];
+    removedPairs: ComponentsTransaction_PairLastEvent[];
     /**
-     * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairPatch updated_pair_patches = 3;
+     * @generated from field: repeated eventsourcing.v1.ComponentsTransaction.PairPatch updated_pair_patches = 3;
      */
-    updatedPairPatches: DataTableTransaction_PairPatch[];
-    constructor(data?: PartialMessage<DataTableTransaction_Patch>);
+    updatedPairPatches: ComponentsTransaction_PairPatch[];
+    constructor(data?: PartialMessage<ComponentsTransaction_Patch>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
-    static readonly typeName = "eventsourcing.v1.DataTableTransaction.Patch";
+    static readonly typeName = "eventsourcing.v1.ComponentsTransaction.Patch";
     static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DataTableTransaction_Patch;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DataTableTransaction_Patch;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DataTableTransaction_Patch;
-    static equals(a: DataTableTransaction_Patch | PlainMessage<DataTableTransaction_Patch> | undefined, b: DataTableTransaction_Patch | PlainMessage<DataTableTransaction_Patch> | undefined): boolean;
+    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ComponentsTransaction_Patch;
+    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ComponentsTransaction_Patch;
+    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ComponentsTransaction_Patch;
+    static equals(a: ComponentsTransaction_Patch | PlainMessage<ComponentsTransaction_Patch> | undefined, b: ComponentsTransaction_Patch | PlainMessage<ComponentsTransaction_Patch> | undefined): boolean;
 }
 /**
  * @generated from message eventsourcing.v1.AppendRequest
  */
 export declare class AppendRequest extends Message<AppendRequest> {
     /**
-     * @generated from field: eventsourcing.v1.DataTableTransaction transaction = 1;
+     * @generated from field: eventsourcing.v1.ComponentsTransaction transaction = 1;
      */
-    transaction?: DataTableTransaction;
+    transaction?: ComponentsTransaction;
     constructor(data?: PartialMessage<AppendRequest>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.AppendRequest";
@@ -249,9 +249,9 @@ export declare class EventsResponse_Event extends Message<EventsResponse_Event> 
      */
     createdAt?: Timestamp;
     /**
-     * @generated from field: eventsourcing.v1.DataTableTransaction data_table_transaction = 4;
+     * @generated from field: eventsourcing.v1.ComponentsTransaction transaction = 4;
      */
-    dataTableTransaction?: DataTableTransaction;
+    transaction?: ComponentsTransaction;
     constructor(data?: PartialMessage<EventsResponse_Event>);
     static readonly runtime: import("@bufbuild/protobuf/dist/types/private/proto-runtime").ProtoRuntime;
     static readonly typeName = "eventsourcing.v1.EventsResponse.Event";

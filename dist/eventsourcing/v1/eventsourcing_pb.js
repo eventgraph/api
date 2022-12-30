@@ -4,7 +4,7 @@
 /* eslint-disable */
 // @ts-nocheck
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse = exports.AppendRequest = exports.DataTableTransaction_Patch = exports.DataTableTransaction_PairPatch = exports.DataTableTransaction_PairLastEvent = exports.DataTableTransaction_ColumnIndex = exports.DataTableTransaction = exports.EntityPair = void 0;
+exports.EventsResponse_Event = exports.EventsResponse = exports.EventsRequest = exports.AppendResponse = exports.AppendRequest = exports.ComponentsTransaction_Patch = exports.ComponentsTransaction_PairPatch = exports.ComponentsTransaction_PairLastEvent = exports.ComponentsTransaction_ColumnIndex = exports.ComponentsTransaction = exports.EntityPair = void 0;
 const protobuf_1 = require("@bufbuild/protobuf");
 /**
  * @generated from message eventsourcing.v1.EntityPair
@@ -43,9 +43,9 @@ EntityPair.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 2, name: "to_entity", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction
+ * @generated from message eventsourcing.v1.ComponentsTransaction
  */
-class DataTableTransaction extends protobuf_1.Message {
+class ComponentsTransaction extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
@@ -65,38 +65,38 @@ class DataTableTransaction extends protobuf_1.Message {
          */
         this.binaries = [];
         /**
-         * @generated from field: map<int64, eventsourcing.v1.DataTableTransaction.Patch> patches = 5;
+         * @generated from field: map<int64, eventsourcing.v1.ComponentsTransaction.Patch> patches = 5;
          */
         this.patches = {};
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new DataTableTransaction().fromBinary(bytes, options);
+        return new ComponentsTransaction().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new DataTableTransaction().fromJson(jsonValue, options);
+        return new ComponentsTransaction().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new DataTableTransaction().fromJsonString(jsonString, options);
+        return new ComponentsTransaction().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(DataTableTransaction, a, b);
+        return protobuf_1.proto3.util.equals(ComponentsTransaction, a, b);
     }
 }
-exports.DataTableTransaction = DataTableTransaction;
-DataTableTransaction.runtime = protobuf_1.proto3;
-DataTableTransaction.typeName = "eventsourcing.v1.DataTableTransaction";
-DataTableTransaction.fields = protobuf_1.proto3.util.newFieldList(() => [
+exports.ComponentsTransaction = ComponentsTransaction;
+ComponentsTransaction.runtime = protobuf_1.proto3;
+ComponentsTransaction.typeName = "eventsourcing.v1.ComponentsTransaction";
+ComponentsTransaction.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "i64s", kind: "scalar", T: 3 /* ScalarType.INT64 */, repeated: true },
     { no: 2, name: "f64s", kind: "scalar", T: 1 /* ScalarType.DOUBLE */, repeated: true },
     { no: 3, name: "texts", kind: "scalar", T: 9 /* ScalarType.STRING */, repeated: true },
     { no: 4, name: "binaries", kind: "scalar", T: 12 /* ScalarType.BYTES */, repeated: true },
-    { no: 5, name: "patches", kind: "map", K: 3 /* ScalarType.INT64 */, V: { kind: "message", T: DataTableTransaction_Patch } },
+    { no: 5, name: "patches", kind: "map", K: 3 /* ScalarType.INT64 */, V: { kind: "message", T: ComponentsTransaction_Patch } },
 ]);
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.ColumnIndex
+ * @generated from message eventsourcing.v1.ComponentsTransaction.ColumnIndex
  */
-class DataTableTransaction_ColumnIndex extends protobuf_1.Message {
+class ComponentsTransaction_ColumnIndex extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
@@ -110,29 +110,29 @@ class DataTableTransaction_ColumnIndex extends protobuf_1.Message {
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new DataTableTransaction_ColumnIndex().fromBinary(bytes, options);
+        return new ComponentsTransaction_ColumnIndex().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new DataTableTransaction_ColumnIndex().fromJson(jsonValue, options);
+        return new ComponentsTransaction_ColumnIndex().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new DataTableTransaction_ColumnIndex().fromJsonString(jsonString, options);
+        return new ComponentsTransaction_ColumnIndex().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(DataTableTransaction_ColumnIndex, a, b);
+        return protobuf_1.proto3.util.equals(ComponentsTransaction_ColumnIndex, a, b);
     }
 }
-exports.DataTableTransaction_ColumnIndex = DataTableTransaction_ColumnIndex;
-DataTableTransaction_ColumnIndex.runtime = protobuf_1.proto3;
-DataTableTransaction_ColumnIndex.typeName = "eventsourcing.v1.DataTableTransaction.ColumnIndex";
-DataTableTransaction_ColumnIndex.fields = protobuf_1.proto3.util.newFieldList(() => [
+exports.ComponentsTransaction_ColumnIndex = ComponentsTransaction_ColumnIndex;
+ComponentsTransaction_ColumnIndex.runtime = protobuf_1.proto3;
+ComponentsTransaction_ColumnIndex.typeName = "eventsourcing.v1.ComponentsTransaction.ColumnIndex";
+ComponentsTransaction_ColumnIndex.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "table_index", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
     { no: 2, name: "patch_field_index", kind: "scalar", T: 13 /* ScalarType.UINT32 */ },
 ]);
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.PairLastEvent
+ * @generated from message eventsourcing.v1.ComponentsTransaction.PairLastEvent
  */
-class DataTableTransaction_PairLastEvent extends protobuf_1.Message {
+class ComponentsTransaction_PairLastEvent extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
@@ -142,61 +142,61 @@ class DataTableTransaction_PairLastEvent extends protobuf_1.Message {
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new DataTableTransaction_PairLastEvent().fromBinary(bytes, options);
+        return new ComponentsTransaction_PairLastEvent().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new DataTableTransaction_PairLastEvent().fromJson(jsonValue, options);
+        return new ComponentsTransaction_PairLastEvent().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new DataTableTransaction_PairLastEvent().fromJsonString(jsonString, options);
+        return new ComponentsTransaction_PairLastEvent().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(DataTableTransaction_PairLastEvent, a, b);
+        return protobuf_1.proto3.util.equals(ComponentsTransaction_PairLastEvent, a, b);
     }
 }
-exports.DataTableTransaction_PairLastEvent = DataTableTransaction_PairLastEvent;
-DataTableTransaction_PairLastEvent.runtime = protobuf_1.proto3;
-DataTableTransaction_PairLastEvent.typeName = "eventsourcing.v1.DataTableTransaction.PairLastEvent";
-DataTableTransaction_PairLastEvent.fields = protobuf_1.proto3.util.newFieldList(() => [
+exports.ComponentsTransaction_PairLastEvent = ComponentsTransaction_PairLastEvent;
+ComponentsTransaction_PairLastEvent.runtime = protobuf_1.proto3;
+ComponentsTransaction_PairLastEvent.typeName = "eventsourcing.v1.ComponentsTransaction.PairLastEvent";
+ComponentsTransaction_PairLastEvent.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "pair", kind: "message", T: EntityPair },
     { no: 2, name: "last_event_ledger_id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
 ]);
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.PairPatch
+ * @generated from message eventsourcing.v1.ComponentsTransaction.PairPatch
  */
-class DataTableTransaction_PairPatch extends protobuf_1.Message {
+class ComponentsTransaction_PairPatch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
-         * @generated from field: repeated eventsourcing.v1.DataTableTransaction.ColumnIndex column_indices = 2;
+         * @generated from field: repeated eventsourcing.v1.ComponentsTransaction.ColumnIndex column_indices = 2;
          */
         this.columnIndices = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new DataTableTransaction_PairPatch().fromBinary(bytes, options);
+        return new ComponentsTransaction_PairPatch().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new DataTableTransaction_PairPatch().fromJson(jsonValue, options);
+        return new ComponentsTransaction_PairPatch().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new DataTableTransaction_PairPatch().fromJsonString(jsonString, options);
+        return new ComponentsTransaction_PairPatch().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(DataTableTransaction_PairPatch, a, b);
+        return protobuf_1.proto3.util.equals(ComponentsTransaction_PairPatch, a, b);
     }
 }
-exports.DataTableTransaction_PairPatch = DataTableTransaction_PairPatch;
-DataTableTransaction_PairPatch.runtime = protobuf_1.proto3;
-DataTableTransaction_PairPatch.typeName = "eventsourcing.v1.DataTableTransaction.PairPatch";
-DataTableTransaction_PairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "pair_last_event", kind: "message", T: DataTableTransaction_PairLastEvent },
-    { no: 2, name: "column_indices", kind: "message", T: DataTableTransaction_ColumnIndex, repeated: true },
+exports.ComponentsTransaction_PairPatch = ComponentsTransaction_PairPatch;
+ComponentsTransaction_PairPatch.runtime = protobuf_1.proto3;
+ComponentsTransaction_PairPatch.typeName = "eventsourcing.v1.ComponentsTransaction.PairPatch";
+ComponentsTransaction_PairPatch.fields = protobuf_1.proto3.util.newFieldList(() => [
+    { no: 1, name: "pair_last_event", kind: "message", T: ComponentsTransaction_PairLastEvent },
+    { no: 2, name: "column_indices", kind: "message", T: ComponentsTransaction_ColumnIndex, repeated: true },
 ]);
 /**
- * @generated from message eventsourcing.v1.DataTableTransaction.Patch
+ * @generated from message eventsourcing.v1.ComponentsTransaction.Patch
  */
-class DataTableTransaction_Patch extends protobuf_1.Message {
+class ComponentsTransaction_Patch extends protobuf_1.Message {
     constructor(data) {
         super();
         /**
@@ -204,35 +204,35 @@ class DataTableTransaction_Patch extends protobuf_1.Message {
          */
         this.addedPairs = [];
         /**
-         * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairLastEvent removed_pairs = 2;
+         * @generated from field: repeated eventsourcing.v1.ComponentsTransaction.PairLastEvent removed_pairs = 2;
          */
         this.removedPairs = [];
         /**
-         * @generated from field: repeated eventsourcing.v1.DataTableTransaction.PairPatch updated_pair_patches = 3;
+         * @generated from field: repeated eventsourcing.v1.ComponentsTransaction.PairPatch updated_pair_patches = 3;
          */
         this.updatedPairPatches = [];
         protobuf_1.proto3.util.initPartial(data, this);
     }
     static fromBinary(bytes, options) {
-        return new DataTableTransaction_Patch().fromBinary(bytes, options);
+        return new ComponentsTransaction_Patch().fromBinary(bytes, options);
     }
     static fromJson(jsonValue, options) {
-        return new DataTableTransaction_Patch().fromJson(jsonValue, options);
+        return new ComponentsTransaction_Patch().fromJson(jsonValue, options);
     }
     static fromJsonString(jsonString, options) {
-        return new DataTableTransaction_Patch().fromJsonString(jsonString, options);
+        return new ComponentsTransaction_Patch().fromJsonString(jsonString, options);
     }
     static equals(a, b) {
-        return protobuf_1.proto3.util.equals(DataTableTransaction_Patch, a, b);
+        return protobuf_1.proto3.util.equals(ComponentsTransaction_Patch, a, b);
     }
 }
-exports.DataTableTransaction_Patch = DataTableTransaction_Patch;
-DataTableTransaction_Patch.runtime = protobuf_1.proto3;
-DataTableTransaction_Patch.typeName = "eventsourcing.v1.DataTableTransaction.Patch";
-DataTableTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
+exports.ComponentsTransaction_Patch = ComponentsTransaction_Patch;
+ComponentsTransaction_Patch.runtime = protobuf_1.proto3;
+ComponentsTransaction_Patch.typeName = "eventsourcing.v1.ComponentsTransaction.Patch";
+ComponentsTransaction_Patch.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "added_pairs", kind: "message", T: EntityPair, repeated: true },
-    { no: 2, name: "removed_pairs", kind: "message", T: DataTableTransaction_PairLastEvent, repeated: true },
-    { no: 3, name: "updated_pair_patches", kind: "message", T: DataTableTransaction_PairPatch, repeated: true },
+    { no: 2, name: "removed_pairs", kind: "message", T: ComponentsTransaction_PairLastEvent, repeated: true },
+    { no: 3, name: "updated_pair_patches", kind: "message", T: ComponentsTransaction_PairPatch, repeated: true },
 ]);
 /**
  * @generated from message eventsourcing.v1.AppendRequest
@@ -259,7 +259,7 @@ exports.AppendRequest = AppendRequest;
 AppendRequest.runtime = protobuf_1.proto3;
 AppendRequest.typeName = "eventsourcing.v1.AppendRequest";
 AppendRequest.fields = protobuf_1.proto3.util.newFieldList(() => [
-    { no: 1, name: "transaction", kind: "message", T: DataTableTransaction },
+    { no: 1, name: "transaction", kind: "message", T: ComponentsTransaction },
 ]);
 /**
  * @generated from message eventsourcing.v1.AppendResponse
@@ -415,5 +415,5 @@ EventsResponse_Event.fields = protobuf_1.proto3.util.newFieldList(() => [
     { no: 1, name: "id", kind: "scalar", T: 3 /* ScalarType.INT64 */ },
     { no: 2, name: "integrity", kind: "scalar", T: 12 /* ScalarType.BYTES */ },
     { no: 3, name: "created_at", kind: "message", T: protobuf_1.Timestamp },
-    { no: 4, name: "data_table_transaction", kind: "message", T: DataTableTransaction },
+    { no: 4, name: "transaction", kind: "message", T: ComponentsTransaction },
 ]);
